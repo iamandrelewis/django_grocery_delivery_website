@@ -1,0 +1,53 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+<div class="form-greeting">
+    <h1 class="form-title">Register your business.</h1>
+    <p class="form-msg">Tell us all the nifty-bits.</p>
+</div>
+<form action="" method="post">
+{% csrf_token %}
+{{form.business_name}}
+{{form.business_category}}
+<h4>Add an address</h4>
+{{form.address_line1}}
+{{form.address_line2}}
+{{form.parish}}
+<button class="frm-submit" type="submit">Continue</button>
+</form>
+
+<script>
+    const businessCategory_form = document.querySelector('#id_business_category')
+    const businessColorChange = ()=> {
+        if(businessCategory_form.options[0].selected)
+        {
+            businessCategory_form.style = 'color: #8F9091;'
+        }
+        else
+        {
+            businessCategory_form.style = 'color: var(--black);'
+        }
+    }
+    businessCategory_form.addEventListener('click',businessColorChange)
+    businessColorChange();
+    
+
+    const parish_form = document.querySelector('#id_parish')
+    const parishColorChange = ()=> {
+        if(parish_form.options[0].selected)
+        {
+            parish_form.style = 'color: #8F9091;'
+        }
+        else
+        {
+            parish_form.style = 'color: var(--black);'
+        }
+    }
+    parish_form.addEventListener('click',parishColorChange)
+    parishColorChange();
+    
+    
+</script>
+{% endblock %}
+

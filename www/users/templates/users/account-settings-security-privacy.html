@@ -1,0 +1,222 @@
+{% extends 'shop/main.html' %}
+{% block title %}Manage your account — GR8 #wholesale{% endblock %}
+{% block page_active_shop %} 
+{% endblock %}
+
+{% block account_container %}
+<div class=""> 
+    <a href="{% url 'homepage'%}" style="border: 1px solid rgb(232,233,235); padding: 4px 12px; display: flex; align-items: center; width: 15px; border-radius: 7px; margin-bottom: 48px; background-color: white;">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg); margin-top:2px;">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+    </svg>
+    </a>
+    <h1 style="font-size: 12px; margin-bottom: 24px; margin-left: 20px; cursor: default; color: var(--black);">Hello there, {{request.user.first_name}}</h1>
+</div>
+{% endblock %}
+
+{% block user_shipping-address %}
+{% endblock %}
+
+{% block pages_content %}
+<ul>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'account-settings' request.user.id %}">Your account</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'account-address' request.user.id %}">Addresses</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'account-referrals' request.user.id %}">Referrals</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'account-subscriptions' request.user.id %}">Subscriptions & Payments</a>
+    </div>
+    <div class="page_container">
+        <div class="pages_active-indicator"><span></span></div>
+        <a class="product-page is_active">Security & Privacy</a>
+    </div>
+    <hr>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page">Get help</a>
+    </div>
+</ul>
+{% endblock %}
+
+{% block logout_container %}
+{% endblock %}
+
+{% block shop_content %}
+<div class="content-wrapper">
+    <div class="content-container">
+        <div class="">
+            <h1 style="font-size: 20px; margin: 0px;">Security & Privacy</h1>
+            <p style="font-size:14px; margin: 0px;">All about you</p>
+        </div>
+        <div class=""style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px; margin-top:32px; margin-bottom:16px; background-color: var(--grey);">
+            <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Notification Options</span>
+            <div class="">
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Notification Option #0</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Notification Option #1</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Notification Option #2</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Notification Option #3</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Notification Option #4</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=""style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px; margin-top:32px; margin-bottom:16px; background-color: var(--grey);">
+            <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Privacy Options</span>
+            <div class="">
+
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Send diagnostics</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="" style="display: flex; flex-direction:column; position: relative; align-items: flex-start; 
+                border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 14px; margin-bottom: 0px; ">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 12px; font-weight: 600; margin-bottom: 8px;">Your data</span>
+                    </div>
+                    <div class="" style=" margin-right: 8px; width: 100%; background-color: white; border-radius: 10px;">
+                        <div class="">
+                            <div class="" style="padding: 16px; display: flex; flex-direction: column; border-radius: 10px 10px 0px 0px; position: relative; justify-content: center;">
+                                <span style=" font-size: 14px; font-weight: 600; color: var(--black);">Download your data</span>
+                                <span style=" font-size: 12px; font-weight: 400; color: var(--grey2);">Download your data</span>
+                                <div class="" style="position: absolute; right: 0; padding: 16px;">
+                                    <span>dwnld</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="" style="padding: 16px; display: flex; flex-direction: column; border-radius: 0px 0px 10px 10px; position: relative; justify-content: center;">
+                                <span style=" font-size: 14px; font-weight: 600; color: var(--black);">Delete your account</span>
+                                <span style=" font-size: 12px; font-weight: 400; color: var(--grey2);">Delete your account</span>
+                                <div class="" style="position: absolute; right: 0; padding: 16px;">
+                                    <span>del</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=""style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px; margin-top:32px; margin-bottom:16px; background-color: var(--grey);">
+            <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Security Options</span>
+            <div class="">
+                <div class="" style="background-color: white; display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; cursor: pointer;">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 14px;">Two-step verification</span>
+                        <span style="font-size: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <div class="" style="background-color: var(--grey); border-radius: 30px; width: 45px; height:20px; position: relative; border: 1px solid rgb(232,233,235); display: flex; align-items: center; cursor: pointer;">
+                            <div style="background-color: var(--grey2); border-radius: 100%; width: 22px; height: 22px; position: absolute; left: 0;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 8px; ">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Recovery Email</span>
+                        <span style="font-size: 14px; color: var(--grey2);">No recovery email</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Add</span>
+                    </div>
+                </div>
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 0px; ">
+                    <div class="" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Recovery Phone</span>
+                        <span style="font-size: 14px;">+1 (876) 238-2482</span>
+                    </div>
+                    <div class="" style=" position: absolute; right:0; margin-right: 8px;">
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+<style>
+    .sidenav_left-wrapper{
+        width: calc(30vw);
+    }
+    .content-wrapper{
+        margin: 0px;
+        width: calc(100vw);
+    }
+    .content-container{
+        width: 100%;
+        height: 100vh;
+        margin-top: 60px;
+    }
+</style>
+{% endblock %}

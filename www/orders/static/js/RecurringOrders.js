@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+class RecurringOrders{
+    /**
+     * 
+     */
+    constructor(){
+
+    }
+}

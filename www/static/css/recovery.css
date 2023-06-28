@@ -1,0 +1,139 @@
+*{
+    font-family: 'Inter','sans-serif';
+}
+:root{
+    --green: #409B31;
+    --grey: #F6F6F7;
+    --black:#202223;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    width: 100%;
+    margin-top: 0px;
+    position: sticky;
+}
+nav ul, nav ul .logo-container
+{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.logo-container
+{
+    padding: calc(24px - 1vw) 0px;
+}
+.logo-container a
+{
+    font-size: calc(28px - 1vw);
+    font-weight: 500;
+    margin-left: 4px;
+    cursor: pointer;
+    color: var(--black);
+    text-decoration: none;
+}
+.form-wrapper
+{
+    margin: 104px 100px 104px 140px;
+    max-width: 450px;
+}
+.g8-input
+{
+    width: 94.5%;
+    padding: calc(24px - 1vw);
+    font-size: 16px - 1vw;
+    border-radius: 3.5px;
+    border: #707070 solid 1px;
+    margin: 4px 0px;
+}
+.g8-input::placeholder{
+    color: #8F9091;
+}
+#recovery_submit-btn{
+    width: 100%;
+    background-color: var(--green);
+    color: var(--grey);
+    padding: calc(28px - 1vw);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px - 1vw;
+
+}
+.sign-in_btn{
+    background-color: var(--green);
+    margin: calc(22px - 1vh) 42px;
+    margin-top: 8px;
+    padding: calc(18px - 1vh) calc(34px - 1vw);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: calc(180px - 1vw);
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.sign-in_btn a
+{
+    font-size: 16px - 1vw;
+    color: white;
+    text-decoration: none;
+}
+.email-lookup_disclaimer
+{
+    font-size: calc(28px - 1vw);
+    margin-bottom: 24px;
+}
+.form-title{
+    margin: 16px 0px 0px 0px;
+
+}
+.form-greeting
+{
+    margin: 10px 0px 32px 0px;
+    font-size: calc(28px - 1vw);
+    
+}
+.g8-input:focus-visible
+{
+    outline: #F6F6F7 solid 1px;
+}
+.email-lookup_disclaimer a:visited,
+.email-lookup_disclaimer a:link,
+.email-lookup_disclaimer a:active
+{
+    color: var(--green);
+}
+.frm-submit
+{
+    margin: 24px 0px;
+}
+.content-card
+{
+    display: flex;
+    align-items: center;
+}
+.question_form-wrapper{
+    border-left: 1px var(--black) solid;
+    margin: 104px 100px 104px 140px;
+    padding-left: 100px;
+    max-width: 450px;
+}
+.sidecard_right-container
+{
+    width: 380px;
+    height: 300px;
+    background-color: var(--grey);
+    border-radius: 20px;
+}

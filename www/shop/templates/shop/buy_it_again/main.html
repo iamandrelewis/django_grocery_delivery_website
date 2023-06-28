@@ -1,0 +1,237 @@
+{% extends 'shop/main.html' %}
+{% block  title %}Buy It Again • Shop — GR8 #wholesale{% endblock %}
+
+{% block breadcrumbs %}
+<a href="{% url 'shoppage' %}">Shop</a> >
+<a href="{% url 'buy-it-again' %}">Buy It Again</a>
+{% endblock %}
+
+{% block pages_content %}
+<ul>
+    <div class="page_container">        
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'shoppage'%}">Shop</a>
+    </div>
+    <div class="produce_pages-container">
+        <div class=""><span></span></div>
+        <a href="{% url 'green_produce-main'%}" class="product-page">Green Produce <span class="expand-produce_pages">+</span></a>
+    </div>
+    <div class="meats_pages-container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'meats-main'%}">Meats<span class="expand-meats_pages">+</span></a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'deals'%}">Deals</a>
+    </div>
+    <div class="page_container">
+        <div class="pages_active-indicator"><span></span></div>
+        <a class="product-page is_active" href="{% url 'buy-it-again'%}">Buy it again</a>
+    </div>
+    <hr>
+    <li class="product-page">
+        <a href="">Get help</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block shop_content %}
+<div class="content_center-wrapper">
+    <div class="" style="margin-bottom: 10px;">
+        <span style="font-size: 36px; font-weight: 700;">Buy It Again</span>
+    </div>
+    <div class="" style="display: flex; align-items: center; margin-bottom: 24px;">
+        <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px;"><span style="font-size: 12px;">All</span></div>
+        <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px;"><span style="font-size: 12px;">Green Produce</span></div>
+        <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px;"><span style="font-size: 12px;">Meats</span></div>
+    </div>
+    <div class="content_center-container">
+        
+        <form method="post" id="frm-product_wall">
+            {% csrf_token %}
+            <div class="product_card-container">
+                <input type="hidden" name="product_id" value="1">
+                <div class="product-img">
+                    <span></span>
+                    <div class="product-add">
+                        <button type="submit" class="product_add-btn">+</button>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="product-title">
+                        <div class="product_price-container">
+                            <div class="product-price">
+                                <p class="currency">J$</p>
+                                <p class="dollars" id="product_price-dollars">50</p>
+                                <p class="cents">00</p>
+                            </div>
+                        </div>  
+                        <p class="product_variety">White-stemmed</p>
+                        <p class="product_name">Pak Choy</p>
+                        <p class="product_unit">per pound (lb.)</p> 
+                    </div>
+                </div>
+            </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                         
+                        </div>
+                    </div>
+                </div>            <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                
+        </form>
+    </div>
+</div>
+<style>
+    .sidenav_left-wrapper{
+        width: calc(30vw);
+    }
+    .content-wrapper{
+
+        margin: 0px;
+        width: calc(100vw);
+    }
+    .content_center-wrapper{
+        margin-top: 72px;
+    }
+</style>
+{% endblock %}
+{% block cart_indicator %}
+<div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
+    <a class="cart_active-indicator" style=" display:block; text-decoration: none;" href="{% url 'green_produce-main'%}">
+      <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
+    </a>
+</div>
+{% endblock %}

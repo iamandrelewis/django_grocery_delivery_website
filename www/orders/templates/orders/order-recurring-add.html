@@ -1,0 +1,290 @@
+{% extends 'orders/main.html' %}
+{% block shop_scripts %}
+{% endblock %}
+{% block pages_content %}
+<ul>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page " href="{% url 'orderpage'%}">Orders</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'orders-activity'%}">Activity</a>
+    </div>
+    <div class="page_container">
+        <div class="pages_active-indicator"><span></span></div>
+        <a class="product-page is_active" href="{% url 'recurring-orders'%}">Recurring Orders</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
+    </div>
+    <hr>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" >Get help</a>
+    </div>
+</ul>
+{% endblock %}
+
+{% block shop_content %}
+<div class="content-wrapper">
+    <div class="content-container">
+        <div class=""> 
+            <a href="{% url 'recurring-orders'%}" style="border: 1px solid rgb(232,233,235); padding: 4px 12px; display: flex; align-items: center; width: 15px; border-radius: 7px;">
+                <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg); margin-top:2px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+            </svg>
+        </a>
+        </div>
+        <div class="table_top-container" style=" height: 100px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 24px; margin-top: 12px; position: relative; display: flex; align-items: center; background-color: var(--grey);">
+            <div class="order_number-container" style="position: absolute; left: 0; margin-left: 16px;">
+                <div class="" style="display: flex; align-items: center; justify-content: center; background-color: var(--grey2); border: 1px solid var(--grey2); padding: 6px 16px; border-radius: 7px; cursor: default;">
+                    <span style="font-size: 12px; font-weight: 600; color: #fff;">#GR8W0003</span>
+                </div>
+                <span style="font-size: 12px; font-weight: 600; color: var(--grey2); padding: 6px 16px; cursor: default;">05-23-2023</span>
+            </div>
+            <div class="payment_status-container" style="position: absolute; right: 0; margin-right: 16px; display: flex; align-items: center;">
+                <div class="payment_status-container" style="margin-right: 16px;">
+                    <div class="" style="display: flex; align-items: center; justify-content: center; background-color: var(--grey); border: 1px solid rgb(232,233,235); padding: 6px 16px; border-radius: 7px; cursor: default;">
+                        <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">Recurring</span>
+                    </div>
+                </div>
+                <div class="payment_status-container" style="margin-right: 0px;">
+                    <div class="" style="display: flex; align-items: center; justify-content: center; background-color: var(--grey); border: 1px solid rgb(232,233,235); padding: 6px 16px; border-radius: 7px; cursor: default;">
+                        <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">Draft</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="table_main-actions-container" style="height: 30px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 8px; padding: 6px; display: flex; align-items: center;">
+            <div class="" style="display: flex; align-items: center; margin-right: 24px;">
+                <div class="" style="background-color: var(--grey); padding: 4px 12px; margin-right: 4px; border-radius: 7px;">
+                    <span style="font-size: 12px; font-weight: 600;">1</span>
+                </div>
+                <span style="font-size: 12px; font-weight: 500;">item</span>
+            </div>
+        </div>
+        <div class="table_main-wrapper">
+            <div class="table_main-container">
+                <div class="table-header" style="display: flex; border-radius: 10px; align-items: center; background-color: var(--grey); border: 1px solid rgb(232,233,235); position: relative; height: 40px;">
+                        <div class="tableheading"style="position: absolute; left: 0; margin-left: 125px;">
+                            <span style="font-size: 14px; font-weight: 600;">Product</span>
+                        </div>
+                        <div class="tableheading" style="position: absolute; right: 300px;">
+                            <span style="font-size: 14px; font-weight: 600;">Quantity</span>
+                        </div>
+                        <div class="tableheading" style="position: absolute; right:192px;">
+                            <span style="font-size: 14px; font-weight: 600;">Price</span>
+                        </div>
+                        <div class="tableheading" style="position: absolute; right:73px;">
+                            <span style="font-size: 14px; font-weight: 600;">Cost</span>
+                        </div>
+                </div>
+                <div class="table-content">
+
+                    <div class="" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="table_cell-container" style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); margin:4px 10px; position: relative; padding: 12px 48px; border-radius: 10px; width: 80%;">
+                            <div class="" style="display: flex; align-items: center;">
+                                <div class="table_cell-item_grade">
+                                    <span style="font-size: 12; font-weight: 600;">A</span>
+                                </div>
+                                <div class="table_cell-item_product-details" style="margin-left: 48px;">
+                                    <div class="product_name" style="margin: 0px;">
+                                        <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
+                                    </div>
+                                    <div class="product_variety" style="margin: 0px;">
+                                        <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
+                                    </div>
+                                    <div class="product_variety" style="margin: 0px;"> 
+                                        <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
+                                    </div>
+                                </div>
+                                <div class="table_cell-item_product-quantity" style=" width: 10px; max-width: 30px; max-height: 15px; border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 295px; margin: auto; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                    <div class="" style="position: absolute; margin: 0px; padding: 0px; width: 100%; height: 100%;">
+                                        <input type="number" class="product_qty" style=" text-align: center; font-size: 12px; font-weight: 600; padding: 0px; appearance: none; outline: none; position: absolute; width: 100%; height:100%; border: 0px solid transparent; background-color: transparent; margin: auto; left: 0px; right: 0px;" value="7">
+                                    </div>
+                                </div>
+                                <div class="table_cell-item_product-price" style=" width: 80px; max-width: 80px; max-height: 15px; border: 1px solid rgb(232,233,235); padding: 8px ; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 32px; margin: auto; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;">
+                                    <div class="" style=" margin: 0px; display: flex; align-items: center; justify-content: center;">
+                                        <span style="font-size: 12px; font-weight: 600;">J$</span>
+                                    </div>
+                                    <div class="" style="position: relative; margin: 0px; padding: 0px; width: 100%; height: 100%; display: flex; align-items: center;">
+
+                                        <input type="number" class="product_qty" style=" text-align: center; font-size: 12px; font-weight: 600; padding: 0px; appearance: none; outline: none; position: absolute; width: 100%; height:100%; border: 0px solid transparent; background-color: transparent; margin: auto; left: 0px; margin-right: 4px;" value="1350.00">
+                                    </div>
+                                </div>
+                                <div class="table_cell-item_product-cost">
+                                    <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 160px; margin:auto; height:fit-content;">
+                                        <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="var(grey2)" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style="position: absolute; right:12px; margin-right:12px; top:0px; bottom:0px; margin:auto; transform:rotate(90deg); cursor:pointer;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; padding: 2px 16px; width: 90%; position: relative; cursor: pointer;">
+                            <span style="font-size: 12px; font-weight: 600; margin: 10px 0px; color: var(--green);">Add an item</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--green)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" style="position: absolute; right:16px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5A1.5 1.5 0 0 1 13.5 5v5.5H19a1.5 1.5 0 0 1 1.493 1.355L20.5 12a1.5 1.5 0 0 1-1.5 1.5h-5.5V19a1.5 1.5 0 0 1-1.355 1.493L12 20.5a1.5 1.5 0 0 1-1.5-1.5v-5.5H5a1.5 1.5 0 0 1-1.493-1.355L3.5 12A1.5 1.5 0 0 1 5 10.5h5.5V5a1.5 1.5 0 0 1 1.355-1.493L12 3.5Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="side_right-content-wrapper">
+    <div class="side_right-content-container">
+            <div class="" style="position: relative;">
+                <div class="" style="width: 87%; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 10px; height: fit-content; margin-bottom: 20px; background-color: var(--grey); padding: 16px; padding-left: 12px; position: relative;">
+                    <div class="" style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style="position: absolute; right:0; margin-right:12px; cursor:pointer;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                    </div>
+                    <div class="" style="display: flex; flex-direction: column; width: 100%; position: relative;">
+                        <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%; margin-bottom: 8px;">
+                            <div class="" style=" background-color: var(--grey); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235); display: flex; flex-direction: column;">
+                                <span style="font-size: 10px; font-weight:600; color: var(--grey2);">Subtotal<span style="position: absolute; right: 0; margin-right: 12px; font-weight: 500;">150,000.00</span></span>
+                                <span style="font-size: 10px; font-weight:600; color: var(--grey2);">Delivery Fee<span style="position: absolute; right: 0; margin-right: 12px; font-weight: 500;">1,800.00</span></span>
+                                <span style="font-size: 10px; font-weight:600; color: var(--grey2);">Discount<span style="position: absolute; right: 0; margin-right: 12px; font-weight: 500; color: var(--green);">-3,500.00</span></span>
+                            </div>
+                        </div>
+                        <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%;">
+                            <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Grand Total</span>
+                            <div class="" style=" background-color: var(--grey2); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235);">
+                                <span style="font-size: 18px; font-weight:600; color: white;">J$<span style="position: absolute; right: 0; margin-right: 12px;">150,000.00</span></span>
+                            </div>
+                        </div>
+                        <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-left: 0px; position: relative; max-width:87%; right: 0; margin-right: 32px; margin-top: 4px;">
+                            <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);"></span>
+                            <div class="" style="  background-color: var(--green); padding: 6px 18px; border-radius: 10px; width: 100%; color: var(--grey2); cursor: pointer;  position: relative; display: flex; justify-content: center;">
+                                <span style="font-size: 12px; font-weight:600; color: #fff;">Save & Continue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="width: 87%; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 10px; height: fit-content; margin-bottom: 20px; background-color: var(--grey); padding: 16px; padding-left: 12px; position: relative;">
+                    <div class="" style="display: flex; align-items: center;">
+                        <h1 style="margin-top: 0px; font-size: 16px; color: var(--grey2);">Delivery Information</h1>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style="position: absolute; right:0; margin-right:12px; cursor:pointer;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                    </div>
+                    <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%; margin-bottom: 8px;">
+                        <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Frequency</span>
+                        <div class="" style=" cursor: pointer; background-color: var(--grey); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235);">
+                            <span style="font-size: 18px; font-weight:600; color: var(--grey2);">...</span>
+                        </div>
+                    </div>
+                    <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%; margin-bottom: 8px;">
+                        <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2); cursor: default;">Location</span>
+                        <div class="" style=" cursor: pointer; background-color: var(--grey); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235);">
+                            <span style="font-size: 18px; font-weight:600; color: var(--grey2);">...</span>
+                        </div>
+                    </div>
+                    <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%; margin-bottom: 8px;">
+                        <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Delivery Time (est.)</span>
+                        <div class="" style=" cursor: pointer; background-color: var(--green); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235);">
+                            <span style="font-size: 18px; font-weight:600; color: #fff;">...</span>
+                        </div>
+                    </div>
+                    <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 8px; position: relative;">
+                        <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Delivery Instructions</span>
+                        <span style="color: var(--green); font-weight: 600; font-size: 10px; cursor: pointer;">Add instructions</span>
+                    </div>
+                </div>
+            <div class="" style="width: 87%; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 10px; height: fit-content; margin-bottom: 20px; background-color: var(--grey); padding: 16px; padding-bottom: 9px; padding-left: 10px; position: relative;">
+                <div class="" style="display: flex; align-items: center;">
+                    <h1 style="margin-top: 0px; font-size: 16px; color: var(--grey2);">Additional Information</h1>
+                </div>
+                <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 8px; position: relative;">
+                    <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Product Instructions</span>
+                    <div class="" style="width: 100%;">
+                        <div class="" style=" background-color: white; padding: 8px; border-radius: 7px; width: 96%;  border: 1px solid rgb(232,233,235); position: relative;">
+                            <div class="" style="display: flex; align-items: center;">
+                                <div class="" style="display: flex; align-items: center; margin-right: 8px;">
+                                <span style="font-size: 10px; font-weight:500; color: var(--grey2); cursor: default;">Pak Choy</span>
+                                </div>
+                                <div class="" style="display: flex; align-items: center; position: absolute; right: 0; margin-right:6px;">
+                                    <span style="font-size: 10px; font-weight:600; color: var(--grey2); cursor: default;">White-stemmed</span>
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style=" margin-left: 14px; cursor:pointer;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="" style="display: flex; flex-direction: column; margin-top: 4px;">
+                                <span style="font-size: 10px; font-weight:600; color: var(--grey2); cursor: default; margin-bottom: 2px;">Note</span>
+                                <span style="font-size: 12px; font-weight:400; color: var(--grey2); cursor: default;">Make sure they're round and small, I don't want them too big or bendy. </span>
+                            </div>
+                            <div class="" style="display: flex; flex-direction: column; margin-top: 4px;">
+                                <span style="font-size: 10px; font-weight:600; color: var(--grey2); cursor: default; margin-bottom: 2px;">If out of stock, replace with...</span>
+                                <div class="" style="display: flex; align-items: center; position: relative; padding: 6px;">
+                                    <div class="" style="display: flex; flex-direction: column; align-items: flex-start;">
+                                        <span style="font-size: 10px; font-weight:500; color: var(--grey2); cursor: default;">Pak Choy</span>
+                                        <span style="font-size: 10px; font-weight:600; color: var(--grey2); cursor: default;">Green-stemmed</span>
+                                    </div>
+                                    <div class="" style="position: absolute; right: 0;">
+                                        <span style="font-size: 12px; font-weight:500; color: var(--grey2); cursor: default;">7<span style="font-size: 10px; font-weight:600; color: var(--grey2); cursor: default;">lb</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<style>
+    .sidenav_left-wrapper{
+        width: calc(50vw);
+    }
+    .content-wrapper{
+
+        margin: 0px;
+        width: calc(100vw);
+    }
+    .content-container,.side_right-content-container{
+        margin-top: 32px;
+        width: 100%;
+        height: 100%;
+    }
+    .side_right-content-container{
+        overflow-y: auto;
+        margin-top: 0px;
+        margin-left: 30px;
+        max-width: calc(22vw);
+        max-height: calc(90vh);
+        overflow-x: hidden;
+        position: fixed;
+    }
+    .side_right-content-wrapper{
+        margin: 0px 24px 7px 0px ;
+        width: calc(50vw);
+        position: relative;
+    }
+
+    .table_unfufilled-container:hover::-webkit-scrollbar, .side_right-content-container:hover::-webkit-scrollbar{
+        display: block;
+    }
+    
+    .table_unfufilled-container::-webkit-scrollbar,.side_right-content-container::-webkit-scrollbar{
+        width: 14px;
+        display: none;
+    }
+    .table_unfufilled-container::-webkit-scrollbar-thumb,.side_right-content-container::-webkit-scrollbar-thumb{
+        background: rgb(218,220,224);
+        background-clip: padding-box;
+        border: 4px solid transparent;
+        border-radius: 8px;
+        box-shadow: none;
+        min-height: 50px;
+    }
+    .table_unfufilled-container::-webkit-scrollbar-track,.table_unfufilled-container::-webkit-scrollbar-track:hover,.side_right-content-container::-webkit-scrollbar-track,.side_right-content-container::-webkit-scrollbar-track:hover{
+        background: none;
+        border: none;
+    }
+
+
+</style>
+{% endblock %}

@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+{% block  title %}GR8 #wholesale: Grocery Delivery for Local Businesses{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="account_auth_menu-container" style="display: none;">
+  <div class="cart_details">
+    <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
+    <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
+    <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
+    </div>
+  </div>
+  <div class="account_details" style="margin-top: 16px;">
+    <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
+    <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
+    <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
+  </div>
+  <div class="account-pages_container" style="margin: 12px 0px;">
+    <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+      <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
+    </div>
+    <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
+      <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
+    </div>
+    <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+      <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
+    </div>
+
+    <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px; ">
+      <a {% block birthday-link %} href="{% url 'birthday-club' %}"{% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+    </div>
+    <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+      <a {% block premium-link %} href="{% url 'premium' %}" {% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Explore <span style="font-weight: 600;">Premium</span></a>
+    </div>
+
+    <div class="account-get_help_btn" style="display: flex; align-items: center; position: absolute; bottom: 0; margin-bottom: 16px; background-color: var(--grey2); width: 82.5%;padding: 6px; border-radius: 7px;">
+      <a href="{% url 'signout' %}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: #fff; font-weight: 600;">Logout</a>
+    </div>
+  </div>
+</div>
+  <script>
+    const account_nav_btn = document.querySelector('.account_auth-container ')
+    account_nav_btn.addEventListener('click',(e)=>{
+      
+      let cart_indicator = document.querySelector('.cart_active-indicator')
+      let menu = document.querySelector('.account_auth_menu-container')
+      if(cart_indicator.classList.contains('hidden')){
+        cart_indicator.style = 'display:block;';
+        menu.style = 'display:none;';
+        cart_indicator.classList.remove('hidden')
+      }
+      else{
+      cart_indicator.style = 'display:none;';
+      cart_indicator.classList.toggle('hidden')
+      menu.style = 'display:block;';
+      }
+
+    })
+</script>
+<div class="hero-top" style="margin: 0px 42px 42px; display: flex; align-items: center; width:calc(100vw - 84px);">
+    <div class="" style="border: 1px solid rgb(232, 233, 235); width: 800px; height: 120px; border-radius: 20px; margin-right: 60px;"> <span></span></div>
+    <span style="font-size: 24px; font-weight: 700; width: 250px;">the handiest way to shop local <a href="{% url 'green_produce-main' %}">produce</a></span>
+</div>
+<div class="hero-top" style="margin: 0px 42px 42px; display: flex; flex-direction: column; justify-content: center; width:calc(100vw - 84px); position: relative;">
+   <div class="" style="border: 1px solid rgb(232, 233, 235); width: 800px; height: 600px; border-radius: 20px; width: 98%; position: relative;"> 
+    <div class="" style="padding: 0px 36px 36px; position: relative; height: calc( 100% - 144px);">
+        <div class="">
+            <div class="">
+                <p style="font-size: 24px; font-weight: 700; width: 350px; margin: 0px; margin-top: 72px; ">Build your store credit</p>
+                <p style="font-size: 14px; width: 550px; margin: 8px 0px; margin-bottom: 24px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque soluta quod cum eius, similique asperiores in commodi, adipisci aspernatur fuga saepe labore voluptates ab ea, quaerat accusantium obcaecati vero! Laborum rerum perferendis consequatur vel quas distinctio facere tempora delectus blanditiis nisi doloribus illum doloremque quod atque architecto nobis, earum ad commodi quis, magnam repellendus et pariatur dolore. Consequuntur minus labore delectus aliquam iusto sequi!</p>
+                <a href="" style="background-color: var(--grey); padding: 6px 32px; border: 1px solid rgb(232, 233, 235); border-radius: 7px; text-decoration: none; font-size: 14px; color: var(--black); padding-left: 16px;">Learn more</a>
+            </div>
+            <div class="">
+                <span></span>
+            </div>
+        </div>
+        <div class="" style="display: flex; position: absolute; bottom: 0; align-items: center; width: calc(100% - 72px);">
+            <div class="" style="margin-right: 64px; position: relative;">
+                <p style="font-weight: 600;">Refer & Earn</p>
+                <p style="width: 400px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, quod ratione reiciendis sed ex libero aperiam provident cumque a atque, officiis officia aut? Quia maxime dolore dolorem vero recusandae quibusdam?</p>
+            </div>
+            <div class="" >
+                <p style="font-weight: 600;">Shop for a month</p>
+                <p style="width: 500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, quod ratione reiciendis sed ex libero aperiam provident cumque a atque, officiis officia aut? Quia maxime dolore dolorem vero recusandae quibusdam?</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+  {% else %}                  
+      <div class="hero-top" style="margin: 0px 42px 24px; display: flex; align-items: center; width:calc(100vw - 84px);">
+          <div class="" style="border: 1px solid rgb(232, 233, 235); width: 800px; height: 400px; border-radius: 20px; margin-right: 60px;"> <span></span></div>
+          <span style="font-size: 48px; font-weight: 700; width: 350px;">the handiest way to shop local <span>produce</span></span>
+      </div>
+      <div class="hero-top" style="margin: 0px 42px 42px; display: flex; align-items: center; width:calc(100vw - 84px);">
+        <span style="font-size: 16px; font-weight: 700; width: 350px;">the handiest way to shop local <span>produce</span></span>
+        <div class="" style="border: 1px solid rgb(232, 233, 235); width: 1150px; height: 100px; border-radius: 20px; margin-right: 0px;"> <span></span></div>
+      </div>
+      <div class="hero-top" style="margin: 0px 42px 42px; display: flex; flex-direction: column; justify-content: center; width:calc(100vw - 84px); align-items: center;">
+        <span style="font-size: 28px; font-weight: 700;">the handiest way to shop local </span>
+        <span style="font-size: 14px; font-weight: 400; width: 500px; text-align: center;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur aliquid voluptatum eligendi maiores repudiandae, ratione ullam.</span>
+        <div class="" style="display: flex; align-items: center; margin-top: 42px; justify-content: center;">
+            <div class="" style="border: 1px solid rgb(232, 233, 235); width: 400px; height: 300px; border-radius: 20px; margin-right: 100px;">
+                <span></span>
+            </div>
+            <div class="">
+                <span style="font-size: 28px; font-weight: 700;">Hi</span>
+                <p style="width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aperiam soluta ut molestiae consectetur eum minima?</p>
+            </div>
+        </div>
+        <div class="" style="display: flex; align-items: center; margin-top: 42px; justify-content: center;">
+            <div class="">
+                <span style="font-size: 28px; font-weight: 700;">Hi</span>
+                <p style="width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aperiam soluta ut molestiae consectetur eum minima?</p>
+            </div>
+            <div class="" style="border: 1px solid rgb(232, 233, 235); width: 400px; height: 300px; border-radius: 20px; margin-left: 100px;">
+                <span></span>
+            </div>
+        </div>
+    </div>
+      <div class="hero-top" style="margin: 0px 42px 42px; display: flex; flex-direction: column; justify-content: center; width:calc(100vw - 84px);">
+        <span style="font-size: 48px; font-weight: 700;">the handiest way to shop local </span>
+        <div class="" style="display: flex; align-items: center; margin-top: 12px; justify-content: space-evenly;">
+            <div class="" style="border: 1px solid rgb(232, 233, 235); width: 30%; height: 400px; border-radius: 20px;">
+                <span></span>
+            </div>
+            <div class="" style="border: 1px solid rgb(232, 233, 235); width: 30%; height: 400px; border-radius: 20px;">
+                <span></span>
+            </div>
+            <div class="" style="border: 1px solid rgb(232, 233, 235); width: 30%; height: 400px; border-radius: 20px;">
+                <span></span>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock%}
+{% block footer %}
+<footer style=" margin:0px 60px; background-color: var(--grey); border-radius: 20px 20px 0px 0px; vertical-align: top; padding-top: 8px; bottom: 0;">
+    <div class="" style="display: flex;margin-top: 60px; padding: 60px; padding-top: 0px;">
+        <ul>
+            <p>Get Involved</p>
+            <li>
+                <a href="">Instagram</a>
+            </li>
+            <li>
+                <a href="">Facebook</a>
+            </li>
+            <li>
+                <a href="{% url 'feedback' %}">Suggestion Box</a>
+            </li>
+            <li>
+                <a href="{% url 'faqs' %}">FAQs</a>
+            </li>
+        </ul>
+        {% if request.user.is_authenticated %}
+        <ul>
+            <p>Orders</p>
+            <li>
+                <a href="{% url 'orders-activity'%}">Activity</a>
+            </li>
+            <li>
+                <a href="{% url 'recurring-orders' %}">Recurring Orders</a>
+            </li>
+            <li>
+                <a href="{% url 'pending-orders'%}">Pending Deliveries </a>
+            </li>
+        </ul>
+        <ul>
+            <p>Shop</p>
+            <li>
+                <a href="{% url 'green_produce-main'%}">Green Produce</a>
+            </li>
+            <li>
+                <a href="{% url 'meats-main' %}">Meats</a>
+            </li>
+            <li>
+                <a href=" {% url 'deals'%}">Deals</a>
+            </li>
+            <li>
+                <a href="{% url 'buy-it-again'%}">Buy it again</a>
+            </li>
+        </ul>
+        {% endif %}
+        <ul>
+            <p>Legal</p>
+            <li>
+                <a href="{% url 'terms' %}">Terms of Use</a>
+            </li>
+            <li>
+                <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
+            </li>    
+            <li>
+                <a href="{% url 'refund'%}">Refunds</a>
+            </li>
+
+        </ul>
+   
+        <div class="newsletter-container" style="position: absolute; right: 0; margin-right: calc(18vw); ">
+            <p>Get notified of any updates</p>
+            <div class="" style="display: flex; flex-direction: row; align-items: center;">
+                <input type="email" placeholder="Email Address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="" style="position: relative; margin:0px; margin-top: 30px;">
+        <div class="footer-bottom-link" style="position: absolute; left: 0; bottom:0; background-color:#E3E3E5; width: 100%;  height: 40px; display: flex; align-items: center; margin-top: calc(100vh); margin:0px; margin: auto;">
+            <ul style="list-style-type: none; display: flex; align-items: center;">
+                <li style="margin-right: 30px; margin-left: 60px;">
+                    <a href="{% url 'about-us'%}">About Us</a>
+                </li>
+                <li style="margin-right: 30px;">
+                    <a href="{% url 'investors' %}">Investors</a>
+                </li>
+                <li style="margin-right: 30px;">
+                    <a href="{% url 'careers' %}">Careers</a>
+                </li>
+                <li>
+                    <a href="{%url 'how-it-works'%}">How it works?</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<style>
+    .global-container{
+        flex-direction: column;
+    }
+    .newsletter-container button{
+        padding: 8px 16px;
+        font-size: 12px;
+        border-radius: 4px;
+        border: 1px solid var(--grey2);
+        cursor: pointer;
+    }
+    .newsletter-container input{
+        font-size: 12px;
+        margin-right: 10px;
+        padding: 8px 32px 8px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--grey2);
+    }
+    .newsletter-container input:focus-visible{
+        outline: none;
+    }
+    footer p {
+        font-size: 12px;
+        color: var(--grey2);
+        cursor: default;
+    }
+    footer a{
+        text-decoration: none;
+        color: var(--grey2);
+
+    }
+    footer a:hover{
+        text-decoration: underline;
+    }
+    footer ul{
+        margin-right: 40px;
+        list-style-type: none;
+    }
+    footer ul p{
+        font-size: 10px;
+        margin: 8px 0px;
+        font-weight: 600;
+    }
+    footer ul li{
+        font-size: 10px;
+        font-weight: 400;
+        margin: 4px 0px;
+    }
+    .footer-bottom-link a{
+        font-weight: 600;
+        color: var(--grey2);
+    }
+</style>
+{% endblock %}

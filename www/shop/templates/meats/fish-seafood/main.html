@@ -1,0 +1,273 @@
+{% extends 'shop/main.html' %}
+{% block  title %}GR8 #wholesale{% endblock %}
+
+{% block breadcrumbs %}
+<a href="{% url 'shoppage' %}">Shop</a> >
+<a href="{% url 'meats-main' %}">Meats</a> >
+<a href="{% url 'meats-fish-seafood' %}">Fish & Seafood</a>
+{% endblock %}
+
+{% block pages_content %}
+<ul>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'shoppage'%}">Shop</a>
+    </div>
+    <div class="produce_pages-container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{%url 'green_produce-all'%}">Green Produce <span class="expand-produce_pages">+</span></a>
+    </div>
+    <div class="meats_pages-container">
+        <div class=""><span></span></div>
+        <a class="product-page is_active">Meats<span class="expand-meats_pages">-</span></a>
+        <div class="sub_pages" id="meats_subpages">
+            <ul>
+                <li  id="meats-link1">
+                    <div class=""><span></span></div>
+                    <a class="sub_page-link " href="{% url 'meats-all'%}">All</a>
+                </li>
+                <li id="meats-link2">
+                    <div class=""><span></span></div>
+                    <a class="sub_page-link" href="{% url 'meats-poultry'%}">Poultry</a>
+                </li>
+                <li id="meats-link3">
+                    <div class="="><span></span></div>
+                    <a class="sub_page-link" href="{% url 'meats-lean'%}">Lean Meats</a>
+                </li>
+                <li id="meats-link4">
+                    <div class="subpage_active-indicator"><span></span></div>
+                    <a class="sub_page-link is_active" href="{% url 'meats-fish-seafood'%}">Fish & Seafood</a>
+                </li>
+                <li id="meats-link5">
+                    <div class=""><span></span></div>
+                    <a class="sub_page-link " href="{% url 'meats-deli'%}">Deli</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'deals'%}">Deals</a>
+    </div>
+
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'buy-it-again'%}">Buy it again</a>
+    </div>
+    <hr>
+    <li class="product-page">
+        <a href="">Get help</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block shop_content %}
+<div class="content_center-wrapper">
+    <div class="content_center-top">
+
+        <div class="content-right">
+            <div class="searchbar-container">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(-grey2)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.396 14.275a7 7 0 1 0-2.121 2.121l3.664 3.665a1.5 1.5 0 0 0 2.122-2.122l-3.665-3.664ZM10.5 14.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
+                </svg>
+                <input type="text" name="search" id="serch_panel" placeholder="Search">
+            </div>
+        </div>
+    </div>
+    <div class="content_center-container">
+        <form method="post" id="frm-product_wall">
+            {% csrf_token %}
+            <div class="product_card-container">
+                <input type="hidden" name="product_id" value="1">
+                <div class="product-img">
+                    <span></span>
+                    <div class="product-add">
+                        <button type="submit" class="product_add-btn">+</button>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="product-title">
+                        <div class="product_price-container">
+                            <div class="product-price">
+                                <p class="currency">J$</p>
+                                <p class="dollars" id="product_price-dollars">50</p>
+                                <p class="cents">00</p>
+                            </div>
+                        </div>  
+                        <p class="product_variety">White-stemmed</p>
+                        <p class="product_name">Pak Choy</p>
+                        <p class="product_unit">per pound (lb.)</p> 
+                    </div>
+                </div>
+            </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                         
+                        </div>
+                    </div>
+                </div>            <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product_card-container">
+                    <input type="hidden" name="product_id" value="1">
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button type="submit" class="product_add-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="currency">J$</p>
+                                    <p class="dollars" id="product_price-dollars">50</p>
+                                    <p class="cents">00</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">White-stemmed</p>
+                            <p class="product_name">Pak Choy</p>
+                            <p class="product_unit">per pound (lb.)</p> 
+                        </div>
+                    </div>
+                </div>
+                
+        </form>
+    </div>
+</div>
+<div class="sidenav_right-wrapper">
+    <div class="cart-container">
+        <div class="cart-header">
+        <h1 class="cart-title">Shopping Bag</h1>
+        <div class="item-num">
+            <span class="cart-num">0</span>
+        </div>
+        </div>
+        <div class="cart-content">
+            <div class="cart_item-container">
+
+                <div class="item-details" id="cart_details">
+                    <p class="item-title" id="cart_product-title">Pak Choy</p>
+                    <p class="item-unit" id="cart_product-unit">per pound (lb.)</p>
+                    <div class="item-others">
+                        <p class="item-variety" id="cart_product-variety">White-stemmed</p>
+                        <p class="item-grade" id="cart_product-grade">Grade B</p>
+                    </div>
+                </div>
+                <div class="item_qty-container">
+                    <input type="number" name="product_qty" id="id_product_qty" value="50" class="cart-input">
+                </div>
+                <div class="item_price-container">
+                    <p class="currency">J$</p>
+                    <input type="number" name="product_price" id="id_product_price" value="2500.00" class="cart-input">
+                </div>
+                <div class="item_actions">
+                    <button id="id_more_options1" class="more_options-btn">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                    </button>
+                    <div id="id_more_options1-menu" class="more_options-menu hidden">
+                    <ul>
+
+                        <li class="add_note-option">
+                            <span>Add instructions</span>
+                        </li>
+                        <li>
+                            <span>Edit product</span>
+                        </li>
+                        <li class="rmv_item-option">
+                            <span>Remove</span>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cart_item-container">
+
+                <div class="item-details" id="cart_details">
+                    <p class="item-title" id="cart_product-title">Pak Choy</p>
+                    <p class="item-unit" id="cart_product-unit">per pound (lb.)</p>
+                    <div class="item-others">
+                        <p class="item-variety" id="cart_product-variety">White-stemmed</p>
+                        <p class="item-grade" id="cart_product-grade">Grade B</p>
+                    </div>
+                </div>
+                <div class="item_qty-container">
+                    <input type="number" name="product_qty" id="id_product_qty" value="50" class="cart-input">
+                </div>
+                <div class="item_price-container">
+                    <p class="currency">J$</p>
+                    <input type="number" name="product_price" id="id_product_price" value="2500.00" class="cart-input">
+                </div>
+                <div class="item_actions">
+                    <button id="id_more_options2" class="more_options-btn">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                    </button>
+                    <div id="id_more_options2-menu" class="more_options-menu hidden">
+                    <ul>
+
+                        <li class="add_note-option">
+                            <span>Add instructions</span>
+                        </li>
+                        <li>
+                            <span>Edit product</span>
+                        </li>
+                        <li class="rmv_item-option">
+                            <span>Remove</span>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+        <div class="checkout-btn">
+            <a class="checkout-link" href="{% url 'checkout-aisle'%}">Checkout <span id="subtotal-container">Subtotal: J$<span id="subtotal-amount">21,300.00</span></span></a>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block cart_indicator %}
+{% endblock %}
