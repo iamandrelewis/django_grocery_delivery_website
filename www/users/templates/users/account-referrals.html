@@ -69,18 +69,21 @@
                 </div>
             </div>
         </div>
-        <div class="" style="margin: 16px 0px;">
-            <div class="">
-                <span>No referrals</span>
+        <div class="" style="margin: 16px 0px;" >
+            <div class="" style="display: flex; justify-content: center;">
+                <span style="font-size: 12px; color: var(--grey2);">None</span>
             </div>
         </div>
-        <div class="" style="border: 1px solid rgb(232, 233, 235); height: 40px; margin-right: 32px; display: flex; align-items: center; position: relative; border-radius: 10px;">
+        <div class="">
+            <p style="margin: 0px 0px 16px; font-size: 18px; font-weight: 600;">Invite & earn</p>
+        <div class="" style="border: 1px solid rgb(232, 233, 235); height: 40px; margin-right: 32px; display: flex; align-items: center; position: relative; border-radius: 10px; background-color: var(--grey);">
             <div class="" style="margin-left: 16px; width: 750px;">
-                <input type="url" value="" style="border: none; outline:none; height: 100%; width: 100%;">
+                <span>http://{{domain}}{{user.get_referral_url}}</span>
             </div>
             <div class="" style="position: absolute; right: 0; background-color: var(--green); height: 100%; display: flex; align-items: center; border-radius: 0px 10px 10px 0px; width: 90px; justify-content: center; cursor: pointer;">
                     <span style="color: white; font-size: 14px; font-weight: 500;">Copy</span>
             </div>
+        </div>
         </div>
     </div>
 </div>

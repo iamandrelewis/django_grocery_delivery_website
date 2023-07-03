@@ -1,25 +1,22 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from main import models as m
+
 # Create your views here.
 @login_required(login_url='signin')
 def shop(request):
-    address = m.UserAddress.objects.get(default_status=True,user = request.user)
-    return render(request,'shop/main.html',{'address':address})
+    return render(request,'shop/main.html')
 @login_required(login_url='signin')
 def green_produce(request):
-    address = m.UserAddress.objects.get(default_status=True,user = request.user)
     return redirect('green_produce-all')
 
 @login_required(login_url='signin')
 def green_produce_all(request):
-    address = m.UserAddress.objects.get(default_status=True,user = request.user)
-    return render(request,'green_produce/main.html',{'address':address})
+    return render(request,'green_produce/main.html')
 
 @login_required(login_url='signin')
 def green_produce_fruits(request):
-    address = m.UserAddress.objects.get(default_status=True,user = request.user)
-    return render(request,'green_produce/fruits/main.html',{'address':address})
+    return render(request,'green_produce/fruits/main.html')
 
 @login_required(login_url='signin')
 def green_produce_vegetables(request):
@@ -63,7 +60,6 @@ def meats_fish_seafood(request):
 def meats_deli(request):
     return render(request,'meats/deli/main.html')
 
-
 @login_required(login_url='signin')
 def deals(request):
     return render(request,'shop/deals/main.html')
@@ -72,6 +68,8 @@ def deals(request):
 def buy_it_again(request):
     return render(request,'shop/buy_it_again/main.html')
 
-
+@login_required(login_url='signin')
+def product_details(request):
+    return render(request,'shop/product-details.html')
 
 

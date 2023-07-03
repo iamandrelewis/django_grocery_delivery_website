@@ -10,6 +10,7 @@ urlpatterns = [
     path('green-produce/herbs-spices',v.green_produce_herbs_spices,name='green_produce-herbs-spices'),
     path('green-produce/tubers-provisions',v.green_produce_tubers_provisions,name='green_produce-tubers-provisions'),
     path('green-produce/nuts-grains',v.green_produce_nuts_grains,name='green_produce-nuts-grains'),
+    path('products/details',v.product_details,name='product-details'),
 
 
     path('meats',v.meats,name='meats-main'),

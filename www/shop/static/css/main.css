@@ -166,10 +166,14 @@ nav ul, nav ul .logo-container
     
 }
 .account_btn-container{
+    margin-top: 8px;
     margin-bottom: 36px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sidenav-wrapper{
     position: fixed;
@@ -179,7 +183,6 @@ nav ul, nav ul .logo-container
     position: absolute;
     background-color: var(--grey);
     height: calc(100vh - 160px);
-    max-height: 610px;
     width: 250px;
     padding: 15px;
     border-radius: 14px;
@@ -339,21 +342,18 @@ nav ul, nav ul .logo-container
     margin-left: 8px;
 }
 #business_name{
-    padding: 18px;
+    padding: 18px 12px;
     border-radius: 12px;
-    border: 1px solid rgb(232, 233, 235);    
     font-size: 13px;
     cursor: pointer;
     font-weight: 600;
+    border: 1px solid rgb(232, 233, 235);
     background-color: transparent;
-    transition: all 0.25s;
-    transition-timing-function: ease-in-out;
     color: var(--grey2);
 
 }
 #business_name:hover{
     background-color: #5c5f6214;
-    border: transparent;
     color: rgb(52, 53, 56);
 }
 #logout-btn{
@@ -403,7 +403,7 @@ nav ul, nav ul .logo-container
 
 .cart-container{
     background-color: var(--grey);
-    height: 86.5%;
+    height: calc(100vh - 90px);
     width: 350px;
     padding: 15px;
     border-radius: 14px 14px 0px 0px;
@@ -457,8 +457,7 @@ nav ul, nav ul .logo-container
 }
 .content-right{
 position: absolute;
-right: 0;
-width: 47.5%;
+right: 27px;
 }
 .searchbar-container{
     background-color: var(--grey);
@@ -491,7 +490,7 @@ width: 47.5%;
 }
 .content_center-wrapper
 {   width: 100%;
-    position: static;
+    position: relative;
     margin: 100px 8px;
 }
 .content_center-container{
@@ -644,15 +643,15 @@ font-weight: 900;
     width: 100%;
 }
 
- .cart-content:hover::-webkit-scrollbar{
-    display: block;
+ .cart-content:hover::-webkit-scrollbar,.main_product-modal-content:hover::-webkit-scrollbar{
+    visibility: visible;
 }
 
-.cart-content::-webkit-scrollbar{
+.cart-content::-webkit-scrollbar,.main_product-modal-content::-webkit-scrollbar{
     width: 14px;
-    display: none;
+    visibility: hidden;
 }
-.cart-content::-webkit-scrollbar-thumb{
+.cart-content::-webkit-scrollbar-thumb, .main_product-modal-content::-webkit-scrollbar-thumb{
     background: rgb(218,220,224);
     background-clip: padding-box;
     border: 4px solid transparent;
@@ -660,7 +659,7 @@ font-weight: 900;
     box-shadow: none;
     min-height: 50px;
 }
-.cart-content::-webkit-scrollbar-track,.table_unfufilled-container::-webkit-scrollbar-track:hover{
+.cart-content::-webkit-scrollbar-track,.table_unfufilled-container::-webkit-scrollbar-track:hover,.main_product-modal-content::-webkit-scrollbar-track:hover{
     background: none;
     border: none;
 }

@@ -59,6 +59,9 @@ nav ul, nav ul .logo-container
     cursor: pointer;
 
 }
+#id_business_name{
+    width: 500px;
+}
 .sign-in_btn{
     background-color: var(--green);
     margin: calc(22px - 1vh) 42px;

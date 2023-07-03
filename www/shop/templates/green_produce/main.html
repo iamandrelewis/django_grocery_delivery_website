@@ -78,10 +78,9 @@
         </div>
     </div>
     <div class="content_center-container">
-        <form method="post" id="frm-product_wall">
-            {% csrf_token %}
-            <div class="product_card-container">
-                <input type="hidden" name="product_id" value="1">
+        <form id="frm-product_wall">
+            <div class="product_card-container" style="position: relative;">
+                <a href="{% url 'product-details' %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
                 <div class="product-img">
                     <span></span>
                     <div class="product-add">
@@ -101,8 +100,8 @@
                     </div>
                 </div>
             </div>
-                <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
+                <div class="product_card-container" style="position: relative;">
+                    <a href="{% url 'product-details' %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
                     <div class="product-img">
                         <span></span>
                         <div class="product-add">
@@ -125,8 +124,9 @@
                          
                         </div>
                     </div>
-                </div>            <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
+                </div>            
+                <div class="product_card-container" style="position: relative;">
+                    <a href="{% url 'product-details' %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
                     <div class="product-img">
                         <span></span>
                         <div class="product-add">
@@ -146,8 +146,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
+                <div class="product_card-container" style="position: relative;">
+                    <a href="{% url 'product-details' %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
                     <div class="product-img">
                         <span></span>
                         <div class="product-add">

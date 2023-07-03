@@ -27,6 +27,9 @@ def home(request):
             m.UserAddress.objects.get(user=request.user,default_status=True)
             m.UserBusiness.objects.get(user=request.user)
         except:
+            if request.user.is_superuser:
+                a = m.UserAddress.objects.create(user=request.user,address_line1="69 Coolshade Drive",address_line2='Kingston 19',parish='Saint Andrew',default_status=True)
+                m.UserBusiness.objects.create(user=request.user,business_name='GR8 Grocers Meats and More Limited',business_category='G',business_address=a)
             return redirect('signup')
         address = m.UserAddress.objects.get(default_status=True,user = request.user)
         business = m.UserBusiness.objects.get(user = request.user)
