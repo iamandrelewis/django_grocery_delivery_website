@@ -3,10 +3,10 @@
 {% block content %}
 <div class="content-wrapper">
     <div class="content-container">
-        <div class="">
-            <div class="" style="display: flex; align-items: center; width: 100%; height: 550px; padding: 4px 0px;">
+        <div class="" style="width: 100vw; overflow-x: hidden;">
+            <div class="" style="display: flex; align-items: center; height: 550px; padding: 4px 0px; width: calc(100vw - 8px); margin: 0px;">
                 <div class="" style="display: flex; flex-direction: column;">
-                    <a href="{{request.META.HTTP_REFERER}}" class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; text-decoration: none; color: var(--grey2);">
+                    <a href="{{request.META.HTTP_REFERER}}" class=" close-btn" style="margin-left: 36px; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; text-decoration: none; color: var(--grey2);">
                         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
                             <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
                         </svg>
@@ -27,7 +27,7 @@
                     
                     </div>
                 </div>
-                <div class="" style="width: 100%; position: relative; padding: 32px;">
+                <div class="" style="position: relative; padding: 32px;">
                     <div class="">
                         <p style="margin: 0px; font-size: 20px; font-weight: 700;">Pak Choy</p>
                         <p style="margin: 0px; font-size: 14px;">White-stemmed</p>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-                <div style=" margin: 8px 32px 38px 32px; position: relative;">
+                <div style=" margin: 8px 42px 38px 42px; position: relative;">
                     <h1 style="margin: 24px 12px 12px 0px ; font-size: 24px;">Often bought with</h1>
                     <div class="" style="position: relative;">
                         <div class="" style=" display: flex; overflow: hidden; align-items: center;">
@@ -185,7 +185,7 @@
 
                     </div>
                 </div>
-                <div style=" margin: 8px 32px 38px 32px; position: relative;">
+                <div style=" margin: 8px 42px 38px 42px; position: relative;">
                     <h1 style="margin: 16px 12px 12px 0px ; font-size: 24px;">Related Items</h1>
                     <div class="" style="position: relative;">
                         <div class="" style=" display: flex; overflow: hidden; align-items: center;">
@@ -313,18 +313,13 @@
     </div>
 </div>
 <style>
-    .sidenav_left-wrapper{
-        width: calc(100vw);
-    }
     .content-wrapper{
         margin: 0px;
         width: calc(100vw);
-        margin: 3px;
     }
     .content-container{
-        width: 100%;
-        height: 100%;
-        padding: 60px;
+        max-width: 100vw;
+        padding: 0px;
     }
 </style>
 {% endblock %}
