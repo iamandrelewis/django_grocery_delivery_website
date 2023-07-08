@@ -1,6 +1,7 @@
 {% autoescape off %}
-<div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="auto" viewBox="0 0 44.34 35.55">
+<div style=" display: flex; flex-direction: column; align-items: center; font-family: 'Inter','sans-serif';">
+  <div style="background-color:#F6F6F7; border: 1px solid rgb(233,232,235); padding: 32px; display: flex; flex-direction: column; align-items: center; padding-bottom: 72px; margin-bottom: 12px;border-radius: 10px;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="auto" viewBox="0 0 44.34 35.55" style="margin-top: 10px;">
         <defs>
           <clipPath id="clip-path">
             <rect id="Rectangle_25" data-name="Rectangle 25" width="44.34" height="35.55" fill="none"/>
@@ -42,29 +43,34 @@
           <path id="Path_33" data-name="Path 33" d="M667.014,307.519a5.5,5.5,0,0,1-2.143-1.97,1.558,1.558,0,0,1,.5-2.177,1.428,1.428,0,0,1,2.161,1.055,3.612,3.612,0,0,1-.441,2.955c-.025.039-.045.081-.076.138" transform="translate(-632.142 -288.337)" fill="#0ba647"/>
         </g>
     </svg>
-    <div>
+    <div style="font-size: 14px; font-weight: 500; margin-top: 18px; border:1px solid rgb(233,232,235); padding: 12px; border-radius: 10px;">
         Verify your email
     </div>
+    <hr>
+    <br>
+    <br>
     <div>
         Hi {{user.first_name}},
         <br>
-        We received a request to start an account with us.
         <br>
+        We received a request to start an account with us.
         <br>
         Use this code to finish setting up your account:
         <br>
-        <div>{{user.email_token}}</div>
+        <div style="font-size: 48px; font-weight: 500; text-align: center; margin-top: 20px;">{{user.email_token}}</div>
         <br>
         This code will expire in 24 hours
         <br>
+        <span style="font-size: 14px;">or, use this <a style="color:#409B31; text-decoration: none;" href="http://{{domain}}{% url 'activate' uidb64=uid token=user.email_token %}">link</a></span>
         <br>
-        or, use this link: <a href="">http://{{domain}}{% url 'activate' uidb64=uid token=user.email_token %}</a>
+        <br>
         If you didn't sign up for our service, you can safely ignore this email.
     </div>
-</div>
-<div>
-    <div>You received this email to let you know about important changes to your account and services</div>
-    <div></div>
+  </div>
+  <div style="display: flex; align-items: center; flex-direction: column;">
+      <div style="font-size: 12px;">You received this email to let you know about important changes to your account and services</div>
+      <div style="font-size: 10px; margin-top: 4px;">© 2023 GR8 Grocers Meats and More Ltd, 69 Coolshade Drive, Havendale, KGN 19, JAMAICA</div>
+  </div>
 </div>
 
 {% endautoescape %}

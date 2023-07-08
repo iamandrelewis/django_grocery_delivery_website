@@ -37,6 +37,12 @@ color:var(--grey2);
         <div class=""><span></span></div>
         <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
     </div>
+    {% if request.user.is_staff %}
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'delivery-map'%}">Delivery Map</a>
+    </div>
+    {% endif %}
     <hr>
     <div class="page_container">
         <div class=""><span></span></div>

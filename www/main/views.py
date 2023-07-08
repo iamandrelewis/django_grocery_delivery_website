@@ -9,7 +9,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes,force_str,DjangoUnicodeDecodeError
-
+from users.models import CustomUser 
 """def send_activation_email(user, request):
     current_site = get_current_site(request)
     email_subject = 'Email verification code: {0}'.format(user.email_token)
@@ -97,6 +97,12 @@ def signup(request):
             m.UserAddress.objects.get(user=request.user,default_status=True)
             m.UserBusiness.objects.get(user=request.user)
         except:
+
+            if 'referer_code' in request.session:
+                referer = CustomUser.objects.get(ref_code=request.session.get('referer_code'))
+                referral = m.UserReferrals.objects.create(referee=request.user,referer=referer)
+                print(referral)
+                del request.session['referer_code']
             form = BusinessCreationForm(request.POST or None)
             if request.method == "POST":
                 if form.is_valid():
@@ -111,11 +117,7 @@ def signup(request):
                     print(form.errors)
                     return redirect('signup')
             return render(request,'registration/add_business.html',{"form":form})
-        if 'referer_code' in request.session:
-            print(request.session.get('referer_code'))
-            #referer = m.CustomUser.objects.get(ref_code=request.session.get('referer_code'))
-            #referral = m.UserReferrals.objects.create(referee=request.user,referer=referer)
-            del request.session['referer_code']
+
 
 
         return redirect('homepage')  
@@ -146,14 +148,19 @@ def premium(request):
 def birthday_club(request):
     return render(request,'main/the-birthday-club.html')
 
-"""def activate_user(request,uidb64,token):
+def activate_user(request,uidb64,token):
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
+        uid = force_str(urlsafe_base64_decode(uidb64))
         user = m.CustomUser.objects.get(pk=uid)
     except Exception as e:
         user = None
     if user and user.email_token == token:
         user.email_is_validated = True
         user.save()
-        return render()
-    return render()"""
+        return render(request,'main/activate-success.html',{'e':e})
+    return render(request,'main/activate-failiure.html',{'e':uid})
+
+def store_credit(request):
+    current_site = get_current_site(request)
+    return render(request,'main/activate-email.html',{'domain':current_site,
+        'uid': urlsafe_base64_encode(force_bytes(request.user.id))})

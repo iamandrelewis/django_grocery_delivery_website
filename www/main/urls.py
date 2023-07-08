@@ -12,5 +12,7 @@ urlpatterns = [
     path('checkout-aisle',v.checkout_aisle,name='checkout-aisle'),
     path('checkout',v.checkout,name='checkout'),
     path('premium',v.premium,name='premium'),
-    path('the-birthday-club',v.birthday_club,name='birthday-club')
+    path('the-birthday-club',v.birthday_club,name='birthday-club'),
+    path('store-credit',v.store_credit,name='store-credit'),
+    path('activate/<uidb64>/<token>',v.activate_user,name='activate')
 ]

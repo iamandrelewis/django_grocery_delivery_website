@@ -10,4 +10,5 @@ urlpatterns = [
     path('recurring/details',v.recurring_details,name='recurring-orders-details'),
     path('refunds',v.refunds,name='order-refunds'),
     path('pending',v.pending,name='pending-orders'),
+    path('deliveries/map',v.delivery_map,name='delivery-map')
 ]

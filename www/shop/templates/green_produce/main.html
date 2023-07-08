@@ -181,7 +181,8 @@
         </div>
         <div class="cart-content">
             <div class="cart_item-container">
-                <div class="item-details" id="cart_details">
+                <div class="item-details" id="cart_details" style="position: relative;">
+                    <a href="{% url 'product-details'%}" style=" display: block; position: absolute; width: 100%; height: 100%;"></a>
                     <p class="item-title" id="cart_product-title">Pak Choy</p>
                     <p class="item-unit" id="cart_product-unit">per pound (lb.)</p>
                     <div class="item-others">
@@ -206,7 +207,8 @@
                         <li class="add_note-option">
                             <span>Add instructions</span>
                         </li>
-                        <li>
+                        <li style="position: relative;">
+                            <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%;"></a>
                             <span>Edit product</span>
                         </li>
                         <li class="rmv_item-option">

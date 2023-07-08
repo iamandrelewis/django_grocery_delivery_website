@@ -1,6 +1,7 @@
 from django.db import models
 from users import models as m
-# Create your models here.
+
+
 class UserAddress(models.Model):
     user = models.ForeignKey(m.CustomUser,on_delete=models.CASCADE,null=True)
     address_line1 = models.CharField(max_length= 512)
@@ -33,3 +34,4 @@ class UserSettings(models.Model):
 class UserReferrals(models.Model):
     referee = models.ForeignKey(m.CustomUser,on_delete=models.CASCADE,related_name='referee',null=True)
     referer = models.ForeignKey(m.CustomUser,on_delete=models.CASCADE,related_name='referer',null=True)
+

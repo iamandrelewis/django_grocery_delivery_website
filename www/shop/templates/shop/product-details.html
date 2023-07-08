@@ -1,9 +1,79 @@
 {% extends 'shop/main.html'%}
+{% block title %}Product Name • Shop — GR8 #wholesale{% endblock %}
+{% block user_button %}
+<div class="account_auth-container" style="position: absolute; right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
+  <div class="account_business-name" style=" display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  font-weight: 700; font-size: 10px;  cursor: pointer;color: var(--grey2); padding: 8px ;">
+  {{request.user.userbusiness_set.first.business_name}}
+  </div>
+<a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
+<span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
+</a>
+</div>
+{% endblock %}
+{% block user_shipping-address %}
+{% endblock %}
+
+{% block cart_indicator %}
+{% endblock %}
 
 {% block content %}
+<div class="account_auth_menu-container" style="display: none;">
+    <div class="cart_details">
+      <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
+      <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
+      <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
+      </div>
+    </div>
+    <div class="account_details" style="margin-top: 16px;">
+      <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
+      <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
+      <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
+    </div>
+    <div class="account-pages_container" style="margin: 12px 0px;">
+      <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+        <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
+      </div>
+      <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
+        <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
+      </div>
+      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+        <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
+      </div>
+  
+      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px; ">
+        <a {% block birthday-link %} href="{% url 'birthday-club' %}"{% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+      </div>
+      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+        <a {% block premium-link %} href="{% url 'premium' %}" {% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Explore <span style="font-weight: 600;">Premium</span></a>
+      </div>
+  
+      <div class="account-get_help_btn" style="display: flex; align-items: center; position: absolute; bottom: 0; margin-bottom: 16px; background-color: var(--grey2); width: 82.5%;padding: 6px; border-radius: 7px;">
+        <a href="{% url 'signout' %}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: #fff; font-weight: 600;">Logout</a>
+      </div>
+    </div>
+  </div>
+    <script>
+      const account_nav_btn = document.querySelector('.account_auth-container ')
+      account_nav_btn.addEventListener('click',(e)=>{
+        
+        let cart_indicator = document.querySelector('.cart_active-indicator')
+        let menu = document.querySelector('.account_auth_menu-container')
+        if(cart_indicator.classList.contains('hidden')){
+          cart_indicator.style = 'display:block;';
+          menu.style = 'display:none;';
+          cart_indicator.classList.remove('hidden')
+        }
+        else{
+        cart_indicator.style = 'display:none;';
+        cart_indicator.classList.toggle('hidden')
+        menu.style = 'display:block;';
+        }
+  
+      })
+  </script>
 <div class="content-wrapper">
     <div class="content-container">
-        <div class="" style="width: 100vw; overflow-x: hidden;">
+        <div class="" style="width: calc(100vw - 24px); overflow-x: hidden;">
             <div class="" style="display: flex; align-items: center; height: 550px; padding: 4px 0px; width: calc(100vw - 8px); margin: 0px;">
                 <div class="" style="display: flex; flex-direction: column;">
                     <a href="{{request.META.HTTP_REFERER}}" class=" close-btn" style="margin-left: 36px; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; text-decoration: none; color: var(--grey2);">
@@ -178,11 +248,10 @@
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class="" style="position: absolute; background-color: #fff; border-radius: 14px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 1px solid rgb(232,233,235); right: -16px; cursor: pointer; top: -36px; bottom: 0px; margin: auto; box-shadow: 5px rgba(0, 0, 0, 0.16);">
-                                <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
-                            </div>
                         </div>
-
+                        <div class="" style="position: absolute; background-color: #fff; border-radius: 14px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 1px solid rgb(232,233,235); right: -16px; cursor: pointer; top: -36px; bottom: 0px; margin: auto; box-shadow: 5px rgba(0, 0, 0, 0.16);">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                        </div>
                     </div>
                 </div>
                 <div style=" margin: 8px 42px 38px 42px; position: relative;">
@@ -309,6 +378,27 @@
                     </div>
                 </div>
                 <div class=""></div>
+                <div style=" margin: 8px 42px 38px 42px; position: relative;">
+                    <hr>
+                    <h1 style="margin: 8px 12px 12px 0px ; font-size: 24px;">Your preferences</h1>
+                    <div class="" style="position: relative; display: flex; ">
+                        <div class="" style=" display: flex; flex-direction: column; margin-left: 36px; margin-top: 18px; border-right: 1px solid rgb(232,233,235); padding-right: 60px;">
+                            <span>If out of stock...</span>
+                            <div style="display: flex; align-items: center; margin-top: 24px;">
+                                <div style="margin-right: 20px; border-radius: 10px;">
+                                    <div style="padding: 8px 96px; font-weight: 500; font-size: 16px;">Refund</div>
+                                </div>
+                                <div style="border-radius: 10px; background-color: var(--green);">
+                                    <div style="padding: 8px 96px; font-weight: 500; font-size: 16px; color: #fff;">Replace</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="background-color: #fff; margin-left: 60px; width: 100%; ">
+                            <p style="font-weight: 600;">Add a note</p>
+                            <textarea name="" id="" style=" background-color: var(--grey); color: var(--grey2); width: calc(100% - 32px); border: 1px solid rgb(232,233,235); height: 150px; border-radius: 14px; padding: 16px; outline: var(--green); appearance: none; font-size: 14.5px; resize: none;" placeholder="I would like..."></textarea>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
