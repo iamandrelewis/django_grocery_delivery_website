@@ -100,14 +100,70 @@
             {% block user_shipping-address %}
             {% endblock %}
             {% block user_button %}
-            <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
-              <div class="account_business-name" style=" display: flex; align-items: center; justify-content: center; ">
-              <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{business.business_name}}</span>
+            <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px;  cursor: pointer; width: fit-content;">
+              <div class="" style="position: relative; display: flex; align-items: center; justify-content: center;">
+                  <div class="account_business-name" style=" display: flex; align-items: center; justify-content: center; ">
+                  <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{request.user.userbusiness_set.first.business_name}}</span>
+                  </div>
+                    <a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
+                      <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
+                    </a>
+                    <div class="account_auth_menu-container" style="display: none;">
+                      <div class="cart_details">
+                        <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
+                        <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
+                        <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
+                        </div>
+                      </div>
+                      <div class="account_details" style="margin-top: 16px;">
+                        <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
+                        <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
+                        <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
+                      </div>
+                      <div class="account-pages_container" style="margin: 12px 0px;">
+                        <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                          <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
+                        </div>
+                        <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
+                          <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
+                        </div>
+                        <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                          <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
+                        </div>
+                    
+                        <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px; ">
+                          <a {% block birthday-link %} href="{% url 'birthday-club' %}"{% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+                        </div>
+                        <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                          <a {% block premium-link %} href="{% url 'premium' %}" {% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Explore <span style="font-weight: 600;">Premium</span></a>
+                        </div>
+                    
+                        <div class="account-get_help_btn" style="display: flex; align-items: center; position: absolute; bottom: 0; margin-bottom: 16px; background-color: var(--grey2); width: 82.5%;padding: 6px; border-radius: 7px;">
+                          <a href="{% url 'signout' %}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: #fff; font-weight: 600;">Logout</a>
+                        </div>
+                      </div>
+                    </div>
               </div>
-                <a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
-                  <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
-                </a>
             </div>
+              <script>
+                const account_nav_btn = document.querySelector('.account_business-name ')
+                account_nav_btn.addEventListener('click',(e)=>{
+                  
+                  let cart_indicator = document.querySelector('.cart_active-indicator')
+                  let menu = document.querySelector('.account_auth_menu-container')
+                  if(cart_indicator.classList.contains('hidden')){
+                    cart_indicator.style = 'display:block;';
+                    menu.style = 'display:none;';
+                    cart_indicator.classList.remove('hidden')
+                  }
+                  else{
+                  cart_indicator.style = 'display:none;';
+                  cart_indicator.classList.toggle('hidden')
+                  menu.style = 'display:block;';
+                  }
+
+                })
+            </script>
             {% endblock %}
             {% else %}
             <div class="account_deauth-container" style="display: flex; align-items: center; position: absolute; right: 0;  margin-right: 60px; ">

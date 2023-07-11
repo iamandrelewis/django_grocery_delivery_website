@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 from .managers import CustomUserManager
 from . import utils as _u
-import datetime
+from datetime import datetime
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
 
@@ -41,22 +41,35 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     def get_referral_url(self):
         return reverse('signup-referral',kwargs={"ref_code": self.ref_code})
-    
+
     def generate_email_verification_token():
         return _u.generate_email_verification_token()
+    
+    def update_email_verification_token(self):
+        self.email_token = self.generate_email_verification_token()
+        self.email_token_is_expired = False
+        self.save(update_fields=['email_token','email_token_is_expired'])        
 
     def generate_sms_verification_token():
         return _u.generate_sms_verification_token()
     
     def check_email_verification_token(self):
-        one_day_in_seconds = 86400
-        time_passed_in_seconds = self.email_token_timestamp - datetime.now
-        if time_passed_in_seconds.total_seconds > one_day_in_seconds:
-            self.email_token_is_expired = True
-            self.save(update_fields=['email_token_is_expired'])
+        if self.email_is_validated != True:
+            one_day_in_seconds = float(86400.0)
+            time_passed_in_seconds =  datetime.utcnow() - self.email_token_timestamp.astimezone().replace(tzinfo=None)
+            if time_passed_in_seconds.total_seconds() > one_day_in_seconds:
+                self.email_token_is_expired = True
+                self.save(update_fields=['email_token_is_expired'])
 
-    def update_email_verification_token(self):
-        pass
-    
     def update_sms_verification_token(self):
-        pass
+        self.sms_token = self.generate_email_verification_token()
+        self.sms_token_is_expired = False
+        self.save(update_fields=['sms_token','sms_token_is_expired'])
+
+    def check_sms_verification_token(self):
+        if self.phone_is_validated != True:
+            one_day_in_seconds = float(86400.0)
+            time_passed_in_seconds =  datetime.utcnow() - self.sms_token_timestamp.astimezone().replace(tzinfo=None)
+            if time_passed_in_seconds.total_seconds() > one_day_in_seconds:
+                self.sms_token_is_expired = True
+                self.save(update_fields=['sms_token_is_expired'])

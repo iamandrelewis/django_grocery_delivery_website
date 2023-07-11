@@ -1,59 +1,59 @@
 {% extends 'shop/main.html'%}
 {% block title %}Product Name • Shop — GR8 #wholesale{% endblock %}
-{% block user_button %}
-<div class="account_auth-container" style="position: absolute; right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
-  <div class="account_business-name" style=" display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;  font-weight: 700; font-size: 10px;  cursor: pointer;color: var(--grey2); padding: 8px ;">
-  {{request.user.userbusiness_set.first.business_name}}
-  </div>
-<a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
-<span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
-</a>
-</div>
-{% endblock %}
 {% block user_shipping-address %}
 {% endblock %}
 
 {% block cart_indicator %}
 {% endblock %}
 
-{% block content %}
-<div class="account_auth_menu-container" style="display: none;">
-    <div class="cart_details">
-      <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
-      <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
-      <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
-      </div>
-    </div>
-    <div class="account_details" style="margin-top: 16px;">
-      <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
-      <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
-      <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
-    </div>
-    <div class="account-pages_container" style="margin: 12px 0px;">
-      <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
-        <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
-      </div>
-      <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
-        <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
-      </div>
-      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
-        <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
-      </div>
-  
-      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px; ">
-        <a {% block birthday-link %} href="{% url 'birthday-club' %}"{% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Join <span style="font-weight: 600;">The Birthday Club™</span></a>
-      </div>
-      <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
-        <a {% block premium-link %} href="{% url 'premium' %}" {% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Explore <span style="font-weight: 600;">Premium</span></a>
-      </div>
-  
-      <div class="account-get_help_btn" style="display: flex; align-items: center; position: absolute; bottom: 0; margin-bottom: 16px; background-color: var(--grey2); width: 82.5%;padding: 6px; border-radius: 7px;">
-        <a href="{% url 'signout' %}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: #fff; font-weight: 600;">Logout</a>
-      </div>
+{% block user_button %}
+<div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px;  cursor: pointer; width: fit-content;">
+    <div class="" style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <div class="account_business-name" style=" display: flex; align-items: center; justify-content: center; ">
+        <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{request.user.userbusiness_set.first.business_name}}</span>
+        </div>
+          <a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
+            <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
+          </a>
+          <div class="account_auth_menu-container" style="display: none;">
+            <div class="cart_details">
+              <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
+              <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
+              <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
+              </div>
+            </div>
+            <div class="account_details" style="margin-top: 16px;">
+              <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
+              <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
+              <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
+            </div>
+            <div class="account-pages_container" style="margin: 12px 0px;">
+              <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
+              </div>
+              <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
+                <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
+              </div>
+              <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
+              </div>
+          
+              <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px; ">
+                <a {% block birthday-link %} href="{% url 'birthday-club' %}"{% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+              </div>
+              <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
+                <a {% block premium-link %} href="{% url 'premium' %}" {% endblock %} style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px;">Explore <span style="font-weight: 600;">Premium</span></a>
+              </div>
+          
+              <div class="account-get_help_btn" style="display: flex; align-items: center; position: absolute; bottom: 0; margin-bottom: 16px; background-color: var(--grey2); width: 82.5%;padding: 6px; border-radius: 7px;">
+                <a href="{% url 'signout' %}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: #fff; font-weight: 600;">Logout</a>
+              </div>
+            </div>
+          </div>
     </div>
   </div>
     <script>
-      const account_nav_btn = document.querySelector('.account_auth-container ')
+      const account_nav_btn = document.querySelector('.account_business-name ')
       account_nav_btn.addEventListener('click',(e)=>{
         
         let cart_indicator = document.querySelector('.cart_active-indicator')
@@ -68,9 +68,12 @@
         cart_indicator.classList.toggle('hidden')
         menu.style = 'display:block;';
         }
-  
+
       })
   </script>
+{% endblock %}
+
+{% block content %}
 <div class="content-wrapper">
     <div class="content-container">
         <div class="" style="width: calc(100vw - 24px); overflow-x: hidden;">
@@ -136,118 +139,295 @@
                     <h1 style="margin: 24px 12px 12px 0px ; font-size: 24px;">Often bought with</h1>
                     <div class="" style="position: relative;">
                         <div class="" style=" display: flex; overflow: hidden; align-items: center;">
-                            <div class="" style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                                </div>
-                            </div>
-                            <div class=""  style="margin-right: 24px;">
-                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                    <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
-                                        <span style="color: #fff; font-size: 20px; font-weight: 700;  ">+</span>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
                                     </div>
-                                </div>
-                                <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="" style="position: absolute; background-color: #fff; border-radius: 14px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 1px solid rgb(232,233,235); right: -16px; cursor: pointer; top: -36px; bottom: 0px; margin: auto; box-shadow: 5px rgba(0, 0, 0, 0.16);">
                             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
@@ -258,115 +438,165 @@
                     <h1 style="margin: 16px 12px 12px 0px ; font-size: 24px;">Related Items</h1>
                     <div class="" style="position: relative;">
                         <div class="" style=" display: flex; overflow: hidden; align-items: center;">
-                            <div class="" style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                                </div>
-                            </div>
-                            <div class=""  style="margin-right: 24px;">
-                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                    <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
-                                        <span style="color: #fff; font-size: 20px; font-weight: 700;  ">+</span>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
                                     </div>
-                                </div>
-                                <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px; cursor: pointer;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>
-                            <div class=""  style="margin-right: 24px;">
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
-                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 10px 16px; border-radius: 10px;">
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
                                         <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
                                     </div>
                                 </div>
                                 <div class="" style="margin-bottom: 16px;">
-                                    <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                    <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                    <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
+                                    <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                                </div>
+                            </div>
+                            <div class="" style="margin-right: 24px; position: relative;">
+                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+
+                                <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                    <span></span>
+                                    <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer; z-index: 2;">
+                                        <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                    </div>
+                                </div>
+                                <div class="" style="margin-bottom: 16px;">
+                                    <div style="margin-left: 8px;">
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">White</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">Cabbage</p>
                                     <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                                 </div>
                             </div>

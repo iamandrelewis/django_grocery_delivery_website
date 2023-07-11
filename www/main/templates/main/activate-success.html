@@ -1,2 +1,8 @@
-<a href="url 'home'">Continue</a>
+<a href="
+{% if request.user.is_authenticated %}
+{% url 'homepage' %}
+{% else %}
+{% url 'signin' %}
+{% endif %}
+">Continue</a>
 <p>{{e}}</p>

@@ -66,7 +66,7 @@ color:var(--grey2);
         <div class=""style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px; margin-top:32px; margin-bottom:16px; background-color: var(--grey);">
             <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Personal information</span>
             <div class="">
-                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white; cursor: pointer;">
                     <div class="" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Name</span>
                         <span style="font-size: 14px;">{{request.user.first_name}} {{request.user.last_name}}</span>
@@ -75,25 +75,25 @@ color:var(--grey2);
                         <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
                     </div>
                 </div>
-                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white; cursor: pointer;">
                     <div class="" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px;">Gender</span>
-                        <span style="font-size: 14px;">Male</span>
+                        <span style="font-size: 14px; {% if request.user.gender == None %} color: var(--grey2);{% else %} color: var(--black); {% endif %}">{% if request.user.gender != None %} {{request.user.gender}} {% else %} No gender {% endif %}</span>
                     </div>
                     <div class="" style=" position: absolute; right:0; margin-right: 8px;">
-                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">{% if request.user.gender != None %} Change{% else %} Add{% endif %}</span>
                     </div>
                 </div>
-                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white; cursor: pointer;">
                     <div class="" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px;">Birthday</span>
-                        <span style="font-size:14px; color: var(--grey2);">No date of birth</span>
+                        <span style="font-size:14px; {% if request.user.date_of_birth == None %} color: var(--grey2);{% else %} color: var(--black); {% endif %}">{% if request.user.date_of_birth != None %} {{request.user.date_of_birth}} {% else %} No date of birth {% endif %}</span>
                     </div>
                     <div class="" style=" position: absolute; right:0; margin-right: 8px;">
-                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Add</span>
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">{% if request.user.date_of_birth != None %} Change{% else %} Add{% endif %}</span>
                     </div>
                 </div>
-                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; background-color: white; ">
+                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; background-color: white; cursor: pointer; ">
                     <div class="" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px;">Password</span>
                         <span style="font-size: 14px;">••••••••</span>
@@ -169,7 +169,7 @@ color:var(--grey2);
             </div>
         </div>
         <div class="" style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px;  margin-bottom:16px; background-color: var(--grey);">
-            <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Connected Accounts</span>
+            <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Connected accounts</span>
             <div class="">
                 <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 12px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
                     <div class="" style="display: flex; flex-direction: column;">

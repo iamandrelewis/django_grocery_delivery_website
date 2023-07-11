@@ -23,6 +23,7 @@ def home(request):
     if request.POST:
         print(request.POST)
     if request.user.is_authenticated:
+        request.user.check_email_verification_token()
         try:
             m.UserAddress.objects.get(user=request.user,default_status=True)
             m.UserBusiness.objects.get(user=request.user)
@@ -151,13 +152,13 @@ def birthday_club(request):
 def activate_user(request,uidb64,token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
-        user = m.CustomUser.objects.get(pk=uid)
+        user = CustomUser.objects.get(pk=uid)
     except Exception as e:
         user = None
     if user and user.email_token == token:
         user.email_is_validated = True
         user.save()
-        return render(request,'main/activate-success.html',{'e':e})
+        return render(request,'main/activate-success.html',{'e':user})
     return render(request,'main/activate-failiure.html',{'e':uid})
 
 def store_credit(request):
