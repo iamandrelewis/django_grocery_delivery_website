@@ -55,31 +55,69 @@ color:var(--grey2);
     <div class="content_center-container">
         <h1 style="font-size: 36px; margin: 0px;">Orders</h1>
         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis at dolorem.</span>
-        
-        <div class="top-banner" style="border: 1px solid rgb(232,233,235); margin-right: 32px; height: 100px; border-radius: 14px;">
-            <span></span>
-        </div>
-        <div class="top-banner" style="border: 1px solid rgb(232,233,235); margin-right: 32px; height: 100px; border-radius: 14px;">
-            <span style="font-size: 18px; font-weight: 600;">Product Categories</span>
+
+        <div class="top-banner" style=" margin-right: 32px; border-radius: 14px; margin-top: 72px;">
+            <p style="font-size: 18px; font-weight: 600;">Today's Deliveries</p>
             <div class="">
-                
+                <div class="" style="position: relative;">
+                    <div class="" style=" display: flex; overflow: hidden; align-items: center;">
+                        <div class="" style="margin-right: 24px; position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px;">
+                            <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                            <div class="" style=" padding: 16px 72px 16px 36px;">
+                                <div>
+                                <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">#GR8W0001</p>
+                                </div>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">05-23-2023</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">14 items</p>
+                                <div class="" style="display: flex; flex-direction: row; align-items: center; margin-top: 8px; margin-bottom: 6px;">
+                                    <span style="padding: 6px 16px; background-color: var(--grey); font-size: 12px; border-radius: 7px;">Paid</span>
+                                    <span style="padding: 6px 16px; background-color: var(--grey); font-size: 12px; border-radius: 7px; margin-left: 10px;">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" hidden" style=" position: absolute; background-color: #fff; border-radius: 14px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 1px solid rgb(232,233,235); right: -16px; cursor: pointer; top: -36px; bottom: 0px; margin: auto; box-shadow: 5px rgba(0, 0, 0, 0.16); z-index: 3;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                    </div>
+                </div>
             </div>
     </div>
-        <div class="top-banner" style="border: 1px solid rgb(232,233,235); margin-right: 32px; height: 100px; border-radius: 14px;">
-                <span style="font-size: 18px; font-weight: 600;">New Arrivals</span>
+        <div class="top-banner" style=" margin-right: 32px; border-radius: 14px; margin-top: 72px;">
+                <p style="font-size: 18px; font-weight: 600;">Recent</p>
                 <div class="">
-                    
+                    <div class="" style="position: relative;">
+                        <div class="" style=" display: flex; overflow: hidden; align-items: center;">
+                            <div class="" style="margin-right: 24px; position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px;">
+                                <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <div class="" style=" padding: 16px 72px 16px 36px;">
+                                    <div>
+                                    <p style="font-size: 16px; font-weight: 900; margin: 6px 0px 6px 0px;">#GR8W0001</p>
+                                    </div>
+                                    <p style="margin: 0px; font-size: 14px; font-weight: 500; font-size: 10px;">05-23-2023</p>
+                                    <p style="margin: 0px; font-size: 16px; font-weight: 600; font-size: 14px;">14 items</p>
+                                    <div class="" style="display: flex; flex-direction: row; align-items: center; margin-top: 8px; margin-bottom: 6px;">
+                                        <span style="padding: 6px 16px; background-color: var(--grey); font-size: 12px; border-radius: 7px;">Paid</span>
+                                        <span style="padding: 6px 16px; background-color: var(--grey); font-size: 12px; border-radius: 7px; margin-left: 10px;">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" hidden" style=" position: absolute; background-color: #fff; border-radius: 14px; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 1px solid rgb(232,233,235); right: -16px; cursor: pointer; top: -36px; bottom: 0px; margin: auto; box-shadow: 5px rgba(0, 0, 0, 0.16); z-index: 3;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>
 </div>
 <style>
     .sidenav_left-wrapper{
+        max-width: 300px;
         width: calc(30vw);
     }
     .content_center-wrapper{
         margin: 0px;
-        width: calc(100vw);
+        width: calc(72vw);
     }
     .content_center-container{
         margin-top: 60px;

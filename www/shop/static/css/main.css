@@ -314,11 +314,13 @@ nav ul, nav ul .logo-container
     position: relative;
     margin: 7px  24px 0px 24px;
     width: 66%;
+    max-width: 365px;
 }
 .sidenav_left-wrapper{
     position: relative;
     margin: 7px  24px 0px 24px;
     width: 50%;
+    max-width: 290px;
 }
 .sidenav-bottom
 {
