@@ -29,9 +29,22 @@
         <a class="product-page is_active" href="{% url 'buy-it-again'%}">Buy it again</a>
     </div>
     <hr>
-    <li class="product-page">
-        <a href="">Get help</a>
-    </li>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" >Get help</a>
+        </div>
+        <div class="page_container">
+            <div class=""><span></span></div>
+            <a href="{% url 'birthday-club'%}" class="product-page" >Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+        </div>
+        <div class="page_container">
+            <div class=""><span></span></div>
+            <a href="{% url 'premium'%}" class="product-page" >Get <span style="font-weight: 600;">Premium</span></a>
+        </div>
+        <div class="page_container">
+            <div class=""><span></span></div>
+            <a href="{% url 'store-credit'%}" class="product-page" >Build your <span style="font-weight: 600;">store credit</span></a>
+        </div>
 </ul>
 {% endblock %}
 

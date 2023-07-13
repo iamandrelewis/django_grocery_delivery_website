@@ -529,9 +529,22 @@ color: var(--grey2);
                       <a class="product-page" href="{% url 'buy-it-again'%}">Buy it again</a>
                     </div>
                     <hr>
-                    <li class="product-page">
-                        <a href="">Get help</a>
-                    </li>
+                    <div class="page_container">
+                    <div class=""><span></span></div>
+                    <a class="product-page" >Get help</a>
+                    </div>
+                    <div class="page_container">
+                        <div class=""><span></span></div>
+                        <a href="{% url 'birthday-club'%}" class="product-page" >Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+                    </div>
+                    <div class="page_container">
+                        <div class=""><span></span></div>
+                        <a href="{% url 'premium'%}" class="product-page" >Get <span style="font-weight: 600;">Premium</span></a>
+                    </div>
+                    <div class="page_container">
+                        <div class=""><span></span></div>
+                        <a href="{% url 'store-credit'%}" class="product-page" >Build your <span style="font-weight: 600;">store credit</span></a>
+                    </div>
                 </ul>
                 {% endblock %}
             </div>
@@ -558,89 +571,144 @@ color: var(--grey2);
         <div class="top-banner" style=" margin-right: 32px; height: 100px; border-radius: 14px; height: fit-content; margin-bottom: 72px;">
             <p style="font-size: 18px; font-weight: 600;">Product Categories</p>
             <div class="" style="min-width: 890px; max-width: 900px;">
-                <div class="" style=" display: flex; align-items: center; flex-wrap: wrap; height: 295px; overflow: hidden; ">
-                    <div class="" style="">
-                        <div class=""></div>
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px;width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'green_produce-main'%}"></a>
+                <div class="" style=" display: flex; align-items: center; flex-wrap: wrap; height: 237px; overflow: hidden; ">
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-main'%}"></a>
                             <span style="font-size: 14px; font-weight: 600;">Green Produce</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px;width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'meats-main'%}"></a>
                             <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px;width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-fruits'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Fruits</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'meats-poultry'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Poultry</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px;width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-vegetables'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Vegetables</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'meats-lean'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Lean Meats</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-herbs-spices'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Herbs & Spices</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'meats-fish-seafood'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Fish & Seafood</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-tubers-provisions'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Tubers & Provisions</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px;width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'meats-deli'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Deli</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="" style=" display: flex; flex-direction: column;">
-                        <div class="" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; display: flex; flex-direction: column; padding: 16px; background-color: var(--grey); position: relative; margin:0px 8px 8px 0px; width: 400px;">
-                            <a style="position: absolute; width: 100%; height: 100%;" href="{% url 'meats-main'%}"></a>
-                            <span style="font-size: 14px; font-weight: 600;">Meats</span>
-                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                    <div class="" style="display: flex; flex-direction: row; align-items: center; border: 1px solid rgb(232,233,235); border-radius: 10px; margin:0px 8px 8px 0px; position: relative; ">
+                        <div class="" style="display: flex; flex-direction: column; padding: 16px; background-color: var(--grey);  width: 250px; border-radius: 10px 0px 0px 10px;">
+                            <a style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 100;" href="{% url 'green_produce-nuts-grains'%}"></a>
+                            <span style="font-size: 14px; font-weight: 600;">Nuts & Grains</span>
+                            <span style="width: 200px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                        </div>
+                        <div class="product-img" style="height: 100%;border-radius: 0px 10px 10px 0px;width: 150px;  ">
+                            <div style="background-color: var(--grey2); border-radius: 0px 10px 10px 0px; position: absolute; right: 0px; width: 150px; height: 100%; top: 0;">
+                            <span></span>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="" style="display: flex; align-items: center; justify-content: center; margin: 6px 0px; border: 1px solid rgb(232, 233, 235); width: 875px; border-radius: 10px; background-color: var(--grey); cursor: pointer;">
                     <div class="" style="padding: 10px; font-weight: 600;">
-                        <span>Show all</span>
+                        <span style="font-size: 12.5px;">Show all</span>
                     </div>
                 </div>
             </div>
