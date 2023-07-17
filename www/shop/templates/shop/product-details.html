@@ -6,6 +6,136 @@
 {% block cart_indicator %}
 {% endblock %}
 
+{% block modal %}
+<div class="modal hidden">
+    <div class="address-modal-container hidden">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose a unit</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View pricing policy</a>
+
+                </div>
+                <div class="addresses_content">
+                    <ul class= "addresses_list">
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}" checked>
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">lb</h2>
+                                <p class="address_city" id="">per pound (lb)</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00</p>
+                                </div>
+                            </div>  
+                        </li>
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">kg</h2>
+                                <p class="address_city" id="">per kilogram (kg)</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00</p>
+                                </div>
+                            </div>  
+                        </li>
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">oz</h2>
+                                <p class="address_city" id="">per ounce (oz)</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00</p>
+                                </div>
+                            </div>  
+                        </li>
+                    </ul>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="address-modal-container hidden">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose a grade</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View grading policy</a>
+                </div>
+                <div  style="max-height: 385px; overflow: hidden; overflow-y: auto;">
+                    <ul class= "addresses_list">
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}" checked>
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">A</h2>
+                                <p class="address_city" style="width:120px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00<span style=" margin-left: 4px; font-weight: 600; border: 1px solid rgb(232,233,235); color: var(--black); padding: 6px 10px; border-radius: 7px;">/lb</span></p>
+                                </div>
+                            </div>  
+                        </li>
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">B</h2>
+                                <p class="address_city" style="width:120px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00<span style=" margin-left: 4px; font-weight: 600; border: 1px solid rgb(232,233,235); color: var(--black); padding: 6px 10px; border-radius: 7px;">/lb</span></p>
+                                </div>
+                            </div>  
+                        </li>
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">C</h2>
+                                <p class="address_city" style="width:120px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00<span style=" margin-left: 4px; font-weight: 600; border: 1px solid rgb(232,233,235); color: var(--black); padding: 6px 10px; border-radius: 7px;">/lb</span></p>
+                                </div>
+                            </div>  
+                        </li>
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container" style="position: relative;">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 style="font-size: 18px;" id="">D</h2>
+                                <p class="address_city" style="width:120px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p style=" position: absolute; font-weight: 900; right: 0px; top: 10px; font-size: 14px; color: var(--green);" id="">J$50.00<span style=" margin-left: 4px; font-weight: 600; border: 1px solid rgb(232,233,235); color: var(--black); padding: 6px 10px; border-radius: 7px;">/lb</span></p>
+                                </div>
+                            </div>  
+                        </li>
+                    </ul>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block user_button %}
 <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px;  cursor: pointer; width: fit-content;">
     <div class="" style="position: relative; display: flex; align-items: center; justify-content: center;">
