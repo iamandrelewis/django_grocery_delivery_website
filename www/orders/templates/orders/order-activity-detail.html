@@ -1,4 +1,74 @@
 {% extends 'orders/main.html' %}
+{% block title %}OrderID • Orders — GR8 #wholesale{% endblock %}
+
+{% block modal %}
+<div class="modal hidden ">
+    <div class="add_options-modal-container hidden">
+        <div class="add_options-modal-content" style="    
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 600px;
+        height: 550px;
+        background-color: white;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;">
+        <div class="" style=" height: 550px; padding: 4px 0px;">
+            <div class="" style="display: flex; flex-direction: column;">
+                <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 10px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                    </svg>
+                    <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                </div>
+            </div>
+            <div class="" style=" height:420px; position: relative; padding: 32px;">
+                <div class="">
+                    <p style="margin: 0px; font-size: 32px; font-weight: 700;">Additional Options</p>
+                </div>
+                <div style="margin:28px 0px 32px 0px; font-size: 14px;">
+                    <div style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 10px; font-weight: 500; margin-bottom: 8px;">
+                        <div style="padding: 16px;">
+                            Duplicate
+                        </div>
+                    </div>
+                    <div style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 10px; font-weight: 500; margin-bottom: 20px;">
+                        <div style="padding: 16px;">
+                            Postpone
+                        </div>
+                    </div>
+                    <div style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 10px; font-weight: 500; margin-bottom: 8px;">
+                        <div style="padding: 16px;">
+                            Make recurring
+                        </div>
+                    </div>
+                    <div style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 10px; font-weight: 500;">
+                        <div style="padding: 16px;">
+                            Request invoice
+                        </div>
+                    </div>
+                    <div style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 10px; font-weight: 500; position: absolute; bottom: 0px; width: calc(100% - 90px);">
+                        <div style="padding: 16px;">
+                            Report/make a complaint
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
 {% block shop_scripts %}
 {% endblock %}
 {% block pages_content %}
@@ -286,7 +356,7 @@
                         <div class="" style="border: 1px solid rgb(232,233,235); margin-right: 12px; padding: 6px 28px; background-color: var(--grey);border-radius: 10px; cursor: pointer;">
                             <span style="font-weight: 600; font-size: 14px; color: var(--grey2); ">Cancel</span>
                         </div>
-                        <div class="" style="border: 1px solid var(--green); padding: 6px 28px; width: 100%; border-radius: 10px; background-color: var(--green); position: relative; display: flex; align-items: center; cursor: pointer;">
+                        <div class=" add_options-btn" style="border: 1px solid var(--green); padding: 6px 28px; width: 100%; border-radius: 10px; background-color: var(--green); position: relative; display: flex; align-items: center; cursor: pointer;">
                             <span style="font-weight: 600; font-size: 14px; color: white; ">More options</span>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style="position: absolute; right:0; margin-right:12px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
                         </div>
@@ -397,7 +467,129 @@
                     <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%;">
                         <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Rate our service</span>
                         <div class="" style=" background-color: var(--grey); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative; border: 1px solid rgb(232,233,235); cursor: pointer;">
-                            <span style="font-size: 18px; font-weight:600; color: var(--grey2);">?<span style="position: absolute; right: 0; margin-right: 12px;">/ 10</span></span>
+                            <span  onmouseleave=" document.querySelector('.ratePercent').innerHTML='?'" class="rateSelect" style="position: absolute; width: 100%; left:0px; top: 0px; height: 100%; border-radius: 7px; display: flex; align-items: center; z-index: 10;">
+                                <span id="9 " class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='10'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9.1'"></span>
+                                </span>
+                                <span id="8" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8.1'"></span>
+                                </span>
+                                <span id="7" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7.1'"></span>
+                                </span>
+                                <span id="6" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6.1'"></span>
+                                </span>
+                                <span id="5" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5.1'"></span>
+                                </span>
+                                <span id="4" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4.1'"></span>
+                                </span>
+                                <span id="3" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3.1'"></span>
+                                </span>
+                                <span id="2" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2.1'"></span>
+                                </span>
+                                <span id="1" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1.1'"></span>
+                                </span>
+                                <span id="0" class="rate">
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='1'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.9'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.8'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.7'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.6'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.5'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.4'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.3'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.2'"></span>
+                                    <span class="rate" onmouseenter=" document.querySelector('.ratePercent').innerHTML='0.1'"></span>
+                                </span>
+                            </span>
+                            <span style=" z-index: 1;font-size: 18px; font-weight:600; color: var(--grey2);"><span class="ratePercent">?</span><span style="position: absolute; right: 0; margin-right: 12px;">/ 10</span></span>
                         </div>
                     </div>
                 </div>
@@ -500,6 +692,36 @@
         background: none;
         border: none;
     }
-
+    .rateSelect{
+        transform: rotateY(180deg);
+    }
+    .rate {
+        transition: 0.08s;
+    }
+    .rateSelect:hover .rate .rate:hover, .rate:hover ~ .rate{
+        background-color: #5c5f6214;
+    }
+    .rateSelect .rate{
+        width: 100%;
+        height: 100%;
+        display: flex; 
+        align-items: center;
+    }
+    .rateSelect .rate:first-of-type{
+        border-radius: 6px 0px 0px 6px;
+    }
+    .rate input{
+        display: none;
+    }
 </style>
+<script>
+    const renderOptionsModal = () =>{
+        document.body.classList.toggle('fixed')
+        document.querySelector('.modal').classList.toggle('hidden')
+        document.querySelector('.add_options-modal-container').classList.toggle('hidden')
+        document.querySelector('.close-btn').addEventListener('click',renderOptionsModal)
+    }
+    const add_options = document.querySelector('.add_options-btn');
+    add_options.addEventListener('click',renderOptionsModal);
+</script>
 {% endblock %}

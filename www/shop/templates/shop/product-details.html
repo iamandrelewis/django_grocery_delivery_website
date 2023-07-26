@@ -8,7 +8,179 @@
 
 {% block modal %}
 <div class="modal hidden">
-    <div class="address-modal-container hidden">
+    <div class="replacement-modal-container hidden">
+        <div class="main_product-modal-content" style="    
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 1220px;
+        height: 550px;
+        background-color: white;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 8px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;">
+        <div class="" style="display: flex; flex-direction: column; justify-content: center; width: 100%; height: 550px; padding: 4px 0px;">
+            <div class="" style="display: flex; flex-direction: column;">
+                <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                    </svg>
+                    <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                </div>
+            </div>
+            <div class="" style="width: 100%; position: relative; padding: 24px;">
+                <div class="">
+                    <div class=""  style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); padding: 16px; border-radius: 14px; margin-top: 16px; margin-right: 48px;">
+                        <p style="margin: 0px 0px 16px 0px; font-size: 32px; font-weight: 700;">Choose a replacement</p>
+                        <div class="" style="display: flex; align-items: center; margin-bottom: 24px;">
+                            <div class="" style="padding: 6px 24px; border-radius: 10px; margin-right: 16px; background-color:#3f9b3122; cursor: default;"><span style="font-size: 12px; font-weight: 700; color: var(--green);">All</span></div>
+                            <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Green Produce</span></div>
+                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Meats</span></div>
+                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Deals</span></div>
+                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;"><span style="font-size: 12px;">Buy it again</span></div>
+                        </div>
+                        <div class="" style="display: flex; align-items: center;">
+                            <div class="" style="border: 1px solid rgb(232,233,235); display: flex; justify-content: center; align-items: center; border-radius: 7px; padding: 4px 8px; width: 100%; background-color: var(--grey);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(-grey2)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.396 14.275a7 7 0 1 0-2.121 2.121l3.664 3.665a1.5 1.5 0 0 0 2.122-2.122l-3.665-3.664ZM10.5 14.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
+                                </svg>
+                                <input type="text" style="background-color: transparent; font-size: 16px; padding: 6px 6px 6px  6px; outline: none; border:transparent; width: 100%;" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div style=" margin: 8px 32px 32px 32px; position: relative; width: 100%;">
+                <div class="" style="position: relative;">
+                    <div class="" style=" display: flex; flex-wrap: wrap; align-items: center;">
+                        <div class="" style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700;  ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                        <div class=""  style="margin-right: 24px;">
+                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
+                                <span></span>
+                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
+                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 16px;">
+                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
+                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
+                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
+                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class=""></div>
+        </div>
+    </div>
+    <div class="unit-modal-container hidden">
         <div class="address-modal-content">
             <form method="post" class="select-address-form">
                 {% csrf_token %}
@@ -65,20 +237,20 @@
             </form>
         </div>
     </div>
-    <div class="address-modal-container hidden">
+    <div class="grade-modal-container hidden">
         <div class="address-modal-content">
             <form method="post" class="select-address-form">
                 {% csrf_token %}
-                <div class="form-header">
+                <div class="form-header" style="margin-bottom: 15px;">
                     <div class="address_close-btn" style="display: flex; align-items: center;">
                         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
                         </svg>
                     </div>
                     <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose a grade</h1>
-                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View grading policy</a>
+                    <a style="margin-left: 32px; margin-bottom: 32px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View grading policy</a>
                 </div>
-                <div  style="max-height: 385px; overflow: hidden; overflow-y: auto;">
+                <div class="grade-list-container"  style=" max-height: 355px; overflow: hidden; overflow-y: auto;">
                     <ul class= "addresses_list">
                         <li class="addresses_list-item" id="{{address.pk}}">
                             <div class="address_details-container" style="position: relative;">
@@ -237,10 +409,10 @@
                         <div class=""  style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); padding: 16px; border-radius: 14px; margin-top: 36px;">
                             <div class="" style="display: flex;align-items: center;">
                                 <p style="font-size: 28px; margin: 6px 0px 0px; font-weight: 800; margin-right: 8px;">J$50.00</p>
-                                <span style="font-size: 14.5px; padding: 8px 12px; margin: 0px;width: fit-content; border-radius: 10px; cursor: pointer; border: 1px solid rgb(232,233,235); font-weight: 600;">/lb</span>
+                                <span class="product-unit" style="font-size: 14.5px; padding: 8px 12px; margin: 0px;width: fit-content; border-radius: 10px; cursor: pointer; border: 1px solid rgb(232,233,235); font-weight: 600;">/lb</span>
                             </div>
                             <div class="">
-                            <p style="margin: 20px 0px; font-size: 18px; font-weight: 500; margin-bottom: 8px;">Grade <span style="padding: 6px 14.5px; margin: 0px; width: fit-content; border-radius: 10px; cursor: pointer; border: 1px solid rgb(232,233,235);">A</span></p>
+                            <p style="margin: 20px 0px; font-size: 18px; font-weight: 500; margin-bottom: 8px;">Grade <span class="product-grade" style="padding: 6px 14.5px; margin: 0px; width: fit-content; border-radius: 10px; cursor: pointer; border: 1px solid rgb(232,233,235);">A</span></p>
                             <p style=" font-size:12px; margin-top: 0px; width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; color: var(--grey2);">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem laudantium facilis perferendis? Pariatur expedita, quis iusto itaque veniam distinctio incidunt assumenda quidem excepturi placeat? Tempore, quae. Iste quis autem illum.</p>
                             </div>
                             <p style="font-size: 13px; font-weight: 500; color: var(--grey2);">Total: <span> 
@@ -748,8 +920,8 @@
                                 <div style="margin-right: 20px; border-radius: 10px;">
                                     <div style="padding: 8px 96px; font-weight: 500; font-size: 16px;">Refund</div>
                                 </div>
-                                <div style="border-radius: 10px; background-color: var(--green);">
-                                    <div style="padding: 8px 96px; font-weight: 500; font-size: 16px; color: #fff;">Replace</div>
+                                <div class="product-replacement" style=" cursor: pointer;border-radius: 10px; background-color: var(--green);">
+                                    <div class="product-replacement" style="padding: 8px 96px; font-weight: 500; font-size: 16px; color: #fff;">Replace</div>
                                 </div>
                             </div>
                         </div>
@@ -771,5 +943,56 @@
         max-width: 100vw;
         padding: 0px;
     }
+    .grade-list-container:hover::-webkit-scrollbar{
+    display: block;
+    }
+
+    .grade-list-container::-webkit-scrollbar{
+        width: 14px;
+        display: none;
+    }
+    .grade-list-container::-webkit-scrollbar-thumb{
+        background: rgb(218,220,224);
+        background-clip: padding-box;
+        border: 4px solid transparent;
+        border-radius: 8px;
+        box-shadow: none;
+        min-height: 50px;
+    }
+    .grade-list-container::-webkit-scrollbar-track{
+        background: none;
+        border: none;
+    }
 </style>
+<script>
+    const renderUnitModal = () => {
+        document.body.classList.toggle('fixed')
+        document.querySelector('.modal').classList.toggle('hidden')
+        const create_statement = document.querySelector('.unit-modal-container')
+        create_statement.classList.toggle('hidden')
+        document.querySelector('div.modal .unit-modal-container .address_close-btn').addEventListener('click',renderUnitModal)
+    }
+    const unit = document.querySelector('.product-unit');
+    unit.addEventListener('click',renderUnitModal)
+
+    const renderGradeModal = () => {
+        document.body.classList.toggle('fixed')
+        document.querySelector('.modal').classList.toggle('hidden')
+        const create_statement = document.querySelector('.grade-modal-container')
+        create_statement.classList.toggle('hidden')
+        document.querySelector('div.modal .grade-modal-container .address_close-btn').addEventListener('click',renderGradeModal)
+    }
+    const grade = document.querySelector('.product-grade');
+    grade.addEventListener('click',renderGradeModal);
+
+    const renderReplacementModal = () => {
+        document.body.classList.toggle('fixed')
+        document.querySelector('.modal').classList.toggle('hidden')
+        const create_statement = document.querySelector('.replacement-modal-container')
+        create_statement.classList.toggle('hidden')
+        document.querySelector('.replacement-modal-container .close-btn').addEventListener('click',renderReplacementModal)
+    }
+    const replacement = document.querySelector('.product-replacement');
+    replacement.addEventListener('click',renderReplacementModal);
+</script>
 {% endblock %}

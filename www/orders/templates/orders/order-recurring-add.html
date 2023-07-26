@@ -1,8 +1,12 @@
 {% extends 'orders/main.html' %}
+{% block title %}Recurring • Orders — GR8 #wholesale{% endblock %}
+
+
+
 {% block shop_scripts %}
 {% endblock %}
 {% block modal %}
-<div class="modal hidden">
+<div class="modal hidden ">
     <div class="add_item-modal-container hidden">
         <div class="main_product-modal-content" style="    
         position: absolute;
@@ -35,7 +39,7 @@
                     <div class=""  style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); padding: 16px; border-radius: 14px; margin-top: 16px; margin-right: 48px;">
                         <p style="margin: 0px 0px 16px 0px; font-size: 32px; font-weight: 700;">Add an item</p>
                         <div class="" style="display: flex; align-items: center; margin-bottom: 24px;">
-                            <div class="" style="padding: 6px 24px; border-radius: 10px; margin-right: 16px; background-color:#3f9b3122; cursor: default;"><span style="font-size: 12px; font-weight: 700; color: var(--green);">All</span></div>
+                            <div class="" style="padding: 6px 24px; border-radius: 10px; margin-right: 16px; border: 1px solid #3f9b3152; cursor: default;"><span style="font-size: 12px; font-weight: 700; color: var(--green);">All</span></div>
                             <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Green Produce</span></div>
                             <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Meats</span></div>
                             <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Deals</span></div>
@@ -56,7 +60,7 @@
             <div style=" margin: 8px 32px 32px 32px; position: relative; width: 100%;">
                 <div class="" style="position: relative;">
                     <div class="" style=" display: flex; flex-wrap: wrap; align-items: center;">
-                        <div class="" style="margin-right: 24px;">
+                        <div class="" style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
@@ -70,7 +74,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
@@ -84,7 +88,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
@@ -98,7 +102,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
@@ -112,7 +116,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
@@ -126,7 +130,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
@@ -140,7 +144,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
@@ -154,7 +158,7 @@
                                 <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
                             </div>
                         </div>
-                        <div class=""  style="margin-right: 24px;">
+                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
                             <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                 <span></span>
                                 <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
@@ -173,6 +177,158 @@
                 </div>
             </div>
             <div class=""></div>
+        </div>
+    </div>
+    <div class="address-modal-container hidden">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Add delivery instructions</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View delivery policy</a>
+                </div>
+                <div class="addresses_content">
+                    <textarea name="" id="" style=" margin-left: 20px; width: 280px; height: 220px; padding: 16px; font-size: 16px; margin-top: 32px; border-radius: 10px; border:1px solid rgb(232,233,235); resize: none;" placeholder="Add access code, best entrance, etc" resize="none"></textarea>
+                </div>
+                <div class="address_add-btn" style="width: calc(100% - 56px); display: flex; justify-content: center;">
+                        <span style="font-size: 14px; font-weight: 600;">Save</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="address-modal-container hidden ">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose delivery time</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View delivery policy</a>
+                </div>
+                <div class="addresses_content" style="margin-top: 32px; overflow: hidden; overflow-y: auto; height: 310px;">
+                  <div class="" style="border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 10px; cursor: pointer; padding: 16px;">
+                    <p style="font-weight: 500; margin: 0px;">Priority</p>
+                    <span style="font-size: 14.5px;">Lorem, ipsum dolor.</span>
+                  </div>
+                  <div class="" style="border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 10px; cursor: pointer; padding: 16px;">
+                    <p style="font-weight: 500; margin: 0px;">Standard</p>
+                    <span style="font-size: 14.5px;">Lorem, ipsum dolor.</span>
+                  </div>
+                  <div class="" style="border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 10px; cursor: pointer; padding: 16px;">
+                    <p style="font-weight: 500; margin: 0px;">Early Bird</p>
+                    <span style="font-size: 14.5px;">Lorem, ipsum dolor.</span>
+                  </div>
+                  <div class="" style="border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 10px; cursor: pointer; padding: 16px;">
+                    <p style="font-weight: 500; margin: 0px;">Night Owl</p>
+                    <span style="font-size: 14.5px;">Lorem, ipsum dolor.</span>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="address-modal-container hidden">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose delivery location</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View delivery policy</a>
+                </div>
+                <div class="addresses_content">
+                    <ul class= "addresses_list">
+                        {% for address in request.user.useraddress_set.all %}
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}">
+                                </div>
+                                <div class="address_details">
+                                <h2 class="address_street" id="street{{address.pk}}">{{address.address_line1}}</h2>
+                                <p class="address_city" id="city{{address.pk}}">{{address.address_line2}}</p>
+                                <p class="address_parish" id="parish{{address.pk}}">{{address.parish}}</p>
+                                </div>
+                                <div class="edit_address-container">
+                                    <div class="edit_address-container">
+                                        <span class="edit_address">Edit</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+                <div class="address_add-btn">
+                        <span>+</span>
+                </div>
+            </form>
+            <form method="post" class=" add-address-form hidden">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_back-btn" style=" display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>                   
+                         </div>
+                    <h1 class="address_modal-title">Add a new address</h1>
+                </div>
+                <div class="" style="margin: 16px 0px;">
+                    <input type="text" placeholder="Street" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                    <input type="text" placeholder="City" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                    <select name="parish" id="" style="width: 100%; font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px;">
+                        <option class="hidden" value="">Parish</option>
+                        <option value="Saint Andrew">Saint Andrew</option>
+                        <option value="Saint Catherine"> Saint Catherine</option>
+                        <option value="Clarendon">Clarendon</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Saint Elizabeth">Saint Elizabeth</option>
+                        <option value="Westmoreland"> Westmoreland</option>
+                        <option value="Hanover">Hanover</option>
+                        <option value="Trelawny">Trelawny</option>
+                        <option value="Saint James">Saint James</option>
+                        <option value="Saint Ann">Saint Ann</option>
+                        <option value="Saint Mary">Saint Mary</option>
+                        <option value="Portland">Portland</option>
+                        <option value="Saint Thomas">Saint Thomas</option>
+                        <option value="Kingston">Kingston</option>
+                    </select>
+                    <p style="font-size: 10px; color: var(--grey2); margin: 0px; ">Disclaimer text should be included here</p>
+                </div>  
+                <div class="" style="position: absolute; bottom: 0px; width: 92%; margin-bottom: 10px;">
+                <button class="add-address_save" type="submit" style="width: 100%; font-size: 14px; font-weight: 600; padding: 8px; margin-bottom: 8px; border-radius: 10px; background-color: var(--green); color: #fff; outline: none; border: 1px solid var(--green); cursor: pointer;">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="address-modal-container hidden ">
+        <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose delivery frequency</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View delivery policy</a>
+                </div>
+                <div class="addresses_content" style="margin-top: 32px; overflow: hidden; overflow-y: auto; height: 310px;">
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -305,7 +461,6 @@
                                         <span style="font-size: 12px; font-weight: 600;">J$</span>
                                     </div>
                                     <div class="" style="position: relative; margin: 0px; padding: 0px; width: 100%; height: 100%; display: flex; align-items: center;">
-
                                         <input type="number" class="product_qty" style=" text-align: center; font-size: 12px; font-weight: 600; padding: 0px; appearance: none; outline: none; position: absolute; width: 100%; height:100%; border: 0px solid transparent; background-color: transparent; margin: auto; left: 0px; margin-right: 4px;" value="1350.00">
                                     </div>
                                 </div>
