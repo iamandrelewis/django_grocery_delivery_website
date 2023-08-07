@@ -252,7 +252,303 @@
             </div>
         </div>
     </div>
+    <div class="from_date-modal-container hidden">
+        <div class="address-modal-content"  style="width: 500px;">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">From</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">Choose a starting date</a>
+                </div>
+                <div class="addresses_content" style="margin-top: 32px; display: flex; justify-content: center; align-items: center;">
+                    <div class="datepicker__panel" style=" display: flex; background-color: white; justify-content: center;">
+                        <!--
+                        <div class="datepicker__header">
+                            <div class="datepicker__header__title">
+                                <strong class="text--strong fs-exclude">From</strong>
+                                <p class="text text--hint fs-exclude">Start of date range</p>
+                            </div>
+                            <button type="button" class="close--large datepicker__toggle--close"></button>
+                        </div> -->
+                        <div class="datepicker__main">
+                            <div class="datepicker__grid" style="display: flex; justify-content: center; margin-bottom: 10px;">
+                            <!--<div class="datepicker__filters"><div class="datepicker__filter--back">
+                                <svg class="svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
+                            </div>-->
+                            <div class="dropdown datepicker__filter--month fs-exclude" style="margin-right: 16px;">
+                                <span class="dropdown__toggle">Jun</span>
+                            </div>
+                            <div class="dropdown datepicker__filter--year fs-exclude">
+                                <span class="dropdown__toggle">2023</span>
+                            </div>
+                            <!--<div class="datepicker__filter--forward"><svg class="svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
+                            </div>-->
+                            </div>
+                        <table class="datepicker__month">
+                            <thead>
+                                <tr>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Sunday">SU</abbr>
+                                    </th>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Monday">MO</abbr>
+                                    </th>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Tuesday">TU</abbr>
+                                    </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Wednesday">WE</abbr>
+                                        </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Thursday">TH</abbr>
+                                        </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Friday">FR</abbr>
+                                        </th><th class="datepicker__week-day">
+                                            <abbr title="Saturday">SA</abbr>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="datepicker__day-grid">
+                                    <tr>
+                                        <td class="datepicker__day is-out-of-month">28</td>
+                                        <td class="datepicker__day is-out-of-month">29</td>
+                                        <td class="datepicker__day is-out-of-month">30</td>
+                                        <td class="datepicker__day is-out-of-month">31</td>
+                                        <td class="datepicker__day">1</td>
+                                        <td class="datepicker__day">2</td>
+                                        <td class="datepicker__day">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">4</td>
+                                        <td class="datepicker__day">5</td>
+                                        <td class="datepicker__day">6</td>
+                                        <td class="datepicker__day">7</td>
+                                        <td class="datepicker__day">8</td>
+                                        <td class="datepicker__day">9</td>
+                                        <td class="datepicker__day">10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">11</td>
+                                        <td class="datepicker__day">12</td>
+                                        <td class="datepicker__day">13</td>
+                                        <td class="datepicker__day">14</td>
+                                        <td class="datepicker__day">15</td>
+                                        <td class="datepicker__day">16</td>
+                                        <td class="datepicker__day">17</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">18</td>
+                                        <td class="datepicker__day is-selected">19</td>
+                                        <td class="datepicker__day">20</td>
+                                        <td class="datepicker__day">21</td>
+                                        <td class="datepicker__day">22</td>
+                                        <td class="datepicker__day">23</td>
+                                        <td class="datepicker__day">24</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">25</td>
+                                        <td class="datepicker__day">26</td>
+                                        <td class="datepicker__day">27</td>
+                                        <td class="datepicker__day">28</td>
+                                        <td class="datepicker__day">29</td>
+                                        <td class="datepicker__day">30</td>
+                                        <td class="datepicker__day is-out-of-month">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <ul class="datepicker__quicklinks list--plain--vertical" style="list-style-type: none;">
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500; margin-bottom: 8px;">30 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">60 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">90 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">6 Months Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">1 Year Ago</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="to_date-modal-container hidden ">
+        <div class="address-modal-content"  style="width: 500px;">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">To</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">Choose an ending date</a>
+                </div>
+                <div class="addresses_content" style="margin-top: 32px; display: flex; justify-content: center; align-items: center;">
+                    <div class="datepicker__panel" style=" display: flex; background-color: white; justify-content: center;">
+                        <!--
+                        <div class="datepicker__header">
+                            <div class="datepicker__header__title">
+                                <strong class="text--strong fs-exclude">From</strong>
+                                <p class="text text--hint fs-exclude">Start of date range</p>
+                            </div>
+                            <button type="button" class="close--large datepicker__toggle--close"></button>
+                        </div> -->
+                        <div class="datepicker__main">
+                            <div class="datepicker__grid" style="display: flex; justify-content: center; margin-bottom: 10px;">
+                            <!--<div class="datepicker__filters"><div class="datepicker__filter--back">
+                                <svg class="svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
+                            </div>-->
+                            <div class="dropdown datepicker__filter--month fs-exclude" style="margin-right: 16px;">
+                                <span class="dropdown__toggle">Jun</span>
+                            </div>
+                            <div class="dropdown datepicker__filter--year fs-exclude">
+                                <span class="dropdown__toggle">2023</span>
+                            </div>
+                            <!--<div class="datepicker__filter--forward"><svg class="svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
+                            </div>-->
+                            </div>
+                        <table class="datepicker__month">
+                            <thead>
+                                <tr>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Sunday">SU</abbr>
+                                    </th>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Monday">MO</abbr>
+                                    </th>
+                                    <th class="datepicker__week-day">
+                                        <abbr title="Tuesday">TU</abbr>
+                                    </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Wednesday">WE</abbr>
+                                        </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Thursday">TH</abbr>
+                                        </th>
+                                        <th class="datepicker__week-day">
+                                            <abbr title="Friday">FR</abbr>
+                                        </th><th class="datepicker__week-day">
+                                            <abbr title="Saturday">SA</abbr>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="datepicker__day-grid">
+                                    <tr>
+                                        <td class="datepicker__day is-out-of-month">28</td>
+                                        <td class="datepicker__day is-out-of-month">29</td>
+                                        <td class="datepicker__day is-out-of-month">30</td>
+                                        <td class="datepicker__day is-out-of-month">31</td>
+                                        <td class="datepicker__day">1</td>
+                                        <td class="datepicker__day">2</td>
+                                        <td class="datepicker__day">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">4</td>
+                                        <td class="datepicker__day">5</td>
+                                        <td class="datepicker__day">6</td>
+                                        <td class="datepicker__day">7</td>
+                                        <td class="datepicker__day">8</td>
+                                        <td class="datepicker__day">9</td>
+                                        <td class="datepicker__day">10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">11</td>
+                                        <td class="datepicker__day">12</td>
+                                        <td class="datepicker__day">13</td>
+                                        <td class="datepicker__day">14</td>
+                                        <td class="datepicker__day">15</td>
+                                        <td class="datepicker__day">16</td>
+                                        <td class="datepicker__day">17</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">18</td>
+                                        <td class="datepicker__day is-selected">19</td>
+                                        <td class="datepicker__day">20</td>
+                                        <td class="datepicker__day">21</td>
+                                        <td class="datepicker__day">22</td>
+                                        <td class="datepicker__day">23</td>
+                                        <td class="datepicker__day">24</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="datepicker__day">25</td>
+                                        <td class="datepicker__day">26</td>
+                                        <td class="datepicker__day">27</td>
+                                        <td class="datepicker__day">28</td>
+                                        <td class="datepicker__day">29</td>
+                                        <td class="datepicker__day">30</td>
+                                        <td class="datepicker__day is-out-of-month">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <ul class="datepicker__quicklinks list--plain--vertical" style="list-style-type: none;">
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500; margin-bottom: 8px;">30 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">60 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">90 Days Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">6 Months Ago</li>
+                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">1 Year Ago</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+    </div>
 </div>
+<style>
+    .datepicker__grid{
+        font-weight: 600;
+    }
+    .datepicker__month *{
+        text-decoration: none;
+    }
+    .datepicker__month thead{
+        color: #40b33384;
+        cursor: default;
+    }
+    .datepicker__month {
+        position: relative;
+        display: inline-table;
+     
+        padding: 0px;
+        font-size: 14.5px;
+        border-collapse: collapse;
+        border-color: transparent;
+        column-gap: 0;
+        border-spacing: 0px;
+        row-gap: 4px;
+        box-sizing: content-box;    
+    }
+    .datepicker__day-grid *{
+        border-color: transparent;
+
+    }
+    .datepicker__day{
+        border-radius: 7px;
+        text-align: center;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .datepicker__day:hover {
+        background-color: #40b33384;
+        
+    }
+    .is-out-of-month{
+
+        color: #40b33384;
+        font-weight: 600;
+    }
+    .is-selected, .is-selected:hover{
+        background-color: var(--green);
+        color: #fff;
+        cursor: default;
+    }
+</style>
 {% endblock %}
 {% block pages_content %}
 <ul>
@@ -324,7 +620,7 @@
                 </div>
                 <div class="" style="display: flex; flex-direction: column; margin-right:20px;">
                     <span  style="font-size: 12px; font-weight: 600; color: var(--grey2);">Used</span>
-                    <span  style="font-size: 12px; font-weight: 600; color: var(--grey2);">J$ <span style="">305,302.00</span></span>
+                    <span  style="font-size: 12px; font-weight: 600; color: var(--grey2);">J$ <span>305,302.00</span></span>
                 </div>
             </div>
         </div>
@@ -343,109 +639,109 @@
                     <div class="">
                         <input placeholder="To" style="background-color: var(--grey);border: 1px solid rgb(232, 233, 235);padding: 4px 12px; border-radius: 0px 7px 7px 0px; width: 90px;">
                     </div>
-                    <div class="wv-datepicker__panel" style=" display: none; position: absolute; background-color: white;">
-                        <div class="wv-datepicker__header">
-                            <div class="wv-datepicker__header__title">
-                                <strong class="wv-text--strong fs-exclude">From</strong>
-                                <p class="wv-text wv-text--hint fs-exclude">Start of date range</p>
+                    <div class="datepicker__panel" style=" display: none; position: absolute; background-color: white;">
+                        <div class="datepicker__header">
+                            <div class="datepicker__header__title">
+                                <strong class="text--strong fs-exclude">From</strong>
+                                <p class="text text--hint fs-exclude">Start of date range</p>
                             </div>
-                            <button type="button" class="wv-close--large wv-datepicker__toggle--close"></button>
-                        </div><div class="wv-datepicker__main"><div class="wv-datepicker__grid">
-                            <div class="wv-datepicker__filters"><div class="wv-datepicker__filter--back">
-                                <svg class="wv-svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
+                            <button type="button" class="close--large datepicker__toggle--close"></button>
+                        </div><div class="datepicker__main"><div class="datepicker__grid">
+                            <div class="datepicker__filters"><div class="datepicker__filter--back">
+                                <svg class="svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
                             </div>
-                            <div class="wv-dropdown wv-datepicker__filter--month fs-exclude">
-                                <span class="wv-dropdown__toggle">Jun<svg class="wv-svg-icon" aria-labelledby="open-menu-title" aria-hidden="false">
+                            <div class="dropdown datepicker__filter--month fs-exclude">
+                                <span class="dropdown__toggle">Jun<svg class="svg-icon" aria-labelledby="open-menu-title" aria-hidden="false">
                                     <title id="open-menu-title">open month dropdown</title><use xlink:href="#open-menu"></use></svg>
                                 </span>
                             </div>
-                            <div class="wv-dropdown wv-datepicker__filter--year fs-exclude">
-                                <span class="wv-dropdown__toggle">2023<svg class="wv-svg-icon" aria-labelledby="open-menu-title" aria-hidden="false"><title id="open-menu-title">open year dropdown</title><use xlink:href="#open-menu"></use></svg>
+                            <div class="dropdown datepicker__filter--year fs-exclude">
+                                <span class="dropdown__toggle">2023<svg class="svg-icon" aria-labelledby="open-menu-title" aria-hidden="false"><title id="open-menu-title">open year dropdown</title><use xlink:href="#open-menu"></use></svg>
                                 </span>
                             </div>
-                            <div class="wv-datepicker__filter--forward"><svg class="wv-svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
+                            <div class="datepicker__filter--forward"><svg class="svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
                             </div>
                         </div>
-                        <table class="wv-datepicker__month">
+                        <table class="datepicker__month">
                             <thead>
                                 <tr>
-                                    <th class="wv-datepicker__week-day">
+                                    <th class="datepicker__week-day">
                                         <abbr title="Sunday">SU</abbr>
                                     </th>
-                                    <th class="wv-datepicker__week-day">
+                                    <th class="datepicker__week-day">
                                         <abbr title="Monday">MO</abbr>
                                     </th>
-                                    <th class="wv-datepicker__week-day">
+                                    <th class="datepicker__week-day">
                                         <abbr title="Tuesday">TU</abbr>
                                     </th>
-                                        <th class="wv-datepicker__week-day">
+                                        <th class="datepicker__week-day">
                                             <abbr title="Wednesday">WE</abbr>
                                         </th>
-                                        <th class="wv-datepicker__week-day">
+                                        <th class="datepicker__week-day">
                                             <abbr title="Thursday">TH</abbr>
                                         </th>
-                                        <th class="wv-datepicker__week-day">
+                                        <th class="datepicker__week-day">
                                             <abbr title="Friday">FR</abbr>
-                                        </th><th class="wv-datepicker__week-day">
+                                        </th><th class="datepicker__week-day">
                                             <abbr title="Saturday">SA</abbr>
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="wv-datepicker__day-grid">
+                                <tbody class="datepicker__day-grid">
                                     <tr>
-                                        <td class="wv-datepicker__day is-out-of-month">28</td>
-                                        <td class="wv-datepicker__day is-out-of-month">29</td>
-                                        <td class="wv-datepicker__day is-out-of-month">30</td>
-                                        <td class="wv-datepicker__day is-out-of-month">31</td>
-                                        <td class="wv-datepicker__day">1</td>
-                                        <td class="wv-datepicker__day">2</td>
-                                        <td class="wv-datepicker__day">3</td>
+                                        <td class="datepicker__day is-out-of-month">28</td>
+                                        <td class="datepicker__day is-out-of-month">29</td>
+                                        <td class="datepicker__day is-out-of-month">30</td>
+                                        <td class="datepicker__day is-out-of-month">31</td>
+                                        <td class="datepicker__day">1</td>
+                                        <td class="datepicker__day">2</td>
+                                        <td class="datepicker__day">3</td>
                                     </tr>
                                     <tr>
-                                        <td class="wv-datepicker__day">4</td>
-                                        <td class="wv-datepicker__day">5</td>
-                                        <td class="wv-datepicker__day">6</td>
-                                        <td class="wv-datepicker__day">7</td>
-                                        <td class="wv-datepicker__day">8</td>
-                                        <td class="wv-datepicker__day">9</td>
-                                        <td class="wv-datepicker__day">10</td>
+                                        <td class="datepicker__day">4</td>
+                                        <td class="datepicker__day">5</td>
+                                        <td class="datepicker__day">6</td>
+                                        <td class="datepicker__day">7</td>
+                                        <td class="datepicker__day">8</td>
+                                        <td class="datepicker__day">9</td>
+                                        <td class="datepicker__day">10</td>
                                     </tr>
                                     <tr>
-                                        <td class="wv-datepicker__day">11</td>
-                                        <td class="wv-datepicker__day">12</td>
-                                        <td class="wv-datepicker__day">13</td>
-                                        <td class="wv-datepicker__day">14</td>
-                                        <td class="wv-datepicker__day">15</td>
-                                        <td class="wv-datepicker__day">16</td>
-                                        <td class="wv-datepicker__day">17</td>
+                                        <td class="datepicker__day">11</td>
+                                        <td class="datepicker__day">12</td>
+                                        <td class="datepicker__day">13</td>
+                                        <td class="datepicker__day">14</td>
+                                        <td class="datepicker__day">15</td>
+                                        <td class="datepicker__day">16</td>
+                                        <td class="datepicker__day">17</td>
                                     </tr>
                                     <tr>
-                                        <td class="wv-datepicker__day">18</td>
-                                        <td class="wv-datepicker__day is-selected">19</td>
-                                        <td class="wv-datepicker__day">20</td>
-                                        <td class="wv-datepicker__day">21</td>
-                                        <td class="wv-datepicker__day">22</td>
-                                        <td class="wv-datepicker__day">23</td>
-                                        <td class="wv-datepicker__day">24</td>
+                                        <td class="datepicker__day">18</td>
+                                        <td class="datepicker__day is-selected">19</td>
+                                        <td class="datepicker__day">20</td>
+                                        <td class="datepicker__day">21</td>
+                                        <td class="datepicker__day">22</td>
+                                        <td class="datepicker__day">23</td>
+                                        <td class="datepicker__day">24</td>
                                     </tr>
                                     <tr>
-                                        <td class="wv-datepicker__day">25</td>
-                                        <td class="wv-datepicker__day">26</td>
-                                        <td class="wv-datepicker__day">27</td>
-                                        <td class="wv-datepicker__day">28</td>
-                                        <td class="wv-datepicker__day">29</td>
-                                        <td class="wv-datepicker__day">30</td>
-                                        <td class="wv-datepicker__day is-out-of-month">1</td>
+                                        <td class="datepicker__day">25</td>
+                                        <td class="datepicker__day">26</td>
+                                        <td class="datepicker__day">27</td>
+                                        <td class="datepicker__day">28</td>
+                                        <td class="datepicker__day">29</td>
+                                        <td class="datepicker__day">30</td>
+                                        <td class="datepicker__day is-out-of-month">1</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <ul class="wv-datepicker__quicklinks wv-list--plain--vertical">
-                            <li class="wv-datepicker__quicklink">30 Days Ago</li>
-                            <li class="wv-datepicker__quicklink">60 Days Ago</li>
-                            <li class="wv-datepicker__quicklink">90 Days Ago</li>
-                            <li class="wv-datepicker__quicklink">6 Months Ago</li>
-                            <li class="wv-datepicker__quicklink">1 Year Ago</li>
+                        <ul class="datepicker__quicklinks list--plain--vertical">
+                            <li class="datepicker__quicklink">30 Days Ago</li>
+                            <li class="datepicker__quicklink">60 Days Ago</li>
+                            <li class="datepicker__quicklink">90 Days Ago</li>
+                            <li class="datepicker__quicklink">6 Months Ago</li>
+                            <li class="datepicker__quicklink">1 Year Ago</li>
                         </ul>
                     </div>
                     </div>
@@ -649,19 +945,21 @@
     table th:last-child{
         border-radius: 0px 10px 0px 0px;
     }
-    tbody tr:nth-child(even){background-color: rgba(64, 155, 49,0.02);}
+    .table-content tbody tr:nth-child(even){background-color: rgba(64, 155, 49,0.02);}
 
     td{
         border-top: 1px solid rgb(232, 233, 235);
         border-bottom: 1px solid rgb(232, 233, 235);
     }
-    tbody tr:last-of-type td {border-bottom: none}
-   tbody tr:hover td {
+    .table-content tbody tr:last-of-type td {border-bottom: none}
+    .table-content tbody tr:hover td {
     background-color: #48634c0c;
    }
    tbody tr td {
     position: relative;
    }
+
+   
 
 </style>
 <script>

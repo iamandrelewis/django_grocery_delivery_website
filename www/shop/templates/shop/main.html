@@ -1156,170 +1156,170 @@ color: var(--grey2);
     }
 </style>
 {% endblock %}
-{% block shop_scripts %}
-<script>
-    const groduce_product_pageElement = document.querySelector('.produce_pages-container')
-    const meats_product_pageElement = document.querySelector('.meats_pages-container')
+    {% block shop_scripts %}
+    <script>
+        const groduce_product_pageElement = document.querySelector('.produce_pages-container')
+        const meats_product_pageElement = document.querySelector('.meats_pages-container')
 
-    meats_product_pageElement.addEventListener('click',(e)=>{
-      if(!e.target.classList.contains('is_active')){
-        let sub_pageMenu = document.querySelector(`.${e.target.parentElement.className} .sub_pages`)
-        sub_pageMenu.style = 'display:block';
-        document.querySelector('.expand-meats_pages').innerHTML = '-';              
-      }
-      else{
-        sub_pageMenu = document.querySelector('.meats_pages-container .sub_pages')
-        sub_pageMenu.style = 'display:none';
-        document.querySelector('.expand-meats_pages').innerHTML = '+';
-        let link = document.querySelector(`.${e.target.parentElement.className} a.product-page`)
-        link.style="font-weight:600;"
-      }
-      e.target.classList.toggle('is_active')
-      meats_product_pageElement.firstElementChild.classList.toggle('pages_active-indicator')
-    })
-
-     groduce_product_pageElement.addEventListener('click',(e)=>{
+        meats_product_pageElement.addEventListener('click',(e)=>{
         if(!e.target.classList.contains('is_active')){
-        let sub_pageMenu = document.querySelector(`.${e.target.parentElement.className} .sub_pages`)
-        sub_pageMenu.style = 'display:block';
-        document.querySelector('.expand-produce_pages').innerHTML = '-';            
-      }
-      else{
-        sub_pageMenu = document.querySelector('.produce_pages-container .sub_pages')
-        sub_pageMenu.style = 'display:none';
-        document.querySelector('.expand-produce_pages').innerHTML = '+';
-        let link = document.querySelector(`.${e.target.parentElement.className} a.product-page`)
-        link.style="font-weight:600;"               
-      }
-      groduce_product_pageElement.firstElementChild.classList.toggle('pages_active-indicator')
-      e.target.classList.toggle('is_active')
-    })
-
-    const shipping_address_btn = document.querySelector('.account_address-container')
-    const modal = document.querySelector('.modal')
-    const address_modal = document.querySelector('.address-modal-container')
-    const getBodyElement = document.querySelector('body')
-    const address_close_btn = document.querySelector('.address_close-btn')
-    const address_list_items = document.querySelectorAll('.addresses_list-item')
-    const address_add_btn = document.querySelector('.address_add-btn')
-    const add_address_form = document.querySelector('.add-address-form');
-    let select_address_form = document.querySelector('.select-address-form');
-
-    address_list_items.forEach((i)=>{
-
-        let registerModalClose = () => {
-          let select = document.querySelector(`.${i.className} .address_details-container .address_select #address${i.id}`)
-          select.checked = true;
-          modal.classList.toggle('hidden')
-          getBodyElement.classList.toggle('fixed')
-          address_modal.classList.toggle('hidden')
-          document.querySelector('.account_address-container span').innerHTML = document.querySelector(`.${i.className} .address_details-container .address_details #street${i.id}`).innerHTML
+            let sub_pageMenu = document.querySelector(`.${e.target.parentElement.className} .sub_pages`)
+            sub_pageMenu.style = 'display:block';
+            document.querySelector('.expand-meats_pages').innerHTML = '-';              
         }
-        i.addEventListener('click',registerModalClose)
-      })
-    const registerModalClose = (e)=>{
-        modal.classList.toggle('hidden')
-        getBodyElement.classList.toggle('fixed')
-      }
+        else{
+            sub_pageMenu = document.querySelector('.meats_pages-container .sub_pages')
+            sub_pageMenu.style = 'display:none';
+            document.querySelector('.expand-meats_pages').innerHTML = '+';
+            let link = document.querySelector(`.${e.target.parentElement.className} a.product-page`)
+            link.style="font-weight:600;"
+        }
+        e.target.classList.toggle('is_active')
+        meats_product_pageElement.firstElementChild.classList.toggle('pages_active-indicator')
+        })
 
-    const back_Add_AddressModal = ()=>{
-        add_address_form.classList.toggle('hidden');
-        select_address_form.classList.toggle('hidden');
-    }
-  
-    const save_Add_AddressModal = ()=> {
-                add_address_form.classList.toggle('hidden')
-                select_address_form.classList.toggle('hidden')
-                registerModalClose();
-                /* BAckend communication here (I need to setup an 
-                endpoint to save the data)*/
-    }
-    const renderAdd_AddressModal = (e) =>{
+        groduce_product_pageElement.addEventListener('click',(e)=>{
+            if(!e.target.classList.contains('is_active')){
+            let sub_pageMenu = document.querySelector(`.${e.target.parentElement.className} .sub_pages`)
+            sub_pageMenu.style = 'display:block';
+            document.querySelector('.expand-produce_pages').innerHTML = '-';            
+        }
+        else{
+            sub_pageMenu = document.querySelector('.produce_pages-container .sub_pages')
+            sub_pageMenu.style = 'display:none';
+            document.querySelector('.expand-produce_pages').innerHTML = '+';
+            let link = document.querySelector(`.${e.target.parentElement.className} a.product-page`)
+            link.style="font-weight:600;"               
+        }
+        groduce_product_pageElement.firstElementChild.classList.toggle('pages_active-indicator')
+        e.target.classList.toggle('is_active')
+        })
 
-        let add_address_save = document.querySelector('.add-address_save');
-        let add_address_back = document.querySelector('.address_back-btn');
+        const shipping_address_btn = document.querySelector('.account_address-container')
+        const modal = document.querySelector('.modal')
+        const address_modal = document.querySelector('.address-modal-container')
+        const getBodyElement = document.querySelector('body')
+        const address_close_btn = document.querySelector('.address_close-btn')
+        const address_list_items = document.querySelectorAll('.addresses_list-item')
+        const address_add_btn = document.querySelector('.address_add-btn')
+        const add_address_form = document.querySelector('.add-address-form');
+        let select_address_form = document.querySelector('.select-address-form');
 
-        if(add_address_form.classList.contains('hidden'))
-        {
-            add_address_back.addEventListener('click',back_Add_AddressModal)
-            add_address_save.addEventListener('click',save_Add_AddressModal)
-            select_address_form.classList.toggle('hidden');
+        address_list_items.forEach((i)=>{
+
+            let registerModalClose = () => {
+            let select = document.querySelector(`.${i.className} .address_details-container .address_select #address${i.id}`)
+            select.checked = true;
+            modal.classList.toggle('hidden')
+            getBodyElement.classList.toggle('fixed')
+            address_modal.classList.toggle('hidden')
+            document.querySelector('.account_address-container span').innerHTML = document.querySelector(`.${i.className} .address_details-container .address_details #street${i.id}`).innerHTML
+            }
+            i.addEventListener('click',registerModalClose)
+        })
+        const registerModalClose = (e)=>{
+            modal.classList.toggle('hidden')
+            getBodyElement.classList.toggle('fixed')
+        }
+
+        const back_Add_AddressModal = ()=>{
             add_address_form.classList.toggle('hidden');
+            select_address_form.classList.toggle('hidden');
         }
-
-    }
-    const renderAddressModal = (e)=>{
-      
-      registerModalClose()
-      if(address_modal.classList.contains('hidden')){
-        address_modal.classList.remove('hidden')
-      }
-      address_add_btn.addEventListener('click', renderAdd_AddressModal)
-      address_close_btn.addEventListener('click', registerModalClose)
-
-
-    }
-    shipping_address_btn.addEventListener('click', renderAddressModal);
-    const add_notes_modal = document.querySelector('.add_notes-modal-container');
-    const add_notes_cancel_btn = document.querySelector('.note_forget-btn');
-    const add_notes_save_btn = document.querySelector('.note_save-btn');
-    const renderNotesModal = (e)=>{
-      registerModalClose()
-      add_notes_modal.classList.toggle('hidden');
-    }
-
-
-    const back_replacementModal = () => {
-        const replacement_modal = document.querySelector('.replacement-modal-container')
-        const replacement_back = document.querySelector('.replacement-modal-container .close-btn')
-        if(!replacement_modal.classList.contains('hidden'))
-        {
-            add_notes_modal.classList.toggle('hidden');
-            replacement_modal.classList.toggle('hidden');
-        }
-    }
-    const renderReplacementModal = ()=>
-    {
-        const replacement_modal = document.querySelector('.replacement-modal-container')
-        let replacement = document.querySelector('.replace_item-btn');
-        const replacement_back = document.querySelector('.replacement-modal-container .close-btn')
-        if(replacement_modal.classList.contains('hidden'))
-        {
-            replacement_back.addEventListener('click',back_replacementModal)
-            add_notes_modal.classList.toggle('hidden');
-            replacement_modal.classList.toggle('hidden');
-        }
-    }
-    let replacement = document.querySelector('.replace_item-btn');
-    replacement.addEventListener('click',renderReplacementModal);
     
-    const cart_options_btn = document.querySelectorAll('.more_options-btn')
-    cart_options_btn.forEach((element,i)=>{
-      let menu = document.querySelector(`#${element.id}-menu`);
-      let registerModalClose = () =>{
-        add_notes_modal.classList.toggle('hidden');
-        modal.classList.toggle('hidden')
-        getBodyElement.classList.toggle('fixed')
-      }
-
-      let renderNotesModal = ()=>{
-        menu.classList.toggle('hidden');
-        registerModalClose();
-        if(i==0){
-          add_notes_cancel_btn.addEventListener('click',registerModalClose)
-          add_notes_save_btn.addEventListener('click',registerModalClose)
+        const save_Add_AddressModal = ()=> {
+                    add_address_form.classList.toggle('hidden')
+                    select_address_form.classList.toggle('hidden')
+                    registerModalClose();
+                    /* BAckend communication here (I need to setup an 
+                    endpoint to save the data)*/
         }
-      }
+        const renderAdd_AddressModal = (e) =>{
+
+            let add_address_save = document.querySelector('.add-address_save');
+            let add_address_back = document.querySelector('.address_back-btn');
+
+            if(add_address_form.classList.contains('hidden'))
+            {
+                add_address_back.addEventListener('click',back_Add_AddressModal)
+                add_address_save.addEventListener('click',save_Add_AddressModal)
+                select_address_form.classList.toggle('hidden');
+                add_address_form.classList.toggle('hidden');
+            }
+
+        }
+        const renderAddressModal = (e)=>{
+        
+        registerModalClose()
+        if(address_modal.classList.contains('hidden')){
+            address_modal.classList.remove('hidden')
+        }
+        address_add_btn.addEventListener('click', renderAdd_AddressModal)
+        address_close_btn.addEventListener('click', registerModalClose)
 
 
-      element.addEventListener('click',()=>{
-        let cart_options_menu_items = document.querySelectorAll(`#${element.id}-menu ul li`); 
-        cart_options_menu_items[0].addEventListener('click',renderNotesModal)
-        menu.classList.toggle('hidden');
-      });
-    })
-</script>
-{% endblock %}
+        }
+        shipping_address_btn.addEventListener('click', renderAddressModal);
+        const add_notes_modal = document.querySelector('.add_notes-modal-container');
+        const add_notes_cancel_btn = document.querySelector('.note_forget-btn');
+        const add_notes_save_btn = document.querySelector('.note_save-btn');
+        const renderNotesModal = (e)=>{
+        registerModalClose()
+        add_notes_modal.classList.toggle('hidden');
+        }
+
+
+        const back_replacementModal = () => {
+            const replacement_modal = document.querySelector('.replacement-modal-container')
+            const replacement_back = document.querySelector('.replacement-modal-container .close-btn')
+            if(!replacement_modal.classList.contains('hidden'))
+            {
+                add_notes_modal.classList.toggle('hidden');
+                replacement_modal.classList.toggle('hidden');
+            }
+        }
+        const renderReplacementModal = ()=>
+        {
+            const replacement_modal = document.querySelector('.replacement-modal-container')
+            let replacement = document.querySelector('.replace_item-btn');
+            const replacement_back = document.querySelector('.replacement-modal-container .close-btn')
+            if(replacement_modal.classList.contains('hidden'))
+            {
+                replacement_back.addEventListener('click',back_replacementModal)
+                add_notes_modal.classList.toggle('hidden');
+                replacement_modal.classList.toggle('hidden');
+            }
+        }
+        let replacement = document.querySelector('.replace_item-btn');
+        replacement.addEventListener('click',renderReplacementModal);
+        
+        const cart_options_btn = document.querySelectorAll('.more_options-btn')
+        cart_options_btn.forEach((element,i)=>{
+        let menu = document.querySelector(`#${element.id}-menu`);
+        let registerModalClose = () =>{
+            add_notes_modal.classList.toggle('hidden');
+            modal.classList.toggle('hidden')
+            getBodyElement.classList.toggle('fixed')
+        }
+
+        let renderNotesModal = ()=>{
+            menu.classList.toggle('hidden');
+            registerModalClose();
+            if(i==0){
+            add_notes_cancel_btn.addEventListener('click',registerModalClose)
+            add_notes_save_btn.addEventListener('click',registerModalClose)
+            }
+        }
+
+
+        element.addEventListener('click',()=>{
+            let cart_options_menu_items = document.querySelectorAll(`#${element.id}-menu ul li`); 
+            cart_options_menu_items[0].addEventListener('click',renderNotesModal)
+            menu.classList.toggle('hidden');
+        });
+        })
+    </script>
+    {% endblock %}
 {% endblock %}
 {% block cart_indicator %}
 <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
