@@ -9,3 +9,4 @@ class AccountStatemets{
 
     }
 }
+export default AccountStatemets;

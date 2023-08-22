@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from graphene_django.views import GraphQLView
+from main.schema import schema
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
@@ -26,6 +29,7 @@ urlpatterns = [
     path('',include('legal.urls')),
     path('<str:uid>/',include('users.urls')),
     path('company/',include('company.urls')),
+    path('api',GraphQLView.as_view(graphiql=True,schema=schema))
 ]
 
 if settings.DEBUG:

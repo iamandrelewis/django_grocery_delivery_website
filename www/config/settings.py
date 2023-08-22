@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'users',
     'main',
     'shop',
@@ -45,7 +46,9 @@ INSTALLED_APPS = [
     'legal',
     'company',
     'django.contrib.sites',
+
     #Third Party Apps
+    'graphene_django',
 
 ]
 
@@ -140,3 +143,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL  = '/login'
+
+GRAPHENE = {
+   "SCHEMA": "main.schema.schema"
+}

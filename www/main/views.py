@@ -3,6 +3,8 @@ from django.contrib.auth import login,authenticate,logout
 from users.forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import BusinessCreationForm,LoginForm
+from shop.models import ProductGrade,ProductVarietie,Product,ProductSubCategorie,ProductCategorie
+from orders.models import Order
 from . import models as m
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
@@ -10,6 +12,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes,force_str,DjangoUnicodeDecodeError
 from users.models import CustomUser 
+
 """def send_activation_email(user, request):
     current_site = get_current_site(request)
     email_subject = 'Email verification code: {0}'.format(user.email_token)
@@ -34,6 +37,8 @@ def home(request):
             return redirect('signup')
         address = m.UserAddress.objects.get(default_status=True,user = request.user)
         business = m.UserBusiness.objects.get(user = request.user)
+        products = ProductGrade.objects.filter(grade="A")
+        print(ProductCategorie.objects.get(pk=ProductSubCategorie.objects.get(pk=Product.objects.get(pk=ProductVarietie.objects.get(pk=products[1].product_id).product_id).subcategory_id).category_id))
         context = {
             'business': business
         }
@@ -118,9 +123,6 @@ def signup(request):
                     print(form.errors)
                     return redirect('signup')
             return render(request,'registration/add_business.html',{"form":form})
-
-
-
         return redirect('homepage')  
 
 def recover_email(request):

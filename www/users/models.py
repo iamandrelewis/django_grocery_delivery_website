@@ -29,6 +29,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email_token_is_expired = models.BooleanField(default=False)
     gender = models.CharField(_("gender"),max_length=128,null=True,default=None, blank=True)
     ref_code = models.CharField(max_length=12,default=_u.generate_ref_code)
+    secondary_phone = models.CharField(_("secondary_phone"),max_length=128,null=True,default=None, blank=True)
+    preferred_method = models.CharField(_("preferred_method"),max_length=128,null=True,default=None, blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []#first_name,last_name]

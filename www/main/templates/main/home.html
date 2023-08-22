@@ -7,17 +7,23 @@
         <div class="">
             <h1 style="font-size:22.5px;">Hello there, {{request.user.first_name}}</h1>
         </div>
-        <div class="" style="position: relative;">
-            <div class="" style=" position: relative; width: calc(100% - 24px); height: 40px; border-radius: 10px;">
-                <input type="text" placeholder="Search" style="position: absolute; width: 100%; height: 100%; border-radius: 10px; outline: none; border: 1px solid rgb(232, 233, 235); padding-left: 20px;">
+        <div class="" style="position: relative; background-color: #fff;  border: 1px solid rgb(232, 233, 235); border-radius: 10px;">
+            <div class="" style=" position: relative; width: calc(100% - 24px); height: 40px; border-radius: 10px; display: flex; align-items: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(--grey2)" style="margin-left: 15px; color: var(--grey2);">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.396 14.275a7 7 0 1 0-2.121 2.121l3.664 3.665a1.5 1.5 0 0 0 2.122-2.122l-3.665-3.664ZM10.5 14.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
+                </svg>
+                <div style=" margin-left: 0px; position: relative; width: 100%; height: 40px;">
+                    <input type="text" placeholder="Search" style=" font-size: 14px; position: absolute; width: calc( 100% - 20px); height: calc(100% - 4px);  outline: none;  border: 1px solid rgb(255, 255, 255); padding-left: 10px;">
+                </div>
             </div>
         </div>
         <div class="" style="width: 1000px;">
             <div class="">
-                <div class="" style=" margin-top: 24px;">
+                <div class="" style=" margin-top: 5px;">
                     <div class="" style="">
                         <div class="" style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
-                            <div class="" style=" display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style=" display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-main' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -25,7 +31,16 @@
                                     <span style="font-size: 12px; font-weight: 500;">Green Produce</span>
                                 </div>
                             </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-fruits' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>                                <div class="img" style=" height: 45px; width: 45px; background-color:#fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
+                                    <span></span>
+                                </div>
+                                <div class="">
+                                    <span style="font-size: 12px; font-weight: 500;">Fruits</span>
+                                </div>
+                            </div>
+                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-vegetables' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -33,15 +48,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Vegetables</span>
                                 </div>
                             </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px;">
-                                <div class="img" style=" height: 45px; width: 45px; background-color:#fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
-                                    <span></span>
-                                </div>
-                                <div class="">
-                                    <span style="font-size: 12px; font-weight: 500;">Fruits</span>
-                                </div>
-                            </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-herbs-spices' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -49,7 +57,17 @@
                                     <span style="font-size: 12px; font-weight: 500;">Herbs & Spices</span>
                                 </div>
                             </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-tubers-provisions' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
+                                <div class="img" style=" height: 45px; width: 45px; background-color:#fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
+                                    <span></span>
+                                </div>
+                                <div class="" >
+                                    <span style="font-size: 12px; font-weight: 500;">Tubers & Provisions</span>
+                                </div>
+                            </div>
+                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'green_produce-nuts-grains' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -57,7 +75,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Nuts & Grains</span>
                                 </div>
                             </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'meats-main' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -65,7 +84,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Meats</span>
                                 </div>
                             </div>
-                            <div class="" style="   display: flex; flex-direction: column; align-items: center;   border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center;   border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'meats-poultry' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -73,7 +93,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Poultry</span>
                                 </div>
                             </div>
-                            <div class="" style=" display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style=" display: flex; flex-direction: column; align-items: center;  border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'meats-lean' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -81,7 +102,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Lean Meats</span>
                                 </div>
                             </div>
-                            <div class="" style=" display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style=" display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'meats-fish-seafood' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -89,7 +111,8 @@
                                     <span style="font-size: 12px; font-weight: 500;">Fish & Seafood</span>
                                 </div>
                             </div>
-                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px;">
+                            <div class="" style="display: flex; flex-direction: column; align-items: center; border-radius: 10px; padding: 16px 8px; position: relative;">
+                                <a href="{% url 'meats-deli' %}" style="position: absolute; display: block; width: 100%; height: 100%; top:0px; left: 0px;"></a>
                                 <div class="img" style=" height: 45px; width: 45px; background-color: #fff; margin-bottom: 8px; border-radius: 10px; border: 1px solid rgb(232, 233, 235);">
                                     <span></span>
                                 </div>
@@ -317,7 +340,9 @@
 </div>
 </div>
 <div class="" style=" margin: 0px 32px;">
-    <h2>Deals</h2>
+    <h2 id="home_deals-heading" style=" border-radius: 14px; padding: 8px 16px 8px 8px; width: fit-content; position: relative;">
+        <a href="{% url 'deals'%}" style="position: absolute; display: block; left: 0px; top: 0px; width: 100%; height: 100%;"></a>
+        Deals</h2>
     <div class="" style="margin-right: 32px; border-radius: 14px; margin-bottom: 72px;">
         <div class="">
             <div class="" style="position: relative;">
