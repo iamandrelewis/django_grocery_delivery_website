@@ -10,7 +10,17 @@ from django.http import JsonResponse
 # Create your views here.
 @login_required(login_url='signin')
 def shop(request):
-    return render(request,'shop/main.html')
+        if 'order_id' not in request.session:
+            try:
+                order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            except Order.DoesNotExist:
+                order = Order.objects.create(user=request.user)
+                request.session['order_id'] = order.pk
+        else:
+            order = Order.objects.get(pk = request.session['order_id'])
+        items = order.orderitem_set.all()
+        return render(request,'shop/main.html',{'items':items})
+
 @login_required(login_url='signin')
 def green_produce(request):
     return redirect('green_produce-all')
@@ -207,9 +217,9 @@ def meats_fish_seafood(request):
             order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
         except Order.DoesNotExist:
             order = Order.objects.create()
-            request.session['order_id'] = order.transaction_id
+            request.session['order_id'] = order.pk
     else:
-        order = Order.objects.get(transaction_id = request.session['order_id'])
+        order = Order.objects.get(pk = request.session['order_id'])
         
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Fish & Seafood")
@@ -259,15 +269,28 @@ def update_cart(request):
     data = json.loads(request.body)
     productID = data['productID']
     action = data['action']
+    print("productID: {0} | Action: {1}".format(productID,action))
     if(action == 'add'):
         try:
             item = OrderItem.objects.get(order_id=request.session['order_id'],product_grade_id=productID)
-            item.quantity = int(item.quantity) + 1
+            try:
+                item.quantity = int(item.quantity) + 1
+            except:
+                item.quantity = float(item.quantity) + 1
             item.save(update_fields=['quantity'])
         except:
+            print(ProductGrade.objects.get(pk=productID))
             OrderItem.objects.create(order_id=request.session['order_id'],product_grade_id=productID,quantity='1')
+    elif(action == 'remove'):
+        try:
+            item = OrderItem.objects.get(order_id=request.session['order_id'],product_grade_id=productID)
+            item.delete()
+        except:
+            return JsonResponse("Cart was not updated",safe=False)
+    elif(action == 'getCartCount'):
+        items = OrderItem.objects.filter(order_id=request.session['order_id'])
+        return JsonResponse(f'{items.count()}',safe=False)
     
-    print("productID: {0} | Action: {1}".format(productID,action))
 
 
-    return JsonResponse("Item was added",safe=False)
+    return JsonResponse("Cart was updated",safe=False)

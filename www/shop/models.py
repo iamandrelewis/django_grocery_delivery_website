@@ -34,7 +34,7 @@ class ProductVarietie(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='variety')
     name = models.CharField(max_length=256)
     def __str__(self) -> str:
-        return f"{self.name} {self.product.name} "
+        return f"{self.pk}{self.name} {self.product.name} "
 
 class ProductImage(models.Model):
     product = models.ForeignKey(ProductVarietie,on_delete=models.CASCADE,related_name='image')
@@ -64,4 +64,4 @@ class ProductGrade(models.Model):
     price = models.ForeignKey(Price,on_delete=models.DO_NOTHING,related_name='price')
 
     def __str__(self) -> str:
-        return f"{self.product}: Grade {self.grade} @ ${self.price.value} {self.price.currency}/{self.unit.unit_abbr    }"
+        return f"{self.pk}-{self.product}: Grade {self.grade} @ ${self.price.value} {self.price.currency}/{self.unit.unit_abbr    }"

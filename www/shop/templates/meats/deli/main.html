@@ -192,15 +192,26 @@
     <div class="cart-container">
         <div class="cart-header">
         <h1 class="cart-title">Shopping Bag</h1>
-        {% if items.count > 0%}
-        <div class="item-num">
-            <span class="cart-num">{{items.count}}</span>
+        {% if items.count > 0 %}
+        <div class="item-num" style="border: 1px solid rgb(232, 233, 235); padding: 4px 8px;">
+            <div style="display: flex; width: fit-content; align-items: center;">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10px" style="margin-right:8px;">
+                      <g>
+                        <path d="m197.76,8.73v276.7h-86.87V71.34L190.77,6.01c2.67-2.18,6.99-.5,6.99,2.72Z" style="fill: var(--green);"/>
+                        <rect x="406.61" y="84.86" width="88.15" height="200.57" style="fill: var(--green);"/>
+                        <path d="m488.73,78.6c-93.19-.48-186.38-.96-279.58-1.44-2.04-.01-3.68-1.66-3.68-3.7V3.7c0-2.04,1.66-3.7,3.7-3.7h200.9c.93,0,1.82.35,2.51.98l77.52,71.38c2.08,1.92,1.33,5.37-1.37,6.24Z" style="fill: var(--green);"/>
+                      </g>
+                      <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: var(--green);"/>
+                    </svg>
+                <span style="color: var(--grey2 ); font-weight: 800;">{{items.count}}</span>
+            </div>
         </div>
         {% endif %}
         </div>
         <div class="cart-content">
             {% for item in items %}
-            <div class="cart_item-container">
+            <div class="cart_item-container" id="{{item.order.id}}">
                 <div class="item-details" id="cart_details" style="position: relative;">
                     <a href="{% url 'product-details'%}" style=" display: block; position: absolute; width: 100%; height: 100%;"></a>
                     <p class="item-title" id="cart_product-title">{{item.product_grade.product.product.name}}</p>
@@ -210,28 +221,29 @@
                         <p class="item-grade" id="cart_product-grade">Grade {{item.product_grade.grade}}</p>
                     </div>
                 </div>
-                <div class="item_qty-container">
-                    <input type="number" name="product_qty" id="id_product_qty" value="{{item.quantity}}" class="cart-input">
+                <div class="item_price-container" style="width: fit-content; display: flex; align-items: center;" >
+                    <input type="number" name="{{item.product_grade.id}}" id="id_product_qty{{forloop.counter0}}" data-id="{{forloop.counter0}}" data-item_id="{{item.id}}" value="{{item.quantity}}" class="cart-input" style="width: 25px; height: 30px;">
+                    <span style="font-weight: 600; font-size: 12.5px; margin-right: 8px;">{{item.product_grade.unit.unit_abbr}}</span>
                 </div>
                 <div class="item_price-container">
                     <p class="currency">J$</p>
-                    <input type="number" name="product_price" id="id_product_price" value="{{item.subtotal|floatformat:2}}" class="cart-input">
+                    <input type="number" name="{{item.product_grade.id}}" id="id_product_price{{forloop.counter0}}" data-id="{{forloop.counter0}}" data-item_id="{{item.id}}" value="{{item.subtotal|floatformat:2}}" class="cart-input">
                 </div>
                 <div class="item_actions">
                     <button id="id_more_options{{item.id}}" class="more_options-btn">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="# 343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
                     </button>
                     <div id="id_more_options{{item.id}}-menu" class="more_options-menu hidden">
                     <ul>
 
-                        <li class="add_note-option">
+                        <li class="add_note-option" data-product="{{item.product_grade.id}}">
                             <span>Add instructions</span>
                         </li>
                         <li style="position: relative;">
                             <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%;"></a>
                             <span>Edit product</span>
                         </li>
-                        <li class="rmv_item-option">
+                        <li class="rmv_item-option" data-product="{{item.product_grade.id}}" data-action="remove">
                             <span>Remove</span>
                         </li>
                     </ul>

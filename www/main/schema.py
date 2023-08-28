@@ -54,6 +54,25 @@ class ProductGradeType(DjangoObjectType):
         model = ProductGrade
         fields = ('id','product','unit','grade','description','price')
 
+
+
+class OrderMutation(graphene.Mutation):
+    class Arguments:
+        quantity = graphene.String()
+        id = graphene.ID()
+    order = graphene.Field(OrderItemType)
+
+    @classmethod
+    def mutate(cls,root,info,quantity,id):
+        order = OrderItem.objects.get(pk=id)
+        order.quantity = quantity
+        order.save(update_fields=['quantity'])
+        return OrderMutation(order=order)
+
+class Mutations(graphene.ObjectType):
+    update_order = OrderMutation.Field()
+
+
 class Query(graphene.ObjectType):
     all_product_grades = graphene.List(ProductGradeType, search=graphene.String(), category=graphene.String())
     order_product_by_id = graphene.Field(OrderItemType,product=graphene.String(required=True),order=graphene.String(required=True))
@@ -97,4 +116,5 @@ class Query(graphene.ObjectType):
             )
             return ProductGrade.objects.filter(filter)
         return ProductGrade.objects.filter(grade__exact='A')
-schema = graphene.Schema(query=Query)
+    
+schema = graphene.Schema(query=Query,mutation=Mutations)
