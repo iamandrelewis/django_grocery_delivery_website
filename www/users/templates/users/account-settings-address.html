@@ -1,4 +1,5 @@
 {% extends 'shop/main.html' %}
+{% load static %}
 {% block title %}Manage your addresses — GR8 #wholesale{% endblock %}
 {% block page_active_shop %} 
 {% endblock %}
@@ -206,4 +207,8 @@
     position: relative;
    }
 </style>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{% static 'js/main-home.js'%}"></script>
 {% endblock %}

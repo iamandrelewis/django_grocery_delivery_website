@@ -18,7 +18,7 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-const searchBar = document.querySelector('.searchbar-container');
+/*const searchBar = document.querySelector('.searchbar-container');
 const updateCart = document.querySelectorAll('.update-cart')
 const cartInstance = new ShoppingCart(updateCart,{
     searchURL: new URL('api',window.location.origin),
@@ -69,8 +69,7 @@ const cartInstance = new ShoppingCart(updateCart,{
 const searchInstance = new InstantSearch(searchBar,{
     
     searchURL: new URL('api',window.location.origin),
-    isCategoryPage : true,
-    categoryQuery: document.querySelector('.searchbar-container input').id,
+    isCategoryPage : false,
     responseParser: (responseData) => {
         return Object.values(responseData.data)
     },
@@ -100,10 +99,11 @@ const searchInstance = new InstantSearch(searchBar,{
         </div>
     </div>`
     },
-});
+});*/
 
 const getCartCount = () => {
-    return fetch(url,{
+        const url  = new URL(new URL('shop/update-cart',window.location.origin).toString());    
+        return fetch(url,{
         method:'POST',
         headers:{
             "Content-Type":"application/json",
@@ -124,6 +124,13 @@ const getCartCount = () => {
         return results
     })
 }
-const itemTotal = getCartCount()
-console.log(itemTotal)
+const itemTotal = getCartCount().then(result => document.querySelectorAll('#cartNumber').forEach(element => {
+    if(result > 0) {
+        element.innerHTML = result
+    }
+    else{
+        element.parentNode.parentElement.style.display = 'none';
+    }
+})) 
+
 

@@ -1,4 +1,5 @@
 {% extends 'shop/main.html' %}
+{% load static %}
 {% block title %}Manage your security & privacy — GR8 #wholesale{% endblock %}
 {% block page_active_shop %} 
 {% endblock %}
@@ -221,4 +222,8 @@
         margin-top: 60px;
     }
 </style>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{% static 'js/main-home.js'%}"></script>
 {% endblock %}

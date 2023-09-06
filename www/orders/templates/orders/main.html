@@ -1,6 +1,6 @@
 
 {% extends 'shop/main.html' %}
-
+{% load static %}
 {% block page_active_orders %} 
 style="
 font-weight:700;
@@ -415,9 +415,14 @@ color:var(--grey2);
                   </g>
                   <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: #fff;"></path>
           </svg>
-          2</span>
+          <span id="cartNumber"></span></span>
       </a>
 </div>
 {% endblock %}
 {% block shop_scripts %}
+{% endblock %}
+
+
+{% block scripts %}
+<script type="module" src="{% static 'js/main-home.js'%}"></script>
 {% endblock %}

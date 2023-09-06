@@ -1,4 +1,5 @@
 {% extends 'shop/main.html' %}
+{% load static %}
 {% block title %}Manage your account — GR8 #wholesale{% endblock %}
 {% block page_active_shop %} 
 style="
@@ -280,4 +281,9 @@ color:var(--grey2);
         margin-top: 60px;
     }
 </style>
+{% endblock %}
+
+
+{% block scripts %}
+<script type="module" src="{% static 'js/main-home.js'%}"></script>
 {% endblock %}

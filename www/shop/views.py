@@ -288,8 +288,11 @@ def update_cart(request):
         except:
             return JsonResponse("Cart was not updated",safe=False)
     elif(action == 'getCartCount'):
-        items = OrderItem.objects.filter(order_id=request.session['order_id'])
-        return JsonResponse(f'{items.count()}',safe=False)
+        try:
+            items = OrderItem.objects.filter(order_id=request.session['order_id'])
+            return JsonResponse(f'{items.count()}',safe=False)
+        except:
+            return JsonResponse('0',safe=False)
     
 
 

@@ -36,7 +36,6 @@ class ShoppingCart {
         
     }
     
-
     addListeners(){
         this.elements.main.forEach(element=>{
             element.addEventListener('click',() => {
