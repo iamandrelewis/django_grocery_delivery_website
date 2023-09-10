@@ -11,58 +11,57 @@
         <div class="">
             <h1 style="font-size:22.5px;">Hello there, {{request.user.first_name}}</h1>
         </div>
-        <div class="" style="position: relative; background-color: #fff;  border: 1px solid rgb(232, 233, 235); border-radius: 10px; z-index: 202;">
+        <div class="" style="position: absolute; background-color: #fff;  border: 1px solid rgb(232, 233, 235); border-radius: 10px; z-index: 202; margin-right: 24px; width: calc(100% - 50px);">
             <div class="" style=" position: relative; width: calc(100% - 24px); height: 40px; border-radius: 10px; display: flex; align-items: center;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(--grey2)" style="margin-left: 15px; color: var(--grey2);">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M16.396 14.275a7 7 0 1 0-2.121 2.121l3.664 3.665a1.5 1.5 0 0 0 2.122-2.122l-3.665-3.664ZM10.5 14.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
                 </svg>
-                <div style=" margin-left: 0px; position: relative; width: 100%;height: 40px; ">
+                <div style=" margin-left: 0px; position: relative; width: 100%;height: 40px; display: flex; align-items: center; ">
                     <input type="text" placeholder="Search" style=" font-size: 14px; position: absolute; width: calc( 100% - 20px); height: calc(100% - 4px);  outline: none;  border: 1px solid rgb(255, 255, 255); padding-left: 10px; z-index: 102;">
-
+                    
                 </div>
-
+                <svg width="14px" height="14px" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24" style=" margin-left:6px; display:flex; align-items: center; position:absolute; right:0px; z-index:202; ">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                </svg>
 
             </div>
             <div class="resultsContainer" style="height: 450px; z-index: 101;  border-top: 1px solid transparent;  border-radius: 00px 0px 20px 20px; background-color: #fff;position: relative; left: 0; overflow-y: auto; overflow-x: hidden;">
                 <div class="resultItem" style="margin-top: 12px;">
-                    <div style="border-bottom: 1px solid  rgb(232, 233, 235); border-top: 1px solid  rgb(232, 233, 235); padding:  12px 32px 12px 32px; position: relative; overflow: hidden; overflow-x: auto; ">
+                    <div style="border-bottom: 1px solid  rgb(232, 233, 235); border-top: 1px solid  rgb(232, 233, 235); padding:  12px 32px 12px 32px; position: relative; overflow: hidden; overflow-x: auto; display: flex; align-items: center; ">
                         <div class="" style="display: flex; overflow: hidden; overflow-x: auto; flex-wrap: nowrap; flex-shrink: 1;">
-
                             <div style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap;"> Manage Subscriptions & Payments in Settings</p>
+                                <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> Manage Subscriptions & Payments in Settings 
+                                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24" style=" margin-left:6px;display:flex; align-items: center; ">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                                    </svg>
+                                </div>
                             </div>
                             <div style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap;"> Manage Subscriptions & Payments in Settings</p>
+                                <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+                                    Manage Subscriptions & Payments in Settings 
+                                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24" style=" margin-left:6px; display:flex; align-items: center; ">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                                    </svg>
+                                </div>
                             </div>
                             <div style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap;"> Manage Subscriptions & Payments in Settings</p>
+                                <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+                                    Manage Subscriptions & Payments in Settings 
+                                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24" style=" margin-left:6px; display:flex; align-items: center; ">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div style="border-bottom: 1px solid  rgb(232, 233, 235); padding:  0px 64px 0px 64px; position: relative;">
-                        <p style="font-size: 18.5px; font-weight: 700;">Pages</p>
-                        <div class="" style="display: flex; flex-wrap: wrap;">
-                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
-                            </div>
-                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
-                            </div>
-                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
-                            </div>
-                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
-                            </div>
-                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
-                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
-                            </div>
+                        <div style="display: flex; align-items: center; padding: 10px; border-radius: 7px; position: absolute; right: 16px;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                            </svg>
                         </div>
-
                     </div>
-                    <div style=" height: fit-content; position: relative; padding: 16px 64px; bottom: 16px;">
-                        <p style=" font-weight: 700; font-size: 18.5px;">Products</p>
+
+                    <div style=" border-bottom: 1px solid  rgb(232, 233, 235); height: fit-content; position: relative; padding: 16px 64px; bottom: 16px;">
+                        <p style=" font-weight: 700; font-size: 12.5px;">Products</p>
                         <div> </div>
                         <div class="" style=" display: flex; overflow: hidden; align-items: center; position: relative; width: 1080px;">
                             <div class="" style="margin-right: 24px; position: relative;">
@@ -268,7 +267,27 @@
                             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
                         </div>
                     </div>
+                    <div style="border-bottom: 1px solid  rgb(232, 233, 235); padding:  0px 64px 0px 64px; position: relative;">
+                        <p style="font-size: 12.5px; font-weight: 700;">Pages</p>
+                        <div class="" style="display: flex; flex-wrap: wrap;">
+                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
+                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
+                            </div>
+                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
+                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
+                            </div>
+                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
+                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
+                            </div>
+                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
+                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
+                            </div>
+                            <div style="border-radius: 20px; border: 1px solid rgb(232, 233, 235); width: 200px;  padding: 16px; height: fit-content; position: relative; margin-right: 20px; margin-bottom: 20px;">
+                                <p style="font-size: 14px; font-weight: 600; text-align: center;"> Manage Subscriptions & Payments in <span style="font-weight: 500; font-style: italic;">Settings</span></p>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
