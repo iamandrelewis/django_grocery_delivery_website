@@ -23,13 +23,17 @@ class itemSearch{
     constructor(searchbar,options){
         this.elements ={
             main:searchbar,
-            input: document.querySelector('.search_container-recur input'),
+            input: document.querySelector('.search_bar input'),
             resultsContainer: document.querySelector('.results-container'),
         }
         this.options = options
         this.addListeners()
     }
     addListeners(){
+        this.performSearch('','').then(results =>
+            {
+                this.renderResults(results)
+            })
         let delay;
         this.elements.input.addEventListener('input', () =>{
             clearTimeout(delay);
