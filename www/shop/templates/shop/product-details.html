@@ -1,11 +1,12 @@
 {% extends 'shop/main.html'%}
+{%load static%}
 {% block title %}Product Name • Shop — GR8 #wholesale{% endblock %}
 {% block user_shipping-address %}
 {% endblock %}
 
 {% block cart_indicator %}
 {% endblock %}
-
+{% block user_style %} style="display: flex; align-items: center; position: absolute; right: 60px;"{% endblock %}
 {% block modal %}
 <div class="modal hidden">
     <div class="replacement-modal-container hidden">
@@ -309,19 +310,30 @@
 {% endblock %}
 
 {% block user_button %}
-<div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px;  cursor: pointer; width: fit-content;">
+<div class="account_auth-container" style="margin-left: 60px;  cursor: pointer; width: fit-content;">
     <div class="" style="position: relative; display: flex; align-items: center; justify-content: center;">
         <div class="account_business-name" style=" display: flex; align-items: center; justify-content: center; ">
         <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{request.user.userbusiness_set.first.business_name}}</span>
         </div>
-          <a class="cart_active-indicator" style="text-decoration: none;" href="{% url 'green_produce-main'%}">
-            <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
-          </a>
+        <a class="cart_active-indicator" style=" display:block; text-decoration: none;" href="{% url 'green_produce-main'%}">
+            <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10.5px" style="margin-right:8px;">
+                        <g>
+                        <path d="m197.76,8.73v276.7h-86.87V71.34L190.77,6.01c2.67-2.18,6.99-.5,6.99,2.72Z" style="fill: #fff;"/>
+                        <rect x="406.61" y="84.86" width="88.15" height="200.57" style="fill: #fff;"/>
+                        <path d="m488.73,78.6c-93.19-.48-186.38-.96-279.58-1.44-2.04-.01-3.68-1.66-3.68-3.7V3.7c0-2.04,1.66-3.7,3.7-3.7h200.9c.93,0,1.82.35,2.51.98l77.52,71.38c2.08,1.92,1.33,5.37-1.37,6.24Z" style="fill: #fff;"/>
+                        </g>
+                        <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: #fff;"/>
+                </svg>
+                <span id="cartNumber">{{items.count}}</span>
+            </span>
+        </a>
           <div class="account_auth_menu-container" style="display: none;">
             <div class="cart_details">
               <a href="{%url 'green_produce-main'%}" style="font-size: 10px; color: #fff; cursor: pointer; text-decoration:none;">View Shopping Bag</a>
               <div class="" style="position: absolute; right: 0; margin-right: 32px; margin-bottom: 4px;">
-              <span style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
+              <span id="cartNumber"style="font-size: 10px; font-weight: 600; color: #fff; margin: 0px;">10</span>
               </div>
             </div>
             <div class="account_details" style="margin-top: 16px;">
@@ -354,24 +366,75 @@
           </div>
     </div>
   </div>
-    <script>
-      const account_nav_btn = document.querySelector('.account_business-name ')
-      account_nav_btn.addEventListener('click',(e)=>{
-        
-        let cart_indicator = document.querySelector('.cart_active-indicator')
-        let menu = document.querySelector('.account_auth_menu-container')
-        if(cart_indicator.classList.contains('hidden')){
-          cart_indicator.style = 'display:block;';
-          menu.style = 'display:none;';
-          cart_indicator.classList.remove('hidden')
-        }
-        else{
-        cart_indicator.style = 'display:none;';
-        cart_indicator.classList.toggle('hidden')
-        menu.style = 'display:block;';
-        }
+  <script>
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+    }
 
+  
+    const csrftoken = getCookie('csrftoken');
+
+    const getCartCount = () => {
+    const url  = new URL(new URL('shop/update-cart',window.location.origin).toString());    
+    return fetch(url,{
+    method:'POST',
+    headers:{
+        "Content-Type":"application/json",
+        "X-CSRFToken": csrftoken,
+    },
+    credentials:"include",
+    mode:"same-origin",
+    body: JSON.stringify({
+        'productID':'',
+        'action':'getCartCount'
+    })
+  }).then(response =>{
+    return response.json()
+  }).then(responseData => {
+    console.log(responseData)
+    return responseData
+  }).finally(results =>{
+    return results
+  })
+  }
+    const account_nav_btn = document.querySelector('.account_business-name')
+    let cartCount = 0;
+    const itemTotal = getCartCount().then(result => cartCount =result) 
+    account_nav_btn.addEventListener('click',(e)=>{
+      let cart_indicator = document.querySelector('.cart_active-indicator')
+      let menu = document.querySelector('.account_auth_menu-container')
+      if(cart_indicator.classList.contains('hidden')){
+        if(cartCount > 0 )
+        cart_indicator.style.display='flex';
+        else{
+          cart_indicator.style.display = 'none';
+        }
+        menu.style.display='none';
+
+        cart_indicator.classList.remove('hidden')
+      }
+      else{
+      cart_indicator.style.display = 'none';
+      cart_indicator.classList.toggle('hidden')
+      menu.style = 'display:block;';
+      }
+      document.addEventListener('blur',()=>{
+        menu.style.display = 'none';
       })
+    })
+</script>
   </script>
 {% endblock %}
 
@@ -995,4 +1058,8 @@
     const replacement = document.querySelector('.product-replacement');
     replacement.addEventListener('click',renderReplacementModal);
 </script>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{% static 'js/cart.js'%}"></script>
 {% endblock %}

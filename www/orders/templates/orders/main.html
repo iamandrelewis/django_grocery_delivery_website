@@ -16,6 +16,9 @@ color:var(--grey2);
 "
 {% endblock %}
 
+{% block modal %}
+<div class="backdrop hidden" style=" position: fixed; height: 100vh; width: 100vw; background-color: rgba(0, 0, 0, 0.16); z-index: 203;"></div>
+{% endblock %}
 {% block user_shipping-address %}
 {% endblock %}
 
@@ -67,21 +70,68 @@ color:var(--grey2);
     <div class="content_center-container">
         <h1 style="font-size: 36px; margin: 0px;">Orders</h1>
         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis at dolorem.</span>
-        <div class=""  style="width: 130px; position: absolute; right: 16px; cursor: pointer;">
-            <div class="" style="background-color: var(--green);  width:fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center;">
+        <div class="create-order_btn"  style="width: 130px; position: absolute; right: 16px; cursor: pointer;">
+            <div onclick="
+                var button = document.querySelector('.create-order_btn')
+                var menu = document.querySelector('.create-order_menu')
+                menu.classList.toggle('hidden')
+                var bd = document.querySelector('.backdrop')
+                bd.classList.toggle('hidden')
+                if(!menu.classList.contains('hidden')){button.style.zIndex = '204'}
+                else {button.style.zIndex = '100'}
+                menu.style.zIndex = '204'
+                document.body.classList.toggle('fixed')
+            " class="" style="background-color: var(--green);  width:fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center;">
                 <span style="font-weight: 500; font-size: 12.5px; color: #fff; margin-right: 20px;">Create ...</span>
+            </div>
+            <div class="create-order_menu hidden" style=" left:-176px; position: relative; bottom: -10px; background-color: #fff; width: 280px; height: max-content;  z-index: 102; border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;">
+                <ul style=" list-style-type: none; padding: 0px; padding: 8px; margin: 0px; font-size: 13.5px; font-weight: 600; color: var(--black);">
+                    <li style="margin-bottom:6px; padding: 8px; border-radius: 7px; position: relative;" >recurring order
+                        <a style="display: block; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;" href="{% url 'recurring-orders-add'%}"></a>
+                    </li>
+                    <li style="margin-bottom:6px; padding: 8px; border-radius: 7px;">statement of activity</li>
+                    <li style="margin-bottom:6px; padding: 8px;  border-radius: 7px;">statement of credit</li>
+                    <li style="margin-bottom:6px; padding: 8px; border-radius: 7px;">statement of outstanding balances</li>
+                    <li style="padding: 8px; border-radius: 7px;">statement of order history</li>
+                </ul>
             </div>
         </div>
         <div class="top-banner" style=" margin-right: 32px; border-radius: 14px; margin-top: 72px;">
-            <p style="font-size: 18px; font-weight: 600;">Today's Deliveries</p>
+            <p style="font-size: 18px; font-weight: 600;">On the way</p>
             <div class="">
                 <div class="" style="position: relative;">
                     <div class="" style=" display: flex; overflow: hidden; align-items: center;">
                         <div class="" style=" display: flex; margin-right: 24px; position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px;">
                             <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
-                            <div class="" style="width: 650px; height: 350px;">
-                                <div class="" style="background-color: var(--grey2); height:100%; border-radius: 10px 0px 0px 10px;">
-                                <span></span>
+                            <div class="" style="width: 650px; height: 350px; margin: 0px;">
+                                <div class="" style="background-color: var(--grey); height:100%; border-radius: 10px 0px 0px 10px; margin: 0px; position: absolute; top:0px; width: 650px; ">
+                                    <span></span>
+                                    <div style="position: relative; padding: 10px; ">
+                                        <p style="font-size: 18px; font-weight: 700; margin-left: 6px;">Fernette Williams</p>
+                                    </div>
+                                    <div style="position: relative; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid rgb(232,233,235); border-top: 1px solid rgb(232,233,235); z-index: 2; padding: 4px;">
+                                        <div class=" add_options-btn" style=" padding: 6px 28px; width: 100%; border-radius: 10px; position: relative; display: flex; align-items: center; cursor: pointer;">
+                                            <span style="font-weight: 600; font-size: 14px; color: var(--green); ">Message</span>
+                                            <svg id="Layer_2" data-name="Layer 2"  width="16" height="16 " fill="var(--green)" xmlns="http://www.w3.org/2000/svg" class="hidden" viewBox="0 0 635.79 638.32" style="position: absolute; right:0; margin-right:12px;">
+                                            <g id="Layer_1-2" data-name="Layer 1">
+                                                <g>
+                                                <path d="m616.31,206.96C565.22,71.21,434.5-11.62,289.95,1.33c-82.71,7.41-152.22,42.96-207.2,104.99C-7.54,208.18-22.86,350.31,42.05,470.01c1.48,2.73,1.88,6.86,1.07,9.88-8.98,33.82-18.29,67.56-27.51,101.32-5.12,18.73-10.24,37.46-15.61,57.1,2.98-.63,5.09-.99,7.16-1.53,51.2-13.42,102.42-26.78,153.57-40.4,5.14-1.37,9.18-.67,13.8,1.73,37.23,19.36,76.86,30.92,118.66,34,84.46,6.21,159.89-17.37,225.98-70.44,104.02-83.52,144.11-229.97,97.15-354.72Zm-233.31,364.77c-70.41,17.35-137.23,7.05-199.73-29.89-5.6-3.31-10.49-4.03-16.74-2.32-28.62,7.82-57.36,15.19-86.06,22.7-1.2.31-2.42.54-4.49.99,5.67-20.83,11.11-40.83,16.56-60.84,2.68-9.83,5.15-19.72,8.17-29.44,1.44-4.63.92-8.2-1.77-12.31-22.45-34.31-36.67-71.85-41.04-112.6-8.59-80.05,13.86-150.56,68.22-210.07,41.03-44.91,92.25-72.33,152.35-81.53,149.52-22.9,276.83,80.73,299.86,214.79,23.29,135.59-61.82,267.63-195.34,300.52Z"/>
+                                                <path d="m216.41,170.6c14.02-3.61,20.62,5.02,25.44,17.62,6.95,18.19,14.59,36.13,22.38,53.98,3,6.88,2.6,12.81-1.83,18.65-6.29,8.3-12.39,16.76-18.95,24.84-4.09,5.04-4.32,9.65-1.06,15.16,25.81,43.71,62.01,75.26,109.24,94.08,6.48,2.58,11.57,1.25,15.88-4.15,7.88-9.88,16.13-19.47,23.69-29.58,4.45-5.96,9.66-7.86,16.12-4.84,22.45,10.5,44.84,21.12,67.02,32.17,2.5,1.25,4.88,5.49,4.96,8.42.68,23.83-6.58,43.58-28.03,57.12-25.71,16.24-52.52,17.72-80.99,9.77-76.27-21.31-132.45-69.28-177.39-132.52-13.96-19.65-26.54-39.9-31.87-63.73-7.67-34.29.79-64,26.02-88.76,7.99-7.84,17.65-9.59,29.35-8.23Z"/>
+                                                </g>
+                                            </g>
+                                            </svg>
+                                            <a style="position: absolute; top:0px; left: 0px; width: 100%; height: 100%;" href=""></a>
+                                        </div>
+                                    </div>
+                                    <div style="position: absolute; display: flex; align-items: center; z-index: 2; bottom: 16px; width: 95%; left: 0; right:0; margin: auto;">
+                                        <div class="" style="border: 1px solid rgb(232,233,235); margin-right: 12px; padding: 6px 28px; background-color: var(--grey);border-radius: 10px; cursor: pointer;">
+                                            <span style="font-weight: 600; font-size: 14px; color: var(--grey2); ">Postpone</span>
+                                        </div>
+                                        <div class=" add_options-btn" style="border: 1px solid var(--green); padding: 6px 28px; width: 100%; border-radius: 10px; background-color: var(--green); position: relative; display: flex; align-items: center; cursor: pointer;">
+                                            <span style="font-weight: 600; font-size: 14px; color: white; ">More options</span>
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im" style="position: absolute; right:0; margin-right:12px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="" style=" display: flex; flex-direction: column; position: relative; width: 300px;">
@@ -188,12 +238,13 @@ color:var(--grey2);
                             <p style="position: absolute; color: var(--green); font-weight:600; right: 0px; top: 0px; font-size: 14px;">Fulfilled</p>
                         </div>
                         <div class="" style="position: relative; border-top: 1px solid rgb(232,233,235);">
+                            <a href="{% url 'orders-activity' %}" style="position: absolute; width: 100%; height: 100%;"></a>
                             <p style="color: var(--green); font-weight:600; font-size: 14px;">View all</p>
                         </div>
                     </div>
                 </div>
                 <div class="" style="width: 100%;;">
-                    <p style="font-size: 13.5px; font-weight: 700;">Canceled</p>
+                    <p style="font-size: 13.5px; font-weight: 700;">On the way</p>
                     <div class="" style=" display: flex; flex-direction: column; justify-content: center;">
                         <div class="" style="position:relative;">
                             <div class="" style="position: relative; border-top: 1px solid rgb(232,233,235);">
@@ -404,7 +455,7 @@ color:var(--grey2);
 {% endblock %}
 {% block cart_indicator %}
 <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
-    <a class="cart_active-indicator" style=" display:block; text-decoration: none;" href="/shop/green-produce">
+    <a class="cart_active-indicator" style=" display:none; text-decoration: none;" href="/shop/green-produce">
         <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
           <!--?xml version="1.0" encoding="UTF-8"?-->
           <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10.5px" style="margin-right:8px;">
@@ -424,5 +475,5 @@ color:var(--grey2);
 
 
 {% block scripts %}
-<script type="module" src="{% static 'js/main-home.js'%}"></script>
+<script type="module" src="{% static 'js/cart.js'%}"></script>
 {% endblock %}

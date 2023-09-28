@@ -1,5 +1,6 @@
 {% extends 'shop/main.html' %}
 {% block  title %}Deals • Shop — GR8 #wholesale{% endblock %}
+{% load static %}
 
 {% block breadcrumbs %}
 <a href="{% url 'shoppage' %}">Shop</a> >
@@ -53,108 +54,45 @@
     <div class="" style="margin-bottom: 10px;">
         <span style="font-size: 36px; font-weight: 700;">Deals</span>
     </div>
-    <div class="" style="display: flex; align-items: center; margin-bottom: 24px;">
-        <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px;"><span style="font-size: 12px;">All</span></div>
-        <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px;"><span style="font-size: 12px;">Green Produce</span></div>
-        <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px;"><span style="font-size: 12px;">Meats</span></div>
+    <div class="" style="display: flex; align-items: center; margin-bottom: 24px; font-weight: 600;">
+        <div class="category_selector-btn is_active" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 13.5px; ">All</span></div>
+        <div class="category_selector-btn" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 13.5px;">Green Produce</span></div>
+        <div class="category_selector-btn"  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;"><span style="font-size: 13.5px;">Meats</span></div>
     </div>
     <div class="content_center-container">
-        <form method="post" id="frm-product_wall">
-            {% csrf_token %}
-            <div class="product_card-container">
-                <input type="hidden" name="product_id" value="1">
-                <div class="product-img">
-                    <span></span>
-                    <div class="product-add">
-                        <button type="submit" class="product_add-btn">+</button>
+        <div id="frm-product_wall">
+            {% for product in products %}
+                <div class="product_card-container" style="position: relative;">
+                    <a href="{% url 'product-details' %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
+                    <div class="product-img">
+                        <span></span>
+                        <div class="product-add">
+                            <button data-product="{{product.id}}" data-action="add" class="product_add-btn update-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5A1.5 1.5 0 0 1 13.5 5v5.5H19a1.5 1.5 0 0 1 1.493 1.355L20.5 12a1.5 1.5 0 0 1-1.5 1.5h-5.5V19a1.5 1.5 0 0 1-1.355 1.493L12 20.5a1.5 1.5 0 0 1-1.5-1.5v-5.5H5a1.5 1.5 0 0 1-1.493-1.355L3.5 12A1.5 1.5 0 0 1 5 10.5h5.5V5a1.5 1.5 0 0 1 1.355-1.493L12 3.5Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">
+                            <div class="product_price-container">
+                                <div class="product-price">
+                                    <p class="dollars" id="product_price-dollars">{% if product.price.currency == "JMD" %}J{% endif %}${{product.price.value}}</p>
+                                </div>
+                            </div>  
+                            <p class="product_variety">{{product.product.name}}</p>
+                            <p class="product_name">{{product.product.product.name}}</p>
+                            <p class="product_unit">per {{product.unit.unit}} ({{product.unit.unit_abbr}}.)</p> 
+                        </div>
                     </div>
                 </div>
-                <div class="product-details">
-                    <div class="product-title">
-                        <div class="product_price-container">
-                            <div class="product-price">
-                                <p class="currency">J$</p>
-                                <p class="dollars" id="product_price-dollars">50</p>
-                                <p class="cents">00</p>
-                            </div>
-                        </div>  
-                        <p class="product_variety">White-stemmed</p>
-                        <p class="product_name">Pak Choy</p>
-                        <p class="product_unit">per pound (lb.)</p> 
-                    </div>
-                </div>
+            {% empty %}
+            <div style="display: flex; align-items: center; flex-direction: column; width: 100%; height: 100%; justify-content: center; margin-top: 60px;">
+                <p style="font-size: 20px; font-weight: 600; margin: 0px;"> Saving will be easier</p>
+                <p style="font-size: 14.5px; font-weight: 500; margin: 0px; margin-top: 4px;">Items under offer or promotion will show up here so you can buy them easily</p>
             </div>
-                <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
-                    <div class="product-img">
-                        <span></span>
-                        <div class="product-add">
-                            <button type="submit" class="product_add-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <div class="product-title">
-                            <div class="product_price-container">
-                                <div class="product-price">
-                                    <p class="currency">J$</p>
-                                    <p class="dollars" id="product_price-dollars">50</p>
-                                    <p class="cents">00</p>
-                                </div>
-                            </div>  
-                            <p class="product_variety">White-stemmed</p>
-                            <p class="product_name">Pak Choy</p>
-                            <p class="product_unit">per pound (lb.)</p> 
-                         
-                        </div>
-                    </div>
-                </div>            <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
-                    <div class="product-img">
-                        <span></span>
-                        <div class="product-add">
-                            <button type="submit" class="product_add-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <div class="product-title">
-                            <div class="product_price-container">
-                                <div class="product-price">
-                                    <p class="currency">J$</p>
-                                    <p class="dollars" id="product_price-dollars">50</p>
-                                    <p class="cents">00</p>
-                                </div>
-                            </div>  
-                            <p class="product_variety">White-stemmed</p>
-                            <p class="product_name">Pak Choy</p>
-                            <p class="product_unit">per pound (lb.)</p> 
-                        </div>
-                    </div>
-                </div>
-                <div class="product_card-container">
-                    <input type="hidden" name="product_id" value="1">
-                    <div class="product-img">
-                        <span></span>
-                        <div class="product-add">
-                            <button type="submit" class="product_add-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <div class="product-title">
-                            <div class="product_price-container">
-                                <div class="product-price">
-                                    <p class="currency">J$</p>
-                                    <p class="dollars" id="product_price-dollars">50</p>
-                                    <p class="cents">00</p>
-                                </div>
-                            </div>  
-                            <p class="product_variety">White-stemmed</p>
-                            <p class="product_name">Pak Choy</p>
-                            <p class="product_unit">per pound (lb.)</p> 
-                        </div>
-                    </div>
-                </div>
-                
-        </form>
+            {% endfor %}
+        </div>
     </div>
 </div>
 <style>
@@ -174,7 +112,21 @@
 {% block cart_indicator %}
 <div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
     <a class="cart_active-indicator" style=" display:block; text-decoration: none;" href="{% url 'green_produce-main'%}">
-      <span style="font-size: 10px; font-weight: 700; color: #fff; margin: 0px;">10</span>
+        <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10.5px" style="margin-right:8px;">
+                    <g>
+                    <path d="m197.76,8.73v276.7h-86.87V71.34L190.77,6.01c2.67-2.18,6.99-.5,6.99,2.72Z" style="fill: #fff;"/>
+                    <rect x="406.61" y="84.86" width="88.15" height="200.57" style="fill: #fff;"/>
+                    <path d="m488.73,78.6c-93.19-.48-186.38-.96-279.58-1.44-2.04-.01-3.68-1.66-3.68-3.7V3.7c0-2.04,1.66-3.7,3.7-3.7h200.9c.93,0,1.82.35,2.51.98l77.52,71.38c2.08,1.92,1.33,5.37-1.37,6.24Z" style="fill: #fff;"/>
+                    </g>
+                    <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: #fff;"/>
+            </svg>
+            <span id="cartNumber">{{items.count}}</span>
+        </span>
     </a>
 </div>
+{% endblock %}
+{% block scripts %}
+<script type="module" src="{% static 'js/cart.js'%}"></script>
 {% endblock %}

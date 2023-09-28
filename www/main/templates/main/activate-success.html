@@ -1,8 +1,26 @@
-<a href="
-{% if request.user.is_authenticated %}
-{% url 'homepage' %}
-{% else %}
-{% url 'signin' %}
-{% endif %}
-">Continue</a>
-<p>{{e}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" style="border: 1px solid rgb(232, 233, 235); background-color: #F6F6F7; border-radius: 10px;">
+        <h1>Activate email</h1>
+    
+    <div style="position: relative; background-color: #409B31; font-weight: 600; color: white; padding: 8px 0px; border-radius: 10px; width: 800px; display: flex; align-items: center; justify-content: center;">
+    <a  style="position: absolute; width: 100%; height: 100%; display: block;" href="
+    {% if request.user.is_authenticated %}
+    {% url 'homepage' %}
+    {% else %}
+    {% url 'signin' %}
+    {% endif %}
+    "></a>
+    Continue
+    </div>
+    </div>
+    <p>{{e}}</p>
+        
+</body>
+</html>

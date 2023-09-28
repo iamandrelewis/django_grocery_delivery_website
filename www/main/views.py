@@ -26,6 +26,18 @@ def home(request):
     if request.POST:
         print(request.POST)
     if request.user.is_authenticated:
+        if 'order_id' not in request.session:
+            try:
+                order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            except Order.DoesNotExist:
+                order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+        else:
+            try:
+                order = Order.objects.get(pk=request.session['order_id'])
+            except Order.DoesNotExist:
+                order = Order.objects.create(user=request.user)
+                request.session['order_id'] = order.pk
         request.user.check_email_verification_token()
         try:
             m.UserAddress.objects.get(user=request.user,default_status=True)
@@ -40,7 +52,8 @@ def home(request):
         products = ProductGrade.objects.filter(grade="A")
         print(ProductCategorie.objects.get(pk=ProductSubCategorie.objects.get(pk=Product.objects.get(pk=ProductVarietie.objects.get(pk=products[1].product_id).product_id).subcategory_id).category_id))
         context = {
-            'business': business
+            'business': business,
+            'products': products
         }
         return render(request,'main/home.html', context)
     return render(request,'main/home.html')

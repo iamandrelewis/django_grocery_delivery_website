@@ -1,6 +1,6 @@
 {% extends 'orders/main.html' %}
 {% block title %}Recurring • Orders — GR8 #wholesale{% endblock %}
-
+{% load static %}
 
 
 {% block shop_scripts %}
@@ -34,23 +34,23 @@
                     <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
                 </div>
             </div>
-            <div class="" style="width: 100%; position: relative; padding: 24px;">
+            <div class="" style="width: 100%; position: relative; padding: 24px; padding-top: 0px;">
                 <div class="">
-                    <div class=""  style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); padding: 16px; border-radius: 14px; margin-top: 16px; margin-right: 48px;">
+                    <div class="search_container recur"  style="display: flex; flex-direction: column; justify-content: center; border: 1px solid rgb(232,233,235); padding: 16px; border-radius: 14px; margin-top: 16px; margin-right: 48px;">
                         <p style="margin: 0px 0px 16px 0px; font-size: 32px; font-weight: 700;">Add an item</p>
                         <div class="" style="display: flex; align-items: center; margin-bottom: 24px;">
-                            <div class="" style="padding: 6px 24px; border-radius: 10px; margin-right: 16px; border: 1px solid #3f9b3152; cursor: default;"><span style="font-size: 12px; font-weight: 700; color: var(--green);">All</span></div>
-                            <div class="" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Green Produce</span></div>
-                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Meats</span></div>
-                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;"><span style="font-size: 12px;">Deals</span></div>
-                            <div class=""  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;"><span style="font-size: 12px;">Buy it again</span></div>
+                            <div class="category_selector-btn is_active" style="padding: 6px 24px; border-radius: 10px; margin-right: 16px; border: 1px solid #3f9b3152; cursor: default;" data-product_category=""><span style="font-size: 12px; font-weight: 700; color: var(--green);">All</span></div>
+                            <div class="category_selector-btn" style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;" data-product_category="Green Produce"><span style="font-size: 12px; font-weight: 600;">Green Produce</span></div>
+                            <div class="category_selector-btn"  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;" data-product_category="Meats"><span style="font-size: 12px; font-weight: 600;">Meats</span></div>
+                            <div class="category_selector-btn"  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; cursor: pointer;" data-product_category="Deals"><span style="font-size: 12px; font-weight: 600;">Deals</span></div>
+                            <div class="category_selector-btn"  style="padding: 6px 24px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;" data-product_category="Buy it again"><span style="font-size: 12px; font-weight: 600;">Buy it again</span></div>
                         </div>
-                        <div class="" style="display: flex; align-items: center;">
+                        <div class="search_bar" style="display: flex; align-items: center;">
                             <div class="" style="border: 1px solid rgb(232,233,235); display: flex; justify-content: center; align-items: center; border-radius: 7px; padding: 4px 8px; width: 100%; background-color: var(--grey);">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(-grey2)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="var(-grey2)">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M16.396 14.275a7 7 0 1 0-2.121 2.121l3.664 3.665a1.5 1.5 0 0 0 2.122-2.122l-3.665-3.664ZM10.5 14.5a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
                                 </svg>
-                                <input type="text" style="background-color: transparent; font-size: 16px; padding: 6px 6px 6px  6px; outline: none; border:transparent; width: 100%;" placeholder="Search">
+                                <input type="text" style="background-color: transparent; font-size: 14px; padding: 6px 6px 6px  6px; outline: none; border:transparent; width: 100%;" placeholder="Search">
                             </div>
                         </div>
                     </div>
@@ -59,121 +59,8 @@
         </div>
             <div style=" margin: 8px 32px 32px 32px; position: relative; width: 100%;">
                 <div class="" style="position: relative;">
-                    <div class="" style=" display: flex; flex-wrap: wrap; align-items: center;">
-                        <div class="" style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700;  ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px; cursor: pointer;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
-                        <div class=""  style="margin-right: 24px; margin-bottom:24px;">
-                            <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
-                                <span></span>
-                                <div class="" style="position: absolute; top: 8px; right: 8px; background-color: var(--green); padding: 6px 12px; border-radius: 10px;">
-                                    <span style="color: #fff; font-size: 20px; font-weight: 700; ">+</span>
-                                </div>
-                            </div>
-                            <div class="" style="margin-bottom: 16px;">
-                                <p style="font-size: 18px; font-weight: 800; margin: 6px 0px 6px 0px;">J$200.00</p>
-                                <p style="margin: 0px; font-size: 14px; font-weight: 500;">White</p>
-                                <p style="margin: 0px; font-size: 16px; font-weight: 600;">Cabbage</p>
-                                <p style="margin: 0px; font-size: 12px;">per pound (lb.)</p>
-                            </div>
-                        </div>
+                    <div class="results-container" style=" display: flex; flex-wrap: wrap; align-items: center; min-height: 290px;">
                     </div>
-
                 </div>
             </div>
             <div class=""></div>
@@ -404,8 +291,8 @@
                         <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">Recurring</span>
                     </div>
                 </div>
-                <div class="payment_status-container" style="margin-right: 0px;">
-                    <div class="" style="display: flex; align-items: center; justify-content: center; background-color: var(--grey); border: 1px solid rgb(232,233,235); padding: 6px 16px; border-radius: 7px; cursor: default;">
+                <div class="payment_status-container" style="margin-right: 0px; ">
+                    <div class="" style="display: flex; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.06); border: 1px solid rgb(232,233,235); padding: 6px 16px; border-radius: 7px; cursor: default;">
                         <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">Draft</span>
                     </div>
                 </div>
@@ -652,4 +539,9 @@
     const add_item = document.querySelector('.add_item-btn')
     add_item.addEventListener('click',renderModal)
 </script>
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{% static 'js/RecurringOrders.js' %}"></script>
+    <script type="module" src="{% static 'js/cart.js' %}"></script>
 {% endblock %}

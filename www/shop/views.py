@@ -12,12 +12,17 @@ from django.http import JsonResponse
 def shop(request):
         if 'order_id' not in request.session:
             try:
-                order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+                order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
             except Order.DoesNotExist:
                 order = Order.objects.create(user=request.user)
                 request.session['order_id'] = order.pk
         else:
-            order = Order.objects.get(pk = request.session['order_id'])
+            try:
+                order = Order.objects.get(pk = request.session['order_id'])
+            except Order.DoesNotExist:
+                order = Order.objects.create(user=request.user)
+                request.session['order_id'] = order.pk
+
         items = order.orderitem_set.all()
         return render(request,'shop/main.html',{'items':items})
 
@@ -29,13 +34,17 @@ def green_produce(request):
 def green_produce_all(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__category__name__exact="Green Produce")
     return render(request,'green_produce/main.html',{
@@ -48,13 +57,17 @@ def green_produce_all(request):
 def green_produce_fruits(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Fruits")
     return render(request,'green_produce/fruits/main.html',{
@@ -67,14 +80,19 @@ def green_produce_fruits(request):
 def green_produce_vegetables(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
+
+    items = order.orderitem_set.all()
         
-    items = order.orderitem_set.all()    
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Vegetables")
 
     return render(request,'green_produce/vegetables/main.html',{
@@ -87,13 +105,17 @@ def green_produce_vegetables(request):
 def green_produce_herbs_spices(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Herbs & Spices")
 
@@ -107,13 +129,17 @@ def green_produce_herbs_spices(request):
 def green_produce_tubers_provisions(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Tubers & Provisions")
 
@@ -127,13 +153,17 @@ def green_produce_tubers_provisions(request):
 def green_produce_nuts_grains(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Nuts & Grains")
 
@@ -151,13 +181,17 @@ def meats(request):
 def meats_all(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__category__name__exact="Meats")
 
@@ -171,13 +205,17 @@ def meats_all(request):
 def meats_poultry(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Poultry")
 
@@ -191,13 +229,17 @@ def meats_poultry(request):
 def meats_lean(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Lean Meats")
 
@@ -214,13 +256,17 @@ def meats_fish_seafood(request):
     """
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
         except Order.DoesNotExist:
-            order = Order.objects.create()
-            request.session['order_id'] = order.pk
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
     else:
-        order = Order.objects.get(pk = request.session['order_id'])
-        
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Fish & Seafood")
     return render(request,'meats/fish-seafood/main.html',{
@@ -234,12 +280,16 @@ def meats_fish_seafood(request):
 def meats_deli(request):
     if 'order_id' not in request.session:
         try:
-            order = Order.objects.get(datestamp=datetime.date.today(),fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
-    else:
-        order = Order.objects.get(pk = request.session['order_id'])
 
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__name__exact="Deli")
@@ -252,14 +302,53 @@ def meats_deli(request):
 
 @login_required(login_url='signin')
 def deals(request):
+    if 'order_id' not in request.session:
+        try:
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+
     return render(request,'shop/deals/main.html')
 
 @login_required(login_url='signin')
 def buy_it_again(request):
+    if 'order_id' not in request.session:
+        try:
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+
     return render(request,'shop/buy_it_again/main.html')
 
 @login_required(login_url='signin')
 def product_details(request):
+    if 'order_id' not in request.session:
+        try:
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+
     return render(request,'shop/product-details.html')
 
 

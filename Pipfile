@@ -8,6 +8,8 @@ django = "*"
 pillow = "*"
 django-tailwind = {extras = ["reload"], version = "*"}
 graphene-django = "*"
+django-allauth = "*"
+phonenumbers = "*"
 
 [dev-packages]
 

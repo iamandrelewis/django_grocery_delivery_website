@@ -65,3 +65,30 @@ class ProductGrade(models.Model):
 
     def __str__(self) -> str:
         return f"{self.pk}-{self.product}: Grade {self.grade} @ ${self.price.value} {self.price.currency}/{self.unit.unit_abbr    }"
+
+
+class ProductDeal(models.Model):
+    product = models.ForeignKey(ProductGrade,on_delete= models.CASCADE)
+    new_price = models.CharField(max_length=128,null=True,blank=True)
+    type=models.CharField(max_length=256)
+    description = models.CharField(max_length=256, null=True, blank=True)
+    @property
+    def discount(self):
+        try:
+           discount =  ((self.product.price.value - self.new_price)/self.product.price.value)*100
+        except:
+            discount = 0
+        return discount
+    
+class RelatedProductDealItem(models.Model):
+    deal = models.ForeignKey(ProductDeal,on_delete=models.CASCADE)
+    product = models.ForeignKey(ProductGrade,on_delete=models.CASCADE)
+    new_price = models.CharField(max_length=128,null=True,blank=True)
+    
+    @property
+    def discount(self):
+        try:
+           discount =  ((self.product.price.value - self.new_price)/self.product.price.value)*100
+        except:
+            discount = 0
+        return discount

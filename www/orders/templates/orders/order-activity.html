@@ -169,7 +169,7 @@
                 </div>
                 <div class="" style="width: 100%; position: relative; padding: 24px; padding-right: 0px; padding-bottom: 0px;">
                     <div class="">
-                        <div class=""  style="display: flex; flex-direction: column; justify-content: center; padding: 16px; border-radius: 14px; margin-top: 16px; margin-right: 48px;">
+                        <div class="export_btn" style="width: fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center; cursor: pointer; margin-right: 16px;">
                             <p style="margin: 0px 0px 16px 0px; font-size: 32px; font-weight: 700;">Export</p>
                         </div>
                     </div>
@@ -254,8 +254,6 @@
     </div>
     <div class="from_date-modal-container hidden">
         <div class="address-modal-content"  style="width: 500px;">
-            <form method="post" class="select-address-form">
-                {% csrf_token %}
                 <div class="form-header">
                     <div class="address_close-btn" style="display: flex; align-items: center;">
                         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
@@ -265,120 +263,156 @@
                     <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">From</h1>
                     <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">Choose a starting date</a>
                 </div>
-                <div class="addresses_content" style="margin-top: 32px; display: flex; justify-content: center; align-items: center;">
-                    <div class="datepicker__panel" style=" display: flex; background-color: white; justify-content: center;">
-                        <!--
-                        <div class="datepicker__header">
-                            <div class="datepicker__header__title">
-                                <strong class="text--strong fs-exclude">From</strong>
-                                <p class="text text--hint fs-exclude">Start of date range</p>
-                            </div>
-                            <button type="button" class="close--large datepicker__toggle--close"></button>
-                        </div> -->
-                        <div class="datepicker__main">
-                            <div class="datepicker__grid" style="display: flex; justify-content: center; margin-bottom: 10px;">
-                            <!--<div class="datepicker__filters"><div class="datepicker__filter--back">
-                                <svg class="svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
-                            </div>-->
-                            <div class="dropdown datepicker__filter--month fs-exclude" style="margin-right: 16px;">
-                                <span class="dropdown__toggle">Jun</span>
-                            </div>
-                            <div class="dropdown datepicker__filter--year fs-exclude">
-                                <span class="dropdown__toggle">2023</span>
-                            </div>
-                            <!--<div class="datepicker__filter--forward"><svg class="svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
-                            </div>-->
-                            </div>
-                        <table class="datepicker__month">
-                            <thead>
-                                <tr>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Sunday">SU</abbr>
-                                    </th>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Monday">MO</abbr>
-                                    </th>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Tuesday">TU</abbr>
-                                    </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Wednesday">WE</abbr>
-                                        </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Thursday">TH</abbr>
-                                        </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Friday">FR</abbr>
-                                        </th><th class="datepicker__week-day">
-                                            <abbr title="Saturday">SA</abbr>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="datepicker__day-grid">
-                                    <tr>
-                                        <td class="datepicker__day is-out-of-month">28</td>
-                                        <td class="datepicker__day is-out-of-month">29</td>
-                                        <td class="datepicker__day is-out-of-month">30</td>
-                                        <td class="datepicker__day is-out-of-month">31</td>
-                                        <td class="datepicker__day">1</td>
-                                        <td class="datepicker__day">2</td>
-                                        <td class="datepicker__day">3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">4</td>
-                                        <td class="datepicker__day">5</td>
-                                        <td class="datepicker__day">6</td>
-                                        <td class="datepicker__day">7</td>
-                                        <td class="datepicker__day">8</td>
-                                        <td class="datepicker__day">9</td>
-                                        <td class="datepicker__day">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">11</td>
-                                        <td class="datepicker__day">12</td>
-                                        <td class="datepicker__day">13</td>
-                                        <td class="datepicker__day">14</td>
-                                        <td class="datepicker__day">15</td>
-                                        <td class="datepicker__day">16</td>
-                                        <td class="datepicker__day">17</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">18</td>
-                                        <td class="datepicker__day is-selected">19</td>
-                                        <td class="datepicker__day">20</td>
-                                        <td class="datepicker__day">21</td>
-                                        <td class="datepicker__day">22</td>
-                                        <td class="datepicker__day">23</td>
-                                        <td class="datepicker__day">24</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">25</td>
-                                        <td class="datepicker__day">26</td>
-                                        <td class="datepicker__day">27</td>
-                                        <td class="datepicker__day">28</td>
-                                        <td class="datepicker__day">29</td>
-                                        <td class="datepicker__day">30</td>
-                                        <td class="datepicker__day is-out-of-month">1</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="calendar-container">
+                    <header class="calendar-header">
+                        <p class="calendar-current-date"></p>
+                        <div class="calendar-navigation">
+                            <span id="calendar-prev"
+                                  class="material-symbols-rounded">
+                                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb" style="rotate:180deg;"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                            </span>
+                            <span id="calendar-next"
+                                  class="material-symbols-rounded">
+                                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                            </span>
                         </div>
-                        <ul class="datepicker__quicklinks list--plain--vertical" style="list-style-type: none;">
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500; margin-bottom: 8px;">30 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">60 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">90 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">6 Months Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">1 Year Ago</li>
+                    </header>
+             
+                    <div class="calendar-body">
+                        <ul class="calendar-weekdays">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
                         </ul>
+                        <ul class="calendar-dates"></ul>
                     </div>
-                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Zm.8,12H7.2V7.2H8.8Zm0-6.4H7.2V4H8.8Z" fill="currentColor"/>
+                    </svg>
                 </div>
-            </form>
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Inter', sans-serif;
+                    }
+ 
+                    .calendar-container {
+                        background: #fff;
+                        width: 450px;
+                        border-radius: 10px;
+                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+                    }
+                    
+                    .calendar-container header {
+                        display: flex;
+                        align-items: center;
+                        padding: 25px 30px 10px;
+                        justify-content: space-between;
+                    }
+                    
+                    header .calendar-navigation {
+                        display: flex;
+                    }
+                    
+                    header .calendar-navigation span {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 38px;
+                        width: 38px;
+                        margin: 0 1px;
+                        cursor: pointer;
+                        text-align: center;
+                        line-height: 38px;
+                        border-radius: 10%;
+                        user-select: none;
+                        color: #aeabab;
+                        font-size: 1.9rem;
+                    }
+                    
+                    .calendar-navigation span:last-child {
+                        margin-right: -10px;
+                    }
+                    
+                    header .calendar-navigation span:hover {
+                        background: #f2f2f2;
+                    }
+                    
+                    header .calendar-current-date {
+                        font-weight: 500;
+                        font-size: 1.45rem;
+                    }
+                    
+                    .calendar-body {
+                        padding: 20px;
+                    }
+                    
+                    .calendar-body ul {
+                        list-style: none;
+                        flex-wrap: wrap;
+                        display: flex;
+                        text-align: center;
+                    }
+                    
+                    .calendar-body .calendar-dates {
+                        margin-bottom: 20px;
+                    }
+                    
+                    .calendar-body li {
+                        width: calc(100% / 7);
+                        font-size: 1.07rem;
+                        color: #414141;
+                    }
+                    
+                    .calendar-body .calendar-weekdays li {
+                        cursor: default;
+                        font-weight: 500;
+                    }
+                    
+                    .calendar-body .calendar-dates li {
+                        margin-top: 30px;
+                        position: relative;
+                        z-index: 1;
+                        cursor: pointer;
+                    }
+                    
+                    .calendar-dates li.inactive {
+                        color: #aaa;
+                    }
+                    
+                    .calendar-dates li.active {
+                        color: #fff;
+                    }
+                    
+                    .calendar-dates li::before {
+                        position: absolute;
+                        content: "";
+                        z-index: -1;
+                        top: 50%;
+                        left: 50%;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 10%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .calendar-dates li.active::before {
+                        background: #409B31;
+                    }
+                    
+                    .calendar-dates li:not(.active):hover::before {
+                        background: #e4e1e1;
+                    }
+                </style>
+        </div>
     </div>
-    <div class="to_date-modal-container hidden ">
+    <div class="to_date-modal-container hidden">
         <div class="address-modal-content"  style="width: 500px;">
-            <form method="post" class="select-address-form">
-                {% csrf_token %}
                 <div class="form-header">
                     <div class="address_close-btn" style="display: flex; align-items: center;">
                         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
@@ -388,116 +422,270 @@
                     <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">To</h1>
                     <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">Choose an ending date</a>
                 </div>
-                <div class="addresses_content" style="margin-top: 32px; display: flex; justify-content: center; align-items: center;">
-                    <div class="datepicker__panel" style=" display: flex; background-color: white; justify-content: center;">
-                        <!--
-                        <div class="datepicker__header">
-                            <div class="datepicker__header__title">
-                                <strong class="text--strong fs-exclude">From</strong>
-                                <p class="text text--hint fs-exclude">Start of date range</p>
-                            </div>
-                            <button type="button" class="close--large datepicker__toggle--close"></button>
-                        </div> -->
-                        <div class="datepicker__main">
-                            <div class="datepicker__grid" style="display: flex; justify-content: center; margin-bottom: 10px;">
-                            <!--<div class="datepicker__filters"><div class="datepicker__filter--back">
-                                <svg class="svg-icon" aria-labelledby="back-title" aria-hidden="false"><title id="back-title">back icon</title><use xlink:href="#back"></use></svg>
-                            </div>-->
-                            <div class="dropdown datepicker__filter--month fs-exclude" style="margin-right: 16px;">
-                                <span class="dropdown__toggle">Jun</span>
-                            </div>
-                            <div class="dropdown datepicker__filter--year fs-exclude">
-                                <span class="dropdown__toggle">2023</span>
-                            </div>
-                            <!--<div class="datepicker__filter--forward"><svg class="svg-icon" aria-labelledby="forward-title" aria-hidden="false"><title id="forward-title">forward icon</title><use xlink:href="#forward"></use></svg>
-                            </div>-->
-                            </div>
-                        <table class="datepicker__month">
-                            <thead>
-                                <tr>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Sunday">SU</abbr>
-                                    </th>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Monday">MO</abbr>
-                                    </th>
-                                    <th class="datepicker__week-day">
-                                        <abbr title="Tuesday">TU</abbr>
-                                    </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Wednesday">WE</abbr>
-                                        </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Thursday">TH</abbr>
-                                        </th>
-                                        <th class="datepicker__week-day">
-                                            <abbr title="Friday">FR</abbr>
-                                        </th><th class="datepicker__week-day">
-                                            <abbr title="Saturday">SA</abbr>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="datepicker__day-grid">
-                                    <tr>
-                                        <td class="datepicker__day is-out-of-month">28</td>
-                                        <td class="datepicker__day is-out-of-month">29</td>
-                                        <td class="datepicker__day is-out-of-month">30</td>
-                                        <td class="datepicker__day is-out-of-month">31</td>
-                                        <td class="datepicker__day">1</td>
-                                        <td class="datepicker__day">2</td>
-                                        <td class="datepicker__day">3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">4</td>
-                                        <td class="datepicker__day">5</td>
-                                        <td class="datepicker__day">6</td>
-                                        <td class="datepicker__day">7</td>
-                                        <td class="datepicker__day">8</td>
-                                        <td class="datepicker__day">9</td>
-                                        <td class="datepicker__day">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">11</td>
-                                        <td class="datepicker__day">12</td>
-                                        <td class="datepicker__day">13</td>
-                                        <td class="datepicker__day">14</td>
-                                        <td class="datepicker__day">15</td>
-                                        <td class="datepicker__day">16</td>
-                                        <td class="datepicker__day">17</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">18</td>
-                                        <td class="datepicker__day is-selected">19</td>
-                                        <td class="datepicker__day">20</td>
-                                        <td class="datepicker__day">21</td>
-                                        <td class="datepicker__day">22</td>
-                                        <td class="datepicker__day">23</td>
-                                        <td class="datepicker__day">24</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="datepicker__day">25</td>
-                                        <td class="datepicker__day">26</td>
-                                        <td class="datepicker__day">27</td>
-                                        <td class="datepicker__day">28</td>
-                                        <td class="datepicker__day">29</td>
-                                        <td class="datepicker__day">30</td>
-                                        <td class="datepicker__day is-out-of-month">1</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="calendar-container">
+                    <header class="calendar-header">
+                        <p class="calendar-current-date"></p>
+                        <div class="calendar-navigation">
+                            <span id="calendar-prev"
+                                  class="material-symbols-rounded">
+                                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb" style="rotate:180deg;"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                            </span>
+                            <span id="calendar-next"
+                                  class="material-symbols-rounded">
+                                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+                            </span>
                         </div>
-                        <ul class="datepicker__quicklinks list--plain--vertical" style="list-style-type: none;">
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500; margin-bottom: 8px;">30 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">60 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">90 Days Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">6 Months Ago</li>
-                            <li class="datepicker__quicklink" style="border: 1px solid rgb(232, 233, 235); padding:4px 16px; border-radius: 20px; font-size: 14.5px; font-weight: 500;  margin-bottom: 8px;">1 Year Ago</li>
+                    </header>
+             
+                    <div class="calendar-body">
+                        <ul class="calendar-weekdays">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
                         </ul>
+                        <ul class="calendar-dates"></ul>
                     </div>
-                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Zm.8,12H7.2V7.2H8.8Zm0-6.4H7.2V4H8.8Z" fill="currentColor"/>
+                    </svg>
                 </div>
-            </form>
-    </div>
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Inter', sans-serif;
+                    }
+ 
+                    .calendar-container {
+                        background: #fff;
+                        width: 450px;
+                        border-radius: 10px;
+                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+                    }
+                    
+                    .calendar-container header {
+                        display: flex;
+                        align-items: center;
+                        padding: 25px 30px 10px;
+                        justify-content: space-between;
+                    }
+                    
+                    header .calendar-navigation {
+                        display: flex;
+                    }
+                    
+                    header .calendar-navigation span {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 38px;
+                        width: 38px;
+                        margin: 0 1px;
+                        cursor: pointer;
+                        text-align: center;
+                        line-height: 38px;
+                        border-radius: 10%;
+                        user-select: none;
+                        color: #aeabab;
+                        font-size: 1.9rem;
+                    }
+                    
+                    .calendar-navigation span:last-child {
+                        margin-right: -10px;
+                    }
+                    
+                    header .calendar-navigation span:hover {
+                        background: #f2f2f2;
+                    }
+                    
+                    header .calendar-current-date {
+                        font-weight: 500;
+                        font-size: 1.45rem;
+                    }
+                    
+                    .calendar-body {
+                        padding: 20px;
+                    }
+                    
+                    .calendar-body ul {
+                        list-style: none;
+                        flex-wrap: wrap;
+                        display: flex;
+                        text-align: center;
+                    }
+                    
+                    .calendar-body .calendar-dates {
+                        margin-bottom: 20px;
+                    }
+                    
+                    .calendar-body li {
+                        width: calc(100% / 7);
+                        font-size: 1.07rem;
+                        color: #414141;
+                    }
+                    
+                    .calendar-body .calendar-weekdays li {
+                        cursor: default;
+                        font-weight: 500;
+                    }
+                    
+                    .calendar-body .calendar-dates li {
+                        margin-top: 30px;
+                        position: relative;
+                        z-index: 1;
+                        cursor: pointer;
+                    }
+                    
+                    .calendar-dates li.inactive {
+                        color: #aaa;
+                    }
+                    
+                    .calendar-dates li.active {
+                        color: #fff;
+                    }
+                    
+                    .calendar-dates li::before {
+                        position: absolute;
+                        content: "";
+                        z-index: -1;
+                        top: 50%;
+                        left: 50%;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 10%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                    .calendar-dates li.active::before {
+                        background: #409B31;
+                    }
+                    
+                    .calendar-dates li:not(.active):hover::before {
+                        background: #e4e1e1;
+                    }
+                </style>
+                <script>
+                    let date = new Date();
+                    let year = date.getFullYear();
+                    let month = date.getMonth();
+                    
+                    const day = document.querySelector(".calendar-dates");
+                    
+                    const currdate = document
+                        .querySelector(".calendar-current-date");
+                    
+                    const prenexIcons = document
+                        .querySelectorAll(".calendar-navigation span");
+                    
+                    // Array of month names
+                    const months = [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December"
+                    ];
+                    
+                    // Function to generate the calendar
+                    const manipulate = () => {
+                    
+                        // Get the first day of the month
+                        let dayone = new Date(year, month, 1).getDay();
+                    
+                        // Get the last date of the month
+                        let lastdate = new Date(year, month + 1, 0).getDate();
+                    
+                        // Get the day of the last date of the month
+                        let dayend = new Date(year, month, lastdate).getDay();
+                    
+                        // Get the last date of the previous month
+                        let monthlastdate = new Date(year, month, 0).getDate();
+                    
+                        // Variable to store the generated calendar HTML
+                        let lit = "";
+                    
+                        // Loop to add the last dates of the previous month
+                        for (let i = dayone; i > 0; i--) {
+                            lit +=
+                                `<li class="inactive">${monthlastdate - i + 1}</li>`;
+                        }
+                    
+                        // Loop to add the dates of the current month
+                        for (let i = 1; i <= lastdate; i++) {
+                    
+                            // Check if the current date is today
+                            let isToday = i === date.getDate()
+                                && month === new Date().getMonth()
+                                && year === new Date().getFullYear()
+                                ? "active"
+                                : "";
+                            lit += `<li class="${isToday}">${i}</li>`;
+                        }
+                    
+                        // Loop to add the first dates of the next month
+                        for (let i = dayend; i < 6; i++) {
+                            lit += `<li class="inactive">${i - dayend + 1}</li>`
+                        }
+                    
+                        // Update the text of the current date element
+                        // with the formatted current month and year
+                        currdate.innerText = `${months[month]} ${year}`;
+                    
+                        // update the HTML of the dates element
+                        // with the generated calendar
+                        day.innerHTML = lit;
+                    }
+                    
+                    manipulate();
+                    
+                    // Attach a click event listener to each icon
+                    prenexIcons.forEach(icon => {
+                    
+                        // When an icon is clicked
+                        icon.addEventListener("click", () => {
+                    
+                            // Check if the icon is "calendar-prev"
+                            // or "calendar-next"
+                            month = icon.id === "calendar-prev" ? month - 1 : month + 1;
+                    
+                            // Check if the month is out of range
+                            if (month < 0 || month > 11) {
+                    
+                                // Set the date to the first day of the
+                                // month with the new year
+                                date = new Date(year, month, new Date().getDate());
+                    
+                                // Set the year to the new year
+                                year = date.getFullYear();
+                    
+                                // Set the month to the new month
+                                month = date.getMonth();
+                            }
+                    
+                            else {
+                    
+                                // Set the date to the current date
+                                date = new Date();
+                            }
+                    
+                            // Call the manipulate function to
+                            // update the calendar display
+                            manipulate();
+                        });
+                    });
+                </script>
+        </div>
     </div>
 </div>
 <style>
@@ -600,7 +788,7 @@
     <div class="content-container">
         <div class="" style="margin: 16px; position: relative; display: flex; align-items: center;">
             <div class="" style=" position: absolute; right: 0; display: flex;">
-                <div class="" style="background-color: var(--grey); width: fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center; cursor: pointer; margin-right: 16px;">
+                <div class="export_btn" style="width: fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center; cursor: pointer; margin-right: 16px;">
                     <span style="font-size: 12px;color: var(--grey2); font-weight: 500;">Export</span>
                 </div>
                 <div class="create_statement-btn" style="background-color: var(--green); width: fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center; cursor: pointer;">
@@ -634,10 +822,19 @@
             <div class="" style="position: absolute; right: 0; margin-right: 10px; display: flex; align-items: center; ">
                 <div class="" style="margin-right: 40px; display: flex; align-items: center;"> 
                     <div class="">
-                        <input placeholder="From" style="margin-right: 0px;background-color: var(--grey);border: 1px solid rgb(232, 233, 235);padding: 4px 12px; border-radius: 7px 0px 0px 7px; width: 90px;">
+                        <input placeholder="From" onclick="
+                        document.querySelector('.modal').classList.toggle('hidden')
+                        document.querySelector('.from_date-modal-container').classList.toggle('hidden')
+                        document.querySelector('body').classList.toggle('fixed')
+
+                        " style="margin-right: 0px;background-color: var(--grey);border: 1px solid rgb(232, 233, 235);padding: 4px 12px; border-radius: 7px 0px 0px 7px; width: 90px;">
                     </div>
                     <div class="">
-                        <input placeholder="To" style="background-color: var(--grey);border: 1px solid rgb(232, 233, 235);padding: 4px 12px; border-radius: 0px 7px 7px 0px; width: 90px;">
+                        <input placeholder="To" onclick="
+                        document.querySelector('.modal').classList.toggle('hidden')
+                        document.querySelector('.to_date-modal-container').classList.toggle('hidden')
+                        document.querySelector('body').classList.toggle('fixed')
+                        "  style="background-color: var(--grey);border: 1px solid rgb(232, 233, 235);padding: 4px 12px; border-radius: 0px 7px 7px 0px; width: 90px;">
                     </div>
                     <div class="datepicker__panel" style=" display: none; position: absolute; background-color: white;">
                         <div class="datepicker__header">
@@ -910,7 +1107,7 @@
     .table-content tr{
         padding: 16px;
         color: var(--grey2 );
-
+        overflow: hidden;
     }
     .table-content tr a{
         position: absolute;
@@ -934,7 +1131,7 @@
         padding: 8px;
         column-gap: 0px;
         column-rule-width: 0px;
-       
+
         
     }
     table th:first-child{
@@ -949,16 +1146,18 @@
 
     td{
         border-top: 1px solid rgb(232, 233, 235);
-        border-bottom: 1px solid rgb(232, 233, 235);
+        overflow:hidden;
     }
     .table-content tbody tr:last-of-type td {border-bottom: none}
-    .table-content tbody tr:hover td {
-    background-color: #48634c0c;
-   }
    tbody tr td {
     position: relative;
    }
-
+   .export_btn:hover{
+        background-color: var(--grey);
+    }
+    tbody tr:hover td {
+    background-color: #48634c0c;
+   }
    
 
 </style>

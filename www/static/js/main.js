@@ -1,21 +1,8 @@
 import InstantSearch from "./InstantSearch.js";
 import ShoppingCart from "./ShoppingCart.js";
+import getCookie from "./csrftoken.js";
 
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+
 const csrftoken = getCookie('csrftoken');
 
 const searchBar = document.querySelector('.searchbar-container');
@@ -103,6 +90,7 @@ const searchInstance = new InstantSearch(searchBar,{
 });
 
 const getCartCount = () => {
+    const url  = new URL(new URL('shop/update-cart',window.location.origin).toString());
     return fetch(url,{
         method:'POST',
         headers:{
@@ -124,6 +112,4 @@ const getCartCount = () => {
         return results
     })
 }
-const itemTotal = getCartCount()
-console.log(itemTotal)
 
