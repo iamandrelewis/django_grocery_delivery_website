@@ -34,7 +34,7 @@ class ProductVarietie(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='variety')
     name = models.CharField(max_length=256)
     def __str__(self) -> str:
-        return f"{self.pk}{self.name} {self.product.name} "
+        return f"{self.pk} {self.name} {self.product.name} "
 
 class ProductImage(models.Model):
     product = models.ForeignKey(ProductVarietie,on_delete=models.CASCADE,related_name='image')

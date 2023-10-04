@@ -1,6 +1,8 @@
 import getCookie from "./csrftoken.js";
 import itemTotal from "./cart.js";
 import itemSearch from "./ItemSearch.js";
+import ReplacementCart from "./ReplacementCart.js";
+
 
 const csrftoken = getCookie('csrftoken');
 
@@ -19,7 +21,7 @@ class ShoppingCart {
         this.elements = {
             main: item,
             cart_items_input : document.querySelectorAll('.cart_item-container input'),
-            cart_item : document.querySelector('.cart_item-container')
+            cart_item : document.querySelector('.cart_item-container'),
         }            
         this.addListeners()
         
@@ -35,7 +37,6 @@ class ShoppingCart {
             })
         });
         this.elements.cart_items_input.forEach(element => {
-            console.log(element)
             element.addEventListener('input', (e) => {
                 const productInfo = this.getProduct(element.name)
                 console.log(e.target.id,e.target.value.length,e.target.value)
@@ -76,7 +77,6 @@ class ShoppingCart {
                             else{
                                 this.updateQuantity(element.dataset.item_id, 1)
                             }
-                           itemTotal()
                            window.location.reload()
                         },1200)
                  }
@@ -87,9 +87,10 @@ class ShoppingCart {
                 window.location.reload()
 
             })
-            const optionsMenuAddInstructionsButton = document.querySelector(`#id_more_options${element.dataset.item_id}-menu .add_note-option `)
+            const optionsMenuAddInstructionsButton = document.querySelector(`#id_more_options${element.dataset.item_id}-menu .add_note-option`)
             optionsMenuAddInstructionsButton.addEventListener('click',() => {
                 this.renderInstructionsModal(optionsMenuAddInstructionsButton.dataset.product)
+
             })
         })
     }
@@ -100,7 +101,9 @@ class ShoppingCart {
                 id
                 quantity
                 productGrade {
+                    id
                     product {
+                      id
                       name
                       product{
                         id
@@ -136,6 +139,7 @@ class ShoppingCart {
         }).then( responseData => {
             return Object.values(responseData.data)
         }).finally(results => {
+            console.log(results)
             return results
         })
     }
@@ -191,14 +195,16 @@ class ShoppingCart {
         }).then( responseData => {
             return responseData
         }).finally(results => {
+            console.log(results)
             return results
         })
 
     }
     renderInstructionsModal(ID){
+
         const productInfo = this.getProduct(ID).then(results => {
             const modal = `
-            <div class="add_notes-modal-container">
+            <div class="add_notes-modal-container" id=${results[0].productGrade.id}>
             <div class="add_notes-modal-content">
                     <div class="form-header">
     
@@ -206,7 +212,7 @@ class ShoppingCart {
     
                     <div class="product_details-container">
                         <div class="product" style="position: relative;">
-                            <a href="../products/${results[0].productGrade.product.product.id}" style="display: block; position: absolute; height: 100%; width: 100%;"></a>
+                            <a href="../products/${results[0].productGrade.product.product.id}${results[0].productGrade.product.id}" style="display: block; position: absolute; height: 100%; width: 100%;"></a>
                             <div class="">
                             <h5 style="margin: 0px;">Product Details</h5>
                             <p class="product_variety-modal" style="font-size: 12px; margin: 0px; font-weight: 500;">${results[0].productGrade.product.name}</p>
@@ -251,32 +257,42 @@ class ShoppingCart {
             </div>
     
             </div>`   
-            document.querySelector('.modal').innerHTML = modal;
 
+            document.querySelector('.modal').innerHTML = modal;
+            document.querySelector('.modal').classList.remove('hidden');
+            document.body.classList.add('fixed');
+        
+        let add_notes_modal = document.querySelector('.add_notes-modal-container')
         let registerModalClose = () =>{
             add_notes_modal.classList.toggle('hidden');
             document.querySelector('.modal').classList.toggle('hidden')
-            getBodyElement.classList.toggle('fixed')
+            getBodyElement.classList.remove('fixed')
         }
 
         let add_notes_save_btn = document.querySelector(`.note_save-btn`);
         let add_notes_cancel_btn = document.querySelector(`.note_forget-btn`);
 
         add_notes_cancel_btn.addEventListener('click',registerModalClose)
-        add_notes_save_btn.addEventListener('click',() =>{
+        add_notes_save_btn.addEventListener('click',() => {
             registerModalClose();
         });
 
-
+        const id = ID
         let replacement = document.querySelector('.replace_item-btn');
-        replacement.addEventListener('click',()=> this.renderReplacementModal(ID));
+        replacement.addEventListener('click',() => {
+            this.renderReplacementModal(ID);
+            const replace_item = new ReplacementCart({
+                cart_item_id: this.elements.cart_item.id,
+                searchURL: new URL('api', window.location.origin),
+                ID: id
+            });
         });
-        
+        });
 
     }
     renderReplacementModal(ID){
         document.querySelector('.modal').innerHTML = `
-        <div class="replacement-modal-container">
+        <div class="replacement-modal-container" id=${ID}>
         <div class="main_product-modal-content" style="    
         position: absolute;
         top: 0;
@@ -302,26 +318,7 @@ class ShoppingCart {
                     </svg>
                     <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
                 </div>
-                <div style="position: absolute; right:24px; background-color:var(--grey); top:0px; min-width:200px; border-radius: 10px; height:fit-content; border: 1px solid rgb(232,233,235);"> 
-                    <div style=" position:relative; padding:6px 16px; display:flex; align-items:center;">
-                        <div style ="margin-right:30px;">
-                            <p style=" margin:0px; font-size:11.5px; font-weight:600;">Bull Head</p>
-                            <p style=" margin:0px; font-size:13px;">Pineapple</p>
-                        </div>
-                        <div style="display:flex; border:1px solid rgb(232,233,235); border-radius:10px; overflow:hidden; height:fit-content; align-items:center;">
-                            <input type="number" style="font-weight:600; border:1px solid transparent; height:35px; width: 40px; outline:none; text-align:center;">
-                            <p style="margin:0px; margin-left: 12px; font-weight:600; margin-right:12px;">lb</p>
-                        </div>
-                        <div style="display:flex; align-items:center; margin-left: 20px; ">
-                            <div style="margin-right:4px; padding:8px 16px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor:pointer; position:relative; height:20px; width:10px;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" style=" position:absolute; top:0px; bottom:0px; right:0px; left:0px; margin:auto;"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
-                            </div>
-                            <div style="padding:8px 16px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor:pointer; position:relative; height:20px; width:10px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" style=" position:absolute; top:0px; bottom:0px; right:0px; left:0px; margin:auto;"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5A1.5 1.5 0 0 1 13.5 5v5.5H19a1.5 1.5 0 0 1 1.493 1.355L20.5 12a1.5 1.5 0 0 1-1.5 1.5h-5.5V19a1.5 1.5 0 0 1-1.355 1.493L12 20.5a1.5 1.5 0 0 1-1.5-1.5v-5.5H5a1.5 1.5 0 0 1-1.493-1.355L3.5 12A1.5 1.5 0 0 1 5 10.5h5.5V5a1.5 1.5 0 0 1 1.355-1.493L12 3.5Z"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <div class="" style="width: 100%; position: relative; padding: 24px; padding-top: 0px;">
@@ -388,11 +385,13 @@ class ShoppingCart {
                 </div>
             </div>
                 `
-            }
-        })
+            },
+            ID: ID,
+        });
+
         const replacement_back = document.querySelector('.replacement-modal-container .close-btn');
         replacement_back.addEventListener('click',() => this.renderInstructionsModal(ID));    
-    }
+    }   
     populateResults(results){
         itemTotal()
         while(this.elements.cart_item.firstChild){

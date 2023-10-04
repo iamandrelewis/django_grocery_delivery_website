@@ -20,6 +20,7 @@ const searchInstance = new GeneralSearch (searchBar,{
             <span></span>
             <div class="product-add" style="z-index:101;">
                 <button data-product="${result.id}" data-action="add" class="product_add-btn update-cart">
+                    <a href="/shop/green-produce/all" style="display:block; position:absolute; width:100%; height:100%; top:0px; left:0px;"></a>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5A1.5 1.5 0 0 1 13.5 5v5.5H19a1.5 1.5 0 0 1 1.493 1.355L20.5 12a1.5 1.5 0 0 1-1.5 1.5h-5.5V19a1.5 1.5 0 0 1-1.355 1.493L12 20.5a1.5 1.5 0 0 1-1.5-1.5v-5.5H5a1.5 1.5 0 0 1-1.493-1.355L3.5 12A1.5 1.5 0 0 1 5 10.5h5.5V5a1.5 1.5 0 0 1 1.355-1.493L12 3.5Z"></path>
                     </svg>
                 </button>            

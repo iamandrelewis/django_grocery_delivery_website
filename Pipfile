@@ -10,6 +10,7 @@ django-tailwind = {extras = ["reload"], version = "*"}
 graphene-django = "*"
 django-allauth = "*"
 phonenumbers = "*"
+stripe = "*"
 
 [dev-packages]
 

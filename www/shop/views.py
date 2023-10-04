@@ -5,7 +5,7 @@ from orders.models import Order,OrderItem
 from .models import ProductGrade
 import datetime
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponseBadRequest
 
 # Create your views here.
 @login_required(login_url='signin')
@@ -335,7 +335,7 @@ def buy_it_again(request):
     return render(request,'shop/buy_it_again/main.html')
 
 @login_required(login_url='signin')
-def product_details(request):
+def product_details(request, details=None,pk=None):
     if 'order_id' not in request.session:
         try:
             order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
@@ -348,8 +348,21 @@ def product_details(request):
         except Order.DoesNotExist:
             order = Order.objects.create(user=request.user)
             request.session['order_id'] = order.pk
+    try:
+        product = ProductGrade.objects.get(product__product_id=details,product_id=pk)
+        try:
+            orderitem = order.orderitem_set.get(product_grade__product_id=pk)
+            print(orderitem)
 
-    return render(request,'shop/product-details.html')
+        except:
+            orderitem = None
+            print(orderitem)
+    except ProductGrade.DoesNotExist:
+        return HttpResponseBadRequest(request)
+    return render(request,'shop/product-details.html',{
+        'product':product,
+        'order': orderitem
+    })
 
 
 def update_cart(request):

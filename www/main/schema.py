@@ -76,7 +76,15 @@ class Mutations(graphene.ObjectType):
 class Query(graphene.ObjectType):
     all_product_grades = graphene.List(ProductGradeType, search=graphene.String(), category=graphene.String())
     order_product_by_id = graphene.Field(OrderItemType,product=graphene.String(required=True),order=graphene.String(required=True))
+    product_by_id = graphene.Field(ProductGradeType,product=graphene.String(required=True))
 
+    def resolve_product_by_id(root,info,product,**kwargs):
+        try:
+            qs = ProductGrade.objects.get(id=product)
+        except ProductGrade.DoesNotExist:
+            qs = None
+        return qs
+    
     def resolve_order_product_by_id(root,info,product,order,**kwargs):
         try:
            qs = OrderItem.objects.get(product_grade_id=product,order_id=order)

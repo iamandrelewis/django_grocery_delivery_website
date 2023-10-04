@@ -67,7 +67,7 @@ class OrderItem(models.Model):
         return super(OrderItem,self).save(*args,**kwargs)
 
     def __str__(self) -> str:
-        return f"{self.order.transaction_id} {self.product} @ {self.product_grade.price} * {self.quantity} | {self.subtotal} {self.product_grade.price.currency} "
+        return f"{self.order.transaction_id}  {self.product_grade.product.name} {self.product_grade.product.product.name} @ {self.product_grade.price} * {self.quantity} | {self.subtotal} {self.product_grade.price.currency} "
 
 class OrderReplacement(models.Model):
     order_item = models.ForeignKey(OrderItem,on_delete=models.CASCADE)

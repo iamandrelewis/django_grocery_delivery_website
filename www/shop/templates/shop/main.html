@@ -89,62 +89,6 @@ color: var(--grey2);
             </form>
         </div>
     </div>
-    <div class="add_notes-modal-container hidden">
-        <div class="add_notes-modal-content">
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-header">
-
-                </div>
-
-                <div class="product_details-container">
-                    <div class="product" style="position: relative;">
-                        <a href="{% url 'product-details'%}" style="display: block; position: absolute; height: 100%; width: 100%;"></a>
-                        <div class="">
-                        <h5 style="margin: 0px;">Product Details</h5>
-                        <p class="product_variety-modal" style="font-size: 12px; margin: 0px; font-weight: 500;">White-stemmed</p>
-                        <p class="product_name-modal" style="font-size: 12px; margin: 0px; font-weight: 600;">Pak Choy</p>
-                        <p class="product_grade-modal" style="font-size: 12px; margin: 0px;">Grade <span id="modal_product-grade" style="font-weight: 500;">B</span></p>
-                        <p class="product_quantity-modal" style="font-size: 12px; margin: 0px;"><span class="qty_number-modal">50 </span><span class="product_unit-modal">lb.</span></p>
-                       
-                        </div>
-                        <div class="modal_arrow-container">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="var(--green)" size="16">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
-                                </svg>
-                            </div>
-                    </div>
-                    <div class="product_replacement-container">
-                        <h6 style="margin: 0px;">Your preferences</h6>
-                        <p class="product_quantity-modal">If out of stock...</p>
-                        <div class="product-replacement_item">
-                            <div class="replacement_actions-container">
-                                <div class="refund_item-btn">
-                                    <span>Refund</span>
-                                </div>
-                                <div class="replace_item-btn">
-                                    <span>Replace</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h4 class="add_note-heading">Add a note</h4>
-                <textarea class="additional_notes-textbox" placeholder="I would like..."></textarea>
-            </form>
-            <div class="add_notes-modal_actions-container">
-                
-                <div class="note_forget-btn">
-                    <span >Cancel</span>
-                </div>
-                <div class="note_save-btn">
-                    <span>Save</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
     <div class="main_product-modal-container hidden">
         <div class="main_product-modal-content" style="    
         position: absolute;
@@ -896,7 +840,7 @@ color: var(--grey2);
                     <div class="" style="position: relative;">
                         <div class="" style=" display: flex; overflow: hidden; align-items: center;">
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -914,7 +858,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -932,7 +876,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -950,7 +894,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -968,7 +912,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -986,7 +930,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1004,7 +948,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1022,7 +966,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1040,7 +984,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1058,7 +1002,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1076,7 +1020,7 @@ color: var(--grey2);
                                 </div>
                             </div>
                             <div class="" style="margin-right: 24px; position: relative;">
-                                <a href="{% url 'product-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                <a href=" " style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                 <div class="" style="width: 172px; height: 172px; background-color: var(--grey2); position: relative;">
                                     <span></span>
@@ -1222,7 +1166,90 @@ color: var(--grey2);
 
         const shipping_address_btn = document.querySelector('.account_address-container')
         const modal = document.querySelector('.modal')
-        const address_modal = document.querySelector('.address-modal-container')
+        
+        shipping_address_btn.addEventListener('click', ()=>{
+            document.querySelector('.modal').innerHTML = `
+            <div class="address-modal-container hidden">
+            <div class="address-modal-content">
+            <form method="post" class="select-address-form">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_close-btn" style="display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg" size="24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="" style="margin-left: 32px; margin-bottom: 0px;">Choose a drop-off</h1>
+                    <a style="margin-left: 32px; margin-bottom: 20px; font-size: 14px; color: var(--grey2); font-weight: 600; text-decoration: none;"href="">View delivery policy</a>
+                </div>
+                <div class="addresses_content">
+                    <ul class= "addresses_list">
+                        {% for address in request.user.useraddress_set.all %}
+                        <li class="addresses_list-item" id="{{address.pk}}">
+                            <div class="address_details-container">
+                                <div class="address_select">
+                                    <input type="radio" class="address_select-input" name="select" id="address{{address.pk}}" {% if address.default_status %}checked{% endif %}>
+                                </div>
+                                <div class="address_details">
+                                <h2 class="address_street" id="street{{address.pk}}">{{address.address_line1}}</h2>
+                                <p class="address_city" id="city{{address.pk}}">{{address.address_line2}}</p>
+                                <p class="address_parish" id="parish{{address.pk}}">{{address.parish}}</p>
+                                </div>
+                                <div class="edit_address-container">
+                                    <div class="edit_address-container">
+                                        <span class="edit_address">Edit</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+                <div class="address_add-btn">
+                        <span>+</span>
+                </div>
+            </form>
+            <form method="post" class=" add-address-form hidden">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="address_back-btn" style=" display: flex; align-items: center;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>                   
+                         </div>
+                    <h1 class="address_modal-title">Add a new address</h1>
+                </div>
+                <div class="" style="margin: 16px 0px;">
+                    <input type="text" placeholder="Street" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                    <input type="text" placeholder="City" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                    <select name="parish" id="" style="width: 100%; font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px;">
+                        <option class="hidden" value="">Parish</option>
+                        <option value="Saint Andrew">Saint Andrew</option>
+                        <option value="Saint Catherine"> Saint Catherine</option>
+                        <option value="Clarendon">Clarendon</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Saint Elizabeth">Saint Elizabeth</option>
+                        <option value="Westmoreland"> Westmoreland</option>
+                        <option value="Hanover">Hanover</option>
+                        <option value="Trelawny">Trelawny</option>
+                        <option value="Saint James">Saint James</option>
+                        <option value="Saint Ann">Saint Ann</option>
+                        <option value="Saint Mary">Saint Mary</option>
+                        <option value="Portland">Portland</option>
+                        <option value="Saint Thomas">Saint Thomas</option>
+                        <option value="Kingston">Kingston</option>
+                    </select>
+                    <p style="font-size: 10px; color: var(--grey2); margin: 0px; ">Disclaimer text should be included here</p>
+                </div>  
+                <div class="" style="position: absolute; bottom: 0px; width: 92%; margin-bottom: 10px;">
+                <button class="add-address_save" type="submit" style="width: 100%; font-size: 14px; font-weight: 600; padding: 8px; margin-bottom: 8px; border-radius: 10px; background-color: var(--green); color: #fff; outline: none; border: 1px solid var(--green); cursor: pointer;">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+            `
+            
+            const address_modal = document.querySelector('.address-modal-container')
         const getBodyElement = document.querySelector('body')
         const address_close_btn = document.querySelector('.address_close-btn')
         const address_list_items = document.querySelectorAll('.addresses_list-item')
@@ -1284,7 +1311,10 @@ color: var(--grey2);
 
 
         }
-        shipping_address_btn.addEventListener('click', renderAddressModal);
+            
+            renderAddressModal()
+        });
+        /*
         const add_notes_modal = document.querySelector('.add_notes-modal-container');
         const add_notes_cancel_btn = document.querySelector('.note_forget-btn');
         const add_notes_save_btn = document.querySelector('.note_save-btn');
@@ -1303,7 +1333,7 @@ color: var(--grey2);
                 replacement_modal.classList.toggle('hidden');
             }
         }
-        
+*/  
         const cart_options_btn = document.querySelectorAll('.more_options-btn')
         cart_options_btn.forEach((element,i)=>{
         let menu = document.querySelector(`#${element.id}-menu`);
@@ -1321,7 +1351,6 @@ color: var(--grey2);
             add_notes_save_btn.addEventListener('click',registerModalClose)
             }
         }
-
 
         element.addEventListener('click',()=>{
             let cart_options_menu_items = document.querySelectorAll(`#${element.id}-menu ul li`); 

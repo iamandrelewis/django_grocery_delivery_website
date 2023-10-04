@@ -13,7 +13,7 @@ const cartInstance = new ShoppingCart(updateCart,{
         return `
         <div class="cart_item-container" id="${result.order.id}">
             <div class="item-details" id="cart_details" style="position: relative;">
-                <a href="{% url 'product-details'%}" style=" display: block; position: absolute; width: 100%; height: 100%;"></a>
+                <a href="{% url 'product-details' %}" style=" display: block; position: absolute; width: 100%; height: 100%;"></a>
                 <p class="item-title" id="cart_product-title">{{item.product_grade.product.product.name}}</p>
                 <p class="item-unit" id="cart_product-unit">per {{item.product_grade.unit.unit}} ({{item.product_grade.unit.unit_abbr}}.)</p>
                 <div class="item-others">
@@ -40,7 +40,7 @@ const cartInstance = new ShoppingCart(updateCart,{
                         <span>Add instructions</span>
                     </li>
                     <li style="position: relative;">
-                        <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%;"></a>
+                        <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%; top:0px; left:0px;"></a>
                         <span>Edit product</span>
                     </li>
                     <li class="rmv_item-option" data-product="{{item.product_grade.id}}" data-action="remove">
@@ -63,7 +63,7 @@ const searchInstance = new InstantSearch(searchBar,{
     },
     templateFunction: (result) => {
         return `<div class="product_card-container" style="position: relative;">
-        <a href="../../shop/products/${result.product.product.id}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
+        <a href="../../shop/products/${result.product.product.id}${result.product.id}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>
         <div class="product-img">
             <span></span>
             <div class="product-add">

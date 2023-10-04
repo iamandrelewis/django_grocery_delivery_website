@@ -104,65 +104,65 @@ class GeneralSearch{
         this.elements.resultsContainer.removeChild(this.elements.resultsContainer.firstChild)
       }
       this.elements.resultsContainer.innerHTML +=`
-      <div class="productCategory-wrapper" style="border-bottom: 1px solid  rgb(232, 233, 235); border-top: 1px solid  rgb(232, 233, 235); padding:  12px 32px 12px 32px; position: relative; overflow: hidden; overflow-x: auto; display: flex; align-items: center; width: max-content; ">
-      <div class="productCategory-container" style="display: flex; overflow-y: hidden; overflow-x: auto; flex-wrap: nowrap;">
-          <div class="category_selector-btn ${activeCategory == "" ? "is_active":""}" data-product_category="" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+      <div class="productCategory-wrapper" style="border-bottom: 1px solid  rgb(232, 233, 235); border-top: 1px solid  rgb(232, 233, 235); padding:  12px 32px 12px 32px; position: relative; overflow: hidden; overflow-x: auto; display: flex; align-items: center; width: 100%; ">
+      <div class="productCategory-container" style="display: flex;  overflow-x: hidden; flex-wrap: nowrap; width: 90%; ">
+          <div class="category_selector-btn ${activeCategory == "" ? "is_active":""}" data-product_category=""  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   All
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Green Produce" ? "is_active":""}" data-product_category="Green Produce" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Green Produce" ? "is_active":""}" data-product_category="Green Produce"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Green Produce
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Vegetables" ? "is_active":""}" data-product_category="Vegetables" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Vegetables" ? "is_active":""}" data-product_category="Vegetables"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Vegetables
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory =="Fruits" ? "is_active":""}" data-product_category="Fruits" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory =="Fruits" ? "is_active":""}" data-product_category="Fruits"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Fruits
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Herbs & Spices" ? "is_active":""}" data-product_category="Herbs & Spices" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Herbs & Spices" ? "is_active":""}" data-product_category="Herbs & Spices"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                  Herbs & Spices
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Tubers & Provisions" ? "is_active":""}" data-product_category="Tubers & Provisions" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Tubers & Provisions" ? "is_active":""}" data-product_category="Tubers & Provisions"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                  Tubers & Provisions
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Nuts & Grains" ? "is_active":""}" data-product_category="Nuts & Grains" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Nuts & Grains" ? "is_active":""}" data-product_category="Nuts & Grains"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                  Nuts & Grains
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Meats" ? "is_active":""}" data-product_category="Meats" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Meats" ? "is_active":""}" data-product_category="Meats"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                  Meats
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Poultry" ? "is_active" : ""}" data-product_category="Poultry" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Poultry" ? "is_active" : ""}" data-product_category="Poultry"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Poultry
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Lean Meats" ? "is_active":""}" data-product_category="Lean Meats" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Lean Meats" ? "is_active":""}" data-product_category="Lean Meats"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Lean Meats
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Fish & Seafood" ? "is_active":""}" data-product_category="Fish & Seafood" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Fish & Seafood" ? "is_active":""}" data-product_category="Fish & Seafood"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Fish & Seafood
               </div>
           </div>
-          <div class="category_selector-btn ${activeCategory == "Deli" ? "is_active":""}" data-product_category="Deli" style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: fit-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
-              <div style="font-size: 14px; font-weight: 600; text-align: center; overflow: hidden; text-overflow: ellipsis; word-wrap: nowrap; display: flex; align-items: center;"> 
+          <div class="category_selector-btn ${activeCategory == "Deli" ? "is_active":""}" data-product_category="Deli"  style="border-radius: 14px; border: 1px solid rgb(232, 233, 235); width: max-content;  padding: 8px 14px; height: 20px; position: relative; display: flex; align-items: center; justify-content: center; margin-right: 12px; ">
+              <div style="font-size: 14px; font-weight: 600; text-align: center; display: flex; align-items: center; width: max-content;"> 
                   Deli
               </div>
           </div>
@@ -205,48 +205,8 @@ class GeneralSearch{
       const cartInstance = new ShoppingCart(document.querySelectorAll('.update-cart'),{
         searchURL: new URL('api',window.location.origin),
         templateFunction:(result) => {
-            return `
-            <div class="cart_item-container" id="${result.order.id}">
-                <div class="item-details" id="cart_details" style="position: relative;">
-                    <a href="{% url 'product-details'%}" style=" display: block; position: absolute; width: 100%; height: 100%;"></a>
-                    <p class="item-title" id="cart_product-title">{{item.product_grade.product.product.name}}</p>
-                    <p class="item-unit" id="cart_product-unit">per {{item.product_grade.unit.unit}} ({{item.product_grade.unit.unit_abbr}}.)</p>
-                    <div class="item-others">
-                        <p class="item-variety" id="cart_product-variety">{{item.product_grade.product.name}}</p>
-                        <p class="item-grade" id="cart_product-grade">Grade {{item.product_grade.grade}}</p>
-                    </div>
-                </div>
-                <div class="item_price-container" style="width: fit-content; display: flex; align-items: center;" >
-                    <input type="number" name="{{item.product_grade.id}}" id="id_product_qty{{forloop.counter0}}" data-id="{{forloop.counter0}}" data-item_id="{{item.id}}" value="{{item.quantity}}" class="cart-input" style="width: 25px; height: 30px;">
-                    <span style="font-weight: 600; font-size: 12.5px; margin-right: 8px;">{{item.product_grade.unit.unit_abbr}}</span>
-                </div>
-                <div class="item_price-container">
-                    <p class="currency">J$</p>
-                    <input type="number" name="{{item.product_grade.id}}" id="id_product_price{{forloop.counter0}}" data-id="{{forloop.counter0}}" data-item_id="{{item.id}}" value="{{item.subtotal|floatformat:2}}" class="cart-input">
-                </div>
-                <div class="item_actions">
-                    <button id="id_more_options{{item.id}}" class="more_options-btn">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="# 343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                    </button>
-                    <div id="id_more_options{{item.id}}-menu" class="more_options-menu hidden">
-                    <ul>
-
-                        <li class="add_note-option" data-product="{{item.product_grade.id}}">
-                            <span>Add instructions</span>
-                        </li>
-                        <li style="position: relative;">
-                            <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%;"></a>
-                            <span>Edit product</span>
-                        </li>
-                        <li class="rmv_item-option" data-product="{{item.product_grade.id}}" data-action="remove">
-                            <span>Remove</span>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-            `
-        }
+            return ``
+        },
       });
     }
     performSearch(query){
