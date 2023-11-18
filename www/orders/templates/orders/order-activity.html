@@ -296,8 +296,6 @@
                 </div>
                 <style>
                     * {
-                        margin: 0;
-                        padding: 0;
                         font-family: 'Inter', sans-serif;
                     }
  
@@ -455,8 +453,6 @@
                 </div>
                 <style>
                     * {
-                        margin: 0;
-                        padding: 0;
                         font-family: 'Inter', sans-serif;
                     }
  
@@ -756,12 +752,10 @@
         <div class=""><span></span></div>
         <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
     </div>
-    {% if request.user.is_staff %}
     <div class="page_container">
         <div class=""><span></span></div>
-        <a class="product-page" href="{% url 'delivery-map'%}">Delivery Map</a>
+        <a class="product-page" href="{% url 'delivery-map'%}">Reports</a>
     </div>
-    {% endif %}
     <hr>
     <div class="page_container">
         <div class=""><span></span></div>

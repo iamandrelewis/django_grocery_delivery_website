@@ -11,6 +11,7 @@ graphene-django = "*"
 django-allauth = "*"
 phonenumbers = "*"
 stripe = "*"
+sinch = "*"
 
 [dev-packages]
 

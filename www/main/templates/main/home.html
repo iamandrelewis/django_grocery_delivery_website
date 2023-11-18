@@ -91,7 +91,7 @@
                     <div style="height: fit-content; position: relative; padding: 16px 64px; bottom: 16px;">
                         <p style=" font-weight: 700; font-size: 14.5px;">Products</p>
                         <div> </div>
-                        <div class="productsContainer" style=" display: flex; flex-wrap: wrap; align-items: center; position: relative;  width: 1220px;">
+                        <div class="productsContainer" style=" display: flex; flex-wrap: wrap; align-items: center; position: relative;  width: 100%;">
                             {% for product in products %}
                             <div class="product_card-container" style="position: relative;">
                                 <a href="{% url 'product-details' product.product.product.id product.product.id %}" style="display: block; width: 100%; height: 100%; position: absolute; z-index: 100;"></a>
@@ -344,11 +344,10 @@
         <div class="things-can_do-container" style="padding: 32px;">
             <span style="font-weight: 600; font-size: 22.5px;">Things you can do</span>
             <ul style="list-style-type: none; padding: 0px; margin-top: 36px; color: var(--grey2); font-weight: 500;">
-                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px; ">Lorem, ipsum.</li>
-                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px;">Non, aspernatur.</li>
-                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px;">Ipsum, officiis.</li>
-                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px;">Possimus, officia.</li>
-                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); border-bottom: 1px solid rgb(232, 233, 235); padding: 8px;">Aliquam, quam.</li>
+                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px; cursor: pointer; ">Add a collaborator</li>
+                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px; cursor: pointer;">Create a recurring order</li>
+                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px; cursor: pointer;">Create an account statement</li>
+                <li style="margin-bottom: 4px; border-top: 1px solid rgb(232, 233, 235); padding: 8px; cursor: pointer;">Make a suggestion</li>
             </ul>
         </div>
     </div>
@@ -387,7 +386,7 @@
 
                         <div class="" style="width: 1150px; height: 172px; background-color: #fff; border: 1px solid rgb(232, 233, 235); position: relative; border-radius: 20px;">
                             <div style="padding: 32px;">
-                            <span style="font-weight: 600; font-size: 20px;">Lorem, ipsum.</span>
+                            <span style="font-weight: 600; font-size: 20px;">Upgrade to premium.</span>
                             <p style="width: 300px; margin-top: 8px; font-size: 14.5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum accusantium quas, quasi tempora corporis consequuntur magni.</p>
                             </div>
                         </div>
@@ -407,7 +406,7 @@
             <div class="">
                 <p style="font-size: 24px; font-weight: 700; width: 350px; margin: 0px; margin-top: 72px; ">Build your store credit</p>
                 <p style="font-size: 14px; max-width: 550px; margin: 8px 0px; margin-bottom: 24px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque soluta quod cum eius, similique asperiores in commodi, adipisci aspernatur fuga saepe labore voluptates ab ea, quaerat accusantium obcaecati vero! Laborum rerum perferendis consequatur vel quas distinctio facere tempora delectus blanditiis nisi doloribus illum doloremque quod atque architecto nobis, earum ad commodi quis, magnam repellendus et pariatur dolore. Consequuntur minus labore delectus aliquam iusto sequi!</p>
-                <a href="" style="background-color: var(--grey); padding: 6px 32px; border: 1px solid rgb(232, 233, 235); border-radius: 7px; text-decoration: none; font-size: 14px; color: var(--black); padding-left: 16px;">Learn more</a>
+                <a href="{% url 'store-credit'%}" style="background-color: var(--grey); padding: 6px 32px; border: 1px solid rgb(232, 233, 235); border-radius: 7px; text-decoration: none; font-size: 14px; color: var(--black); padding-left: 16px;">Learn more</a>
             </div>
             <div class="">
                 <span></span>

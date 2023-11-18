@@ -11,7 +11,9 @@
     --night-mode_text-theme1:#d7d7db;
 
 }
-
+.stg_option{
+    cursor: pointer;
+}
 body,html
 {
     width: 100%;
@@ -952,6 +954,7 @@ justify-content: center;
 .address_details h2{
     font-size: 12px;
     margin: 0px;
+    max-width: 200px;
 }
 .edit_address-container{
     position: absolute; 

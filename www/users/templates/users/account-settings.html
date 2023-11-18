@@ -8,7 +8,334 @@ color:var(--grey2);
 {% endblock %}
 
 {% block modal %}
-<div class="backdrop hidden" style=" position: fixed; height: 100vh; width: 100vw; background-color: rgba(0, 0, 0, 0.16); z-index: 203;"></div>
+<div class="backdrop hidden  " style=" position: fixed; height: 100vh; width: 100vw; background-color: rgba(0, 0, 0, 0.16); z-index: 203;">
+
+    <div class=" add_team-container hidden " style="background-color: #fff; width: 900px; height: 600px; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px; margin: auto; border-radius: 14px; overflow: hidden;">
+            <div style=" height: 100%; display: flex;">
+                <div style=" width: 800px; background-color: var(--grey2); height: 100%; position: relative;">
+                    <span></span>
+                    <div class="close-btn" style=" position: absolute; cursor: pointer; background-color: #fff; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; top: 20px; left: 20px;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>
+                        <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                    </div>
+                </div>
+                <div style="padding: 32px; width: calc(100% - 112px); margin-left: 40px; position: relative;">
+                    <p style="margin: 0px; margin-bottom: 4px; margin-top: 80px;  font-size: 28px; font-weight: 700;">Grow your team!</p>
+                    <p style="margin: 0px; margin-bottom: 50px; font-size: 14.5px;">Bring your team, unlock rewards together!<br> Enjoy all the benefits in your group, max 6 members.</p>
+                    <p style="font-size: 18px; font-weight: 600;">Invite member</p>
+                    <div style="position: relative;">
+                        <input type="email" placeholder="Email address" style="padding: 10.5px 24px 10.5px 12px; width: calc(100% - 72px); border-radius: 10px; outline: none; border: 1px solid rgba(0, 0, 0, 0.16);">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="rgba(0, 0, 0, 0.16);" xmlns="http://www.w3.org/2000/svg" style="position:absolute; bottom:0px; top:0px;  right: 44px; margin:auto;">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>        
+    </div>
+    <div class="edit_name-container hidden " style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px;  position: absolute; background-color: #fff; border-radius: 14px; height: 300px; width: 450px; padding: 16px ; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_nme-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; cursor: pointer; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit name</p>
+        </div>
+        <div class="edit_nme" style="display: flex; flex-direction: column;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">First Name</p>
+                <input type="text" name="first_name" value="{{request.user.first_name}}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;" required>
+            </div>
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Last Name</p>
+                <input type="text" name="last_name" value="{{request.user.last_name}}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+            </div>
+        </div>
+        <div class="edit_name-footer" style="display: flex; align-items: center; position: relative; margin-top: 60px; height: 20px; ">
+            <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+            </div>
+        </div>
+    </div>
+    <div class="edit_gender-container hidden  " style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px; position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_gndr-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; cursor: pointer; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit gender</p>
+        </div>
+        <div class="edit_gndr" style="display: flex; flex-direction: column; position: relative;">
+            <div style="position: relative; height: max-content;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Gender</p>
+                    {% if request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %}
+                        <input type="text" name="gender" value="{% if request.user.gender == None or '' %}No gender added {% else %}{{request.user.gender}}{% endif %}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+                    {% else %}
+                        <div class="" style="font-size: 18px; margin-left: 10px; margin: 25px 0px 10px 10px; position: relative;">
+                            <p style="margin: 0px;">{{request.user.gender}}</p>
+                        </div>
+                    {% endif%}
+
+                <div style=" position: absolute; right: 10px; top: 0px; bottom: 0px; margin: auto;"> 
+                    <svg class="bag-atn_arr" style="position: absolute; right:0px; top:0px; bottom:0px; margin:auto; transform:rotate(180deg)" width="24" height="24" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.829 15.437a1.5 1.5 0 0 0 2.342 0l4-5C17.957 9.455 17.258 8 16 8H8c-1.258 0-1.957 1.455-1.171 2.437l4 5Z"></path></svg>                </div>
+            </div>
+            <div  class="" style="position: absolute; z-index: 200; height: max-content; width: calc(100% - 14px); {% if request.user.gender == None or '' %} bottom:-196px; {% else %}bottom: -150px;{% endif %} background-color: #fff; border: 1px solid var(--grey); padding: 4px 6px; border-radius: 10px;">
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.gender == 'Male'%}Female {% else %}Male{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.gender == 'Rather not say' %}Female {% elif request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %} Female {% else %}Rather not say{% endif%}</div>
+                <div style="margin: 4px 0px 2px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %}Rather not say {% else %}Custom{% endif%}</div>
+                {% if request.user.gender == None or '' %}<div style="margin: 4px 0px 2px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">Custom</div>{% endif %}
+            </div>
+            </div>
+
+        </div>
+        <div class="edit_gndr-footer" style="display: flex; align-items: center; position: relative; margin-top: 85px; height: 20px;">
+            <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+            </div>
+        </div>
+            </div>
+        <div>
+    </div>
+
+    <div class="edit_password-container hidden  " style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px;  position: absolute; background-color: #fff; border-radius: 14px; height: 410px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_pswd-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Change password</p>
+        </div>
+        <div class="edit_pswd" style="display: flex; flex-direction: column;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">New Password</p>
+                <input type="password" name="new_password" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;" required>
+            </div>
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 30px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Confirm New Password </p>
+                <input type="password" name="new_password_confirm"  style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+            </div>
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Current Password</p>
+                <input type="password" name="current_password" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+            </div>
+        </div>
+        <div class="edit_pswd-footer" style="display: flex; align-items: center; position: relative; margin-top: 80px; height: 20px;">
+                <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                    <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+                </div>
+        </div>
+    </div>
+
+    
+    <div class="edit_email-container hidden " style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px;  position: absolute; background-color: #fff; border-radius: 14px; height: 410px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_eml-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit email address</p>
+        </div>
+        <div class="edit_eml" style="display: flex; flex-direction: column;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Email Address</p>
+                <input type="email" value="{{request.user.email}}" name="new_email" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;" required>
+            </div>
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 30px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Email Address Confirm</p>
+                <input type="email" name="new_email_confirm"  style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+            </div>
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Current Password</p>
+                <input type="password" name="current_password" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+            </div>
+        </div>
+        <div class="edit_eml-footer" style="display: flex; align-items: center; position: relative; margin-top: 80px; height: 20px; ">
+                <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                    <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+                </div>
+        </div>
+    </div>
+
+    <div class="edit_phone-container hidden" style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px; position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_phn-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit phone number</p>
+        </div>
+        <div class="edit_phn" style="display: flex; flex-direction: column; position: relative;">
+            <div style="position: relative; height: max-content;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px; display: flex;">
+                <div style="display: flex; position: relative; width: 60px; align-items: center; margin-left: 20px; border-right: 1px solid var(--grey) ;">
+                    <span style="font-size: 18px; font-weight: 600; color: var(--grey2);">+</span>
+                    <span style="font-size: 18px; font-weight: 600; color: var(--grey2);">1</span>
+                    <div style=" position: absolute; right: 10px; top: 0px; bottom: 0px; margin: auto;"> 
+                        <svg class="bag-atn_arr" style="position: absolute; right:0px; top:0px; bottom:0px; margin:auto; transform:rotate(180deg)" width="24" height="24" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.829 15.437a1.5 1.5 0 0 0 2.342 0l4-5C17.957 9.455 17.258 8 16 8H8c-1.258 0-1.957 1.455-1.171 2.437l4 5Z"></path></svg>                
+                    </div>
+                </div>
+                <div style="position: relative;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Phone number</p>
+                <input type="tel" name="phone_number" value="{{request.user.phone_number}}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+                </div>
+
+
+            </div>
+            <div  class="" style="position: absolute; z-index: 200; height: max-content; width: calc(100% - 14px); height: 140px; overflow: hidden; overflow-y: auto; bottom: -150px; background-color: #fff; border: 1px solid var(--grey); padding: 4px 6px; border-radius: 10px;">
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">United States of America <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">United Kingdom <div style="position: absolute; right: 10px;  margin: auto;">+44</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">Canada <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">Jamaica <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+            </div>
+            </div>
+
+        </div>
+        <div class="edit_phn-footer" style="display: flex; align-items: center; position: relative; margin-top: 80px; height: 20px;">
+            <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+    <div class="edit_sec_phone-container hidden" style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px; position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_sec_phn-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey); cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit secondary phone</p>
+        </div>
+        <div class="edit_sec_phn" style="display: flex; flex-direction: column; position: relative;">
+            <div style="position: relative; height: max-content;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px; display: flex;">
+                <div style="display: flex; position: relative; width: 60px; align-items: center; margin-left: 20px; border-right: 1px solid var(--grey) ;">
+                    <span style="font-size: 18px; font-weight: 600; color: var(--grey2);">+</span>
+                    <span style="font-size: 18px; font-weight: 600; color: var(--grey2);">1</span>
+                    <div style=" position: absolute; right: 10px; top: 0px; bottom: 0px; margin: auto;"> 
+                        <svg class="bag-atn_arr" style="position: absolute; right:0px; top:0px; bottom:0px; margin:auto; transform:rotate(180deg)" width="24" height="24" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.829 15.437a1.5 1.5 0 0 0 2.342 0l4-5C17.957 9.455 17.258 8 16 8H8c-1.258 0-1.957 1.455-1.171 2.437l4 5Z"></path></svg>                
+                    </div>
+                </div>
+                <div style="position: relative;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Phone number</p>
+                <input type="tel" name="sec_phone_number" value="{% if request.user.secondary_phone == None or '' %}No secondary phone{% else %}{{request.user.secondary_phone}}{% endif %}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+                </div>
+
+
+            </div>
+            <div  class="" style="position: absolute; z-index: 200; height: max-content; width: calc(100% - 14px); height: 140px; overflow: hidden; overflow-y: auto; bottom: -150px; background-color: #fff; border: 1px solid var(--grey); padding: 4px 6px; border-radius: 10px;">
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">United States of America <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">United Kingdom <div style="position: absolute; right: 10px;  margin: auto;">+44</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">Canada <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235); position: relative; display: flex;">Jamaica <div style="position: absolute; right: 10px;  margin: auto;">+1</div></div>
+            </div>
+            </div>
+
+        </div>
+        <div class="edit_sec_phn-footer" style="display: flex; align-items: center; position: absolute; bottom: 32px; height: 20px; right: 32px; ">
+            <div style="background-color: var(--green); color: #fff; font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; padding: 12px 32px; margin-right: 10px;">Save</div>
+            <div style="font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; color: var(--grey2); padding: 12px 32px; background-color:var(--grey);">Cancel</div>
+    </div>
+            </div>
+        <div>
+    </div>
+
+    <div class="edit_preferred_method-container hidden" style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px; position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_prfrd_mthd-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey); cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit preferred method</p>
+        </div>
+        <div class="edit_prfrd_mthd" style="display: flex; flex-direction: column; position: relative;">
+            <div style="position: relative; height: max-content;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Preferred Method</p>
+                        <div class="" style="font-size: 18px; margin-left: 10px; margin: 25px 0px 10px 10px; position: relative;">
+                            <p style="margin: 0px;">{% if request.user.preferred_method == None or '' %}No preferred method{% else %}{{request.user.preferred_method}}{% endif %}</p>
+                        </div>
+
+                <div style=" position: absolute; right: 10px; top: 0px; bottom: 0px; margin: auto;"> 
+                    <svg class="bag-atn_arr" style="position: absolute; right:0px; top:0px; bottom:0px; margin:auto; transform:rotate(180deg)" width="24" height="24" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.829 15.437a1.5 1.5 0 0 0 2.342 0l4-5C17.957 9.455 17.258 8 16 8H8c-1.258 0-1.957 1.455-1.171 2.437l4 5Z"></path></svg>                </div>
+            </div>
+            <div  class="" style="position: absolute; z-index: 200; height: max-content; width: calc(100% - 14px); {% if request.user.preferred_method == None or '' %} bottom:-150px; {% else %}bottom: -105px;{% endif %} background-color: #fff; border: 1px solid var(--grey); padding: 4px 6px; border-radius: 10px;">
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.preferred_method == 'SMS'%}WhatsApp {% else %}SMS{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.preferred_method  == 'WhatsApp' or request.user.preferred_method  == 'SMS' %}Email {% else %}WhatsApp{% endif%}</div>
+                {% if request.user.preferred_method == None or request.user.preferred_method  == ''%}<div style="margin: 4px 0px 2px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">Email</div>{% endif%}
+            </div>
+            </div>
+
+        </div>
+        <div class="edit_prfrd_mthd-footer" style="display: flex; align-items: center; position: absolute; bottom: 32px; height: 20px; right: 32px; ">
+            <div style="background-color: var(--green); color: #fff; font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; padding: 12px 32px; margin-right: 10px;">Save</div>
+            <div style="font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; color: var(--grey2); padding: 12px 32px; background-color:var(--grey);">Cancel</div>
+    </div>
+            </div>
+        <div>
+    </div>
+
+    <div class="edit_business_name-container hidden" style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px;  position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_bsns_nme-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey); cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit business name</p>
+        </div>
+        <div class="edit_bsns_nme" style="display: flex; flex-direction: column;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Business Name</p>
+                <input type="text" name="business_name" value="{{request.user.userbusiness_set.first.business_name}}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;" required>
+            </div>
+        </div>
+        <div class="edit_bsns_name-footer" style="display: flex; align-items: center; position: relative; margin-top: 80px; height: 20px; ">
+            <div style="position: absolute; right: 0px; display: flex; align-items: center; width: 100%;">
+                <div style=" cursor: pointer; background-color: var(--green); color: #fff; font-weight: 600; font-size: 14.5px; border-radius: 14px; width: 100%; padding: 12px 32px;">Save</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit_business_category-container hidden" style=" box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 16px; position: absolute; background-color: #fff; border-radius: 14px; height: 260px; width: 450px; padding: 16px; top: 0px; left: 0px; bottom: 0px; right: 0px; margin: auto;">
+        <div class="edit_bsns_catgy-header" style="position: relative; display: flex; justify-content: center; margin: 6px 0px 50px 0px;">
+            <div class="close-btn" style="display: flex; align-items: center; justify-content: center; border: 1px solid rgb(232,233,235); position: absolute; left:0px; top:0px; bottom:0px; margin:auto; padding: 16px 8px; border-radius: 10px; background-color: var(--grey); cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#343538"  xmlns="http://www.w3.org/2000/svg" size="24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.06 4.94a1.5 1.5 0 0 1 0 2.12L14.122 12l4.94 4.94a1.5 1.5 0 0 1 .103 2.007l-.103.114a1.5 1.5 0 0 1-2.122 0L12 14.12l-4.94 4.94a1.5 1.5 0 0 1-2.12-2.122L9.878 12l-4.94-4.94a1.5 1.5 0 0 1-.103-2.007l.103-.114a1.5 1.5 0 0 1 2.122 0L12 9.88l4.94-4.94a1.5 1.5 0 0 1 2.12 0Z"></path></svg>
+            </div>
+            <p style="font-size: 18px; font-weight: 600; margin: 0px;">Edit business category</p>
+        </div>
+        <div class="edit_bsns_catgy" style="display: flex; flex-direction: column; position: relative;">
+            <div style="position: relative; height: max-content;">
+            <div class="" style="border-radius: 10px; border: 1px solid var(--grey); position: relative; overflow: hidden; margin-bottom: 10px;">
+                <p style="position: absolute; top: 10px; margin: 0px; left: 10px; font-size: 11px;">Category</p>
+                    {% if request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %}
+                        <input type="text" name="gender" value="{% if request.user.gender == None or '' %}No gender added {% else %}{{request.user.gender}}{% endif %}" style=" font-size: 18px;  border: 1px solid transparent; outline: none; padding: 8px; margin-top: 20px; width: 100%;">
+                    {% else %}
+                        <div class="" style="font-size: 18px; margin-left: 10px; margin: 25px 0px 10px 10px; position: relative;">
+                            <p style="margin: 0px;">{{request.user.userbusiness_set.first.business_category}}</p>
+                        </div>
+                    {% endif%}
+
+                <div style=" position: absolute; right: 10px; top: 0px; bottom: 0px; margin: auto;"> 
+                    <svg class="bag-atn_arr" style="position: absolute; right:0px; top:0px; bottom:0px; margin:auto; transform:rotate(180deg)" width="24" height="24" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.829 15.437a1.5 1.5 0 0 0 2.342 0l4-5C17.957 9.455 17.258 8 16 8H8c-1.258 0-1.957 1.455-1.171 2.437l4 5Z"></path></svg>                </div>
+            </div>
+            <div  class="" style="position: absolute; z-index: 200; height: max-content; width: calc(100% - 14px); overflow: hidden; height: 145px; overflow-y: auto; bottom: -150px; background-color: #fff; border: 1px solid var(--grey); padding: 4px 6px; border-radius: 10px;">
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Restaurant'%}Canteen {% else %}Restaurant{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Canteen' %}Female {% elif request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %} Female {% else %}Canteen{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Food Truck' %}Bakery {% elif request.user.gender != 'Rather not say' and request.user.gender != 'Male' and request.user.gender != 'Female' %} Female {% else %}Food Truck{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Bakery' %}Manufacturer{% else %}Bakery{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Manufacturer' %}Catering Service {% else %}Manufacturer{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'Catering Service' %}General: I provide a SERVICE{% else %}Catering Service{% endif%}</div>
+                <div style="margin: 4px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">{% if request.user.userbusiness_set.first.business_category == 'General: I provide a SERVICE' %}General: I make a PRODUCT{% else %}General: I provide a SERVICE{% endif%}</div>
+                {% if request.user.userbusiness_set.first.business_category == None or request.user.userbusiness_set.first.business_category == '' or request.user.userbusiness_set.first.business_category != 'General: I provide a SERVICE' and request.user.userbusiness_set.first.business_category != 'Catering Service' and request.user.userbusiness_set.first.business_category != 'Manufacturer' %}<div style="margin: 4px 0px 2px 0px; padding: 10px 8px; border-radius: 10px; border: 1px solid rgb(232,233,235);">General: I make a PRODUCT</div>{% endif %}
+            </div>
+            </div>
+
+        </div>
+        <div class="edit_bsns_catgy-footer" style="display: flex; align-items: center; position: absolute; bottom: 32px; height: 20px; right: 32px; ">
+            <div style="background-color: var(--green); color: #fff; font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; padding: 12px 32px; margin-right: 10px;">Save</div>
+            <div style="font-weight: 600; font-size: 14px; border-radius: 14px; width: fit-content; color: var(--grey2); padding: 12px 32px; background-color:var(--grey);">Cancel</div>
+    </div>
+            </div>
+        <div>
+    </div>
+    
+</div>
+
 {% endblock %}
 
 {% block account_container %}
@@ -109,7 +436,7 @@ color:var(--grey2);
         <div class="" style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px; margin-bottom:16px; background-color: var(--grey);" >
             <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Contact information</span>
             <div class="">
-                <div class="email_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="email_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); cursor: pointer; padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
                     <div class="detail-container" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Email Address</span>
                         <span style="font-size: 14px;">{{request.user.email}}</span>
@@ -118,16 +445,16 @@ color:var(--grey2);
                         <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
                     </div>
                 </div>
-                <div class="phone_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 8px; ">
+                <div class="phone_stg-container stg-option" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 8px; ">
                     <div class="" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Phone Number</span>
                         <span style="font-size: 14px; {% if request.user.phone_number == None %} color: var(--grey2);{% else %} color: var(--black); {% endif %}">{% if request.user.phone_number != None %}{{request.user.phone_number}} {% else %} No phone {% endif %}</span>
                     </div>
                     <div class="" style=" position: absolute; right:0; margin-right: 8px;">
-                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">{% if 'len(request.user.phone_number)' > 1 %}Change{% else %} Add {% endif %}</span>
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">{% if request.user.phone_number != None   %}Change{% else %} Add {% endif %}</span>
                     </div>
                 </div>
-                <div class="secphone_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 8px; ">
+                <div class="sec_phone_stg-container stg-option" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; margin-bottom: 8px; ">
                     <div class="detail-container" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Secondary Phone</span>
                         <span style="font-size: 14px; color: var(--grey2);">No secondary phone</span>
@@ -136,13 +463,12 @@ color:var(--grey2);
                         <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Add</span>
                     </div>
                 </div>
-                <div class="preferred_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white;  ">
+                <div class="preferred_stg-container stg-option" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px;background-color: white; cursor: pointer; ">
                     <div class="detail-container" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Preferred Method</span>
-                        <span style="font-size: 14px">Phone</span>
-                    </div>
+                        <span style="font-size: 14px; {% if request.user.preferred_method == None %} color: var(--grey2);{% else %} color: var(--black); {% endif %}">{% if request.user.preferred_method != None %}{{request.user.preferred_method}} {% else %} No preferred method {% endif %}</span>                    </div>
                     <div class="chg-indic" style=" position: absolute; right:0; margin-right: 8px;">
-                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
+                        <span style=" font-size: 12px; font-weight: 600; color: var(--green);">{% if request.user.preferred_method != None   %}Change{% else %} Add {% endif %}</span>
                     </div>
                 </div>
             </div>
@@ -150,7 +476,7 @@ color:var(--grey2);
         <div class="" style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px;  margin-bottom:16px; background-color: var(--grey);">
             <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Business information</span>
             <div class="">
-                <div class="businname_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="business_name_stg-container stg-option" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; margin-bottom: 8px; background-color: white; cursor: pointer;">
                     <div class="detail-container" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Name</span>
                         <span style="font-size: 14px;">{{request.user.userbusiness_set.first.business_name}}</span>
@@ -159,7 +485,7 @@ color:var(--grey2);
                         <span style=" font-size: 12px; font-weight: 600; color: var(--green);">Change</span>
                     </div>
                 </div>
-                <div class="busincat_stg-container stg-option" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; background-color: white;">
+                <div class="business_category_stg-container stg-option" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 10px; background-color: white; cursor: pointer;">
                     <div class="detail-container" style="display: flex; flex-direction: column;">
                         <span style="font-size: 10px; font-weight: 600; margin-bottom: 2px; color: var(--black);">Category</span>
                         <span style="font-size: 14px;">Food</span>
@@ -173,7 +499,7 @@ color:var(--grey2);
         <div class="" style="display: flex; flex-direction: column; border:1px solid rgb(233,232,235); border-radius:14px; padding: 10px; margin-right: 32px;  margin-bottom:16px; background-color: var(--grey);">
             <span style="font-size: 14.5px; font-weight: 600; margin-bottom: 8px;">Connected accounts</span>
             <div class="">
-                <div class="" style="display: flex; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 12px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
+                <div class="" style="display: flex; cursor: pointer; position: relative; align-items: center; border: 1px solid rgb(232,233,235); padding: 12px; border-radius: 10px; margin-bottom: 8px; background-color: white;">
                     <div class="" style="display: flex; flex-direction: column;">
                         <div class="" style="display: flex; flex-direction: row; align-items: center;">
                             <svg id="google-svg" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 186.69 190.5" xmlns:v="https://vecta.io/nano">
@@ -225,7 +551,7 @@ color:var(--grey2);
                     <span style="font-size: 12px; line-height: 1px;">You can create a group of up to 6 people and get more out of us together.</span>
                 </div>
                 <div class="" style="position: absolute; top: 120px; left: 16px; display: flex; align-items: center;">
-                    <div class="" style="border: 1px solid rgb(232,233,235);  height: 75px;  width: 75px; border-radius: 100%; position: relative; cursor: pointer; margin-right: 20px; ">
+                    <div class="add_team_stg-container" style="border: 1px solid rgb(232,233,235);  height: 75px;  width: 75px; border-radius: 100%; position: relative; cursor: pointer; margin-right: 20px; ">
                         <div class="" style="padding: 4px 18px;  display: flex; align-items: center; justify-content: center; position: absolute; top:0; bottom: 0; left: 0; right: 0;">
                             <span style="font-size: 12px; font-weight: 600; display: flex; justify-content: center; align-items: center;">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="24" color="systemGrayscale00">

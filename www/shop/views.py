@@ -47,6 +47,7 @@ def green_produce_all(request):
 
     items = order.orderitem_set.all()
     products = ProductGrade.objects.filter(grade__exact='A', product__product__subcategory__category__name__exact="Green Produce")
+    print([product for product in  products ])
     return render(request,'green_produce/main.html',{
         "products":products,
         "items":items,
@@ -352,16 +353,18 @@ def product_details(request, details=None,pk=None):
         product = ProductGrade.objects.get(product__product_id=details,product_id=pk)
         try:
             orderitem = order.orderitem_set.get(product_grade__product_id=pk)
-            print(orderitem)
-
         except:
             orderitem = None
-            print(orderitem)
+        try:
+            related_products = ProductGrade.objects.filter(product__product_id=details).exclude(product_id=pk)
+        except:
+            related_products = None
     except ProductGrade.DoesNotExist:
         return HttpResponseBadRequest(request)
     return render(request,'shop/product-details.html',{
         'product':product,
-        'order': orderitem
+        'order': orderitem,
+        'related': related_products
     })
 
 
@@ -371,7 +374,6 @@ def update_cart(request):
     data = json.loads(request.body)
     productID = data['productID']
     action = data['action']
-    print("productID: {0} | Action: {1}".format(productID,action))
     if(action == 'add'):
         try:
             item = OrderItem.objects.get(order_id=request.session['order_id'],product_grade_id=productID)
@@ -381,8 +383,8 @@ def update_cart(request):
                 item.quantity = float(item.quantity) + 1
             item.save(update_fields=['quantity'])
         except:
-            print(ProductGrade.objects.get(pk=productID))
-            OrderItem.objects.create(order_id=request.session['order_id'],product_grade_id=productID,quantity='1')
+            order = OrderItem.objects.create(order_id=request.session['order_id'],product_grade_id=productID,quantity='1')
+            return JsonResponse(f'{order.pk}',safe=False)
     elif(action == 'remove'):
         try:
             item = OrderItem.objects.get(order_id=request.session['order_id'],product_grade_id=productID)

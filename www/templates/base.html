@@ -11,6 +11,7 @@
     <!--<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">-->
+    <script src="https://js.stripe.com/v3/"></script>
     
 </head>
 <body>
@@ -145,9 +146,6 @@
                           <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
                             <a href="{% url 'account-settings' user.id%}" style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black);  padding: 6px;">Manage your account</a>
                           </div>
-                          <div class=" auth_menu-option" style="display: flex; border-radius: 4px; margin-bottom: 4px; align-items: center;">
-                            <a style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;">Refer & Earn</a>
-                          </div>
                           <div class="auth_menu-option"  style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">
                             <span style="font-size: 10px; margin-left: 10px;  width: 100%; text-decoration: none; color: var(--black); padding: 6px; cursor: pointer;" >Get help</span>
                           </div>
@@ -205,7 +203,6 @@
                 }).then(response =>{
                   return response.json()
                 }).then(responseData => {
-                  console.log(responseData)
                   return responseData
                 }).finally(results =>{
                   return results

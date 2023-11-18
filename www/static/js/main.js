@@ -40,7 +40,7 @@ const cartInstance = new ShoppingCart(updateCart,{
                         <span>Add instructions</span>
                     </li>
                     <li style="position: relative;">
-                        <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%; top:0px; left:0px;"></a>
+                        <a href="{% url 'product-details'%}" style="display: block; position: absolute; width: 100%; height: 100%; top:0px; left:0px; "></a>
                         <span>Edit product</span>
                     </li>
                     <li class="rmv_item-option" data-product="{{item.product_grade.id}}" data-action="remove">

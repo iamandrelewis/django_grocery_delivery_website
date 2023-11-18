@@ -1,0 +1,47 @@
+{% extends 'orders/main.html' %}
+{% block shop_scripts %}
+{% endblock %}
+
+{% block pages_content %}
+<ul>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'orderpage'%}">Orders</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'orders-activity'%}">Activity</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'recurring-orders'%}">Recurring Orders</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
+    </div>
+    <div class="page_container">
+        <div class="pages_active-indicator"><span></span></div>
+        <a class="product-page is_active">Reports</a>
+    </div>
+    <hr>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a class="product-page" >Get help</a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a href="{% url 'birthday-club'%}" class="product-page" >Join <span style="font-weight: 600;">The Birthday Club™</span></a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a href="{% url 'premium'%}" class="product-page" >Get <span style="font-weight: 600;">Premium</span></a>
+    </div>
+    <div class="page_container">
+        <div class=""><span></span></div>
+        <a href="{% url 'store-credit'%}" class="product-page" >Build your <span style="font-weight: 600;">store credit</span></a>
+    </div>
+</ul>
+{% endblock %}
+{% block shop_content %}
+{% endblock %}

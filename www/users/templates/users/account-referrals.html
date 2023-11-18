@@ -4,6 +4,26 @@
 {% block page_active_shop %} 
 {% endblock %}
 
+{% block cart_indicator %}
+<div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
+    <a class="cart_active-indicator" style=" display:none; text-decoration: none;" href="/shop/green-produce">
+        <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
+          <!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10.5px" style="margin-right:8px;">
+                  <g>
+                  <path d="m197.76,8.73v276.7h-86.87V71.34L190.77,6.01c2.67-2.18,6.99-.5,6.99,2.72Z" style="fill: #fff;"></path>
+                  <rect x="406.61" y="84.86" width="88.15" height="200.57" style="fill: #fff;"></rect>
+                  <path d="m488.73,78.6c-93.19-.48-186.38-.96-279.58-1.44-2.04-.01-3.68-1.66-3.68-3.7V3.7c0-2.04,1.66-3.7,3.7-3.7h200.9c.93,0,1.82.35,2.51.98l77.52,71.38c2.08,1.92,1.33,5.37-1.37,6.24Z" style="fill: #fff;"></path>
+                  </g>
+                  <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: #fff;"></path>
+          </svg>
+          <span id="cartNumber"></span>
+        </span>
+      </a>
+</div>
+{% endblock %}
+
+
 {% block account_container %}
 <div class=""> 
     <a href="{{back_link}}" style="border: 1px solid rgb(232,233,235); padding: 4px 12px; display: flex; align-items: center; width: 15px; border-radius: 7px; margin-bottom: 48px; background-color: white;">
@@ -53,7 +73,7 @@
 
 {% block shop_content %}
 <div class="content-wrapper">
-    <div class="content-container">
+    <div class="content-container" >
         <div class="">
             <h1 style="font-size: 20px; margin: 0px;">Referrals</h1>
             <p style="font-size:14px; margin: 0px;">All about </p>
@@ -65,11 +85,22 @@
                     <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">credit</span>
                 </div>
                 <div class="" style="display: flex; flex-direction: column; margin: 0px 8px; color: var(--green);padding: 8px; border-radius: 10px; position: absolute; right: 0;">
-                    <span style="font-size: 24px; font-weight: 600; color: var(--green);">0</span>
-                    <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">referrals</span>
+                    <span style="font-size: 24px; font-weight: 600; color: var(--green);">{{referers.count}}</span>
+                    <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">referral{% if referers.count > 1 %}s{% endif %}</span>
                 </div>
             </div>
         </div>
+        {% if referers.count > 0 %}
+        <div style="height: 250px; display: flex; margin-bottom: 20px; flex-direction: column; align-items: center; margin-right: 32px; overflow: hidden; overflow-y: auto;">
+        {% endif %}
+            {% for referer in referers %}
+            <div class="" style="margin: 8px 0px 0px 0px;  border: 1px solid rgb(232, 233, 235); border-radius: 10px; width: 95%;" >
+                <div class="" style="position: relative; padding: 16px 24px;">
+                    <p style="margin: 0px; font-size: 15px; font-weight: 600;">{{referer.referee.userbusiness_set.first.business_name}}</p>
+                    <span style="font-size: 12.5px; font-weight: 500;">{{referer.referee.first_name}} {{referer.referee.last_name}}</span>
+                </div>
+            </div>
+        {% empty %}
         <div class="" style="margin: 16px 0px; margin-right: 32px; border: 1px solid rgb(232, 233, 235); border-radius: 10px;" >
             <div class="" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 64px;">
                 <span style="font-size: 20px; color: var(--grey2); font-weight: 600;">Your referrals go here</span>
@@ -83,6 +114,11 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
+    {% if referers.count > 0 %}
+    </div>
+    {% endif %}
+
         <div class="">
             <p style="margin: 0px 0px 16px; font-size: 18px; font-weight: 600;">Invite & earn</p>
             <div class="" style="border: 1px solid rgb(232, 233, 235); height: 40px; margin-right: 32px; display: flex; align-items: center; position: relative; border-radius: 10px; background-color: var(--grey);">
@@ -94,7 +130,9 @@
                 </div>
             </div>
         </div>
-        
+        <div class="" style="background-color: var(--grey); color: var(--grey2); border-radius: 10px; font-size: 11.5px; padding: 16px; font-weight: 500; margin-right: 32px; margin-top: 18px;">
+            <p style="margin: 0px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi quidem explicabo dolorum, pariatur eius quas ducimus nihil dolore. Accusamus hic perspiciatis animi natus possimus incidunt fuga consequuntur consequatur. Doloribus delectus voluptates pariatur facere, obcaecati tenetur, quo error id, harum enim repellendus. Inventore corrupti magnam repudiandae, eum assumenda voluptatum qui eaque possimus fugit excepturi ipsum ex placeat consequatur architecto quae labore nesciunt quod facere delectus quos pariatur praesentium? Ullam reprehenderit impedit itaque hic laboriosam quod ducimus repudiandae aliquam voluptatum autem dolorem quisquam asperiores laudantium quis quas, doloremque aut dolorum. Sit rerum nihil velit quos sint. Explicabo asperiores voluptatum nesciunt beatae provident, animi quasi fugit ipsum iste laudantium eaque dicta fuga veniam sit saepe officiis omnis. Enim adipisci facere praesentium fuga assumenda impedit in a expedita.</p>
+        </div>
     </div>
 </div>
 <style>

@@ -29,7 +29,9 @@ urlpatterns = [
     path('',include('legal.urls')),
     path('<str:uid>/',include('users.urls')),
     path('company/',include('company.urls')),
-    path('api',GraphQLView.as_view(graphiql=True,schema=schema))
+    path('api',GraphQLView.as_view(graphiql=True,schema=schema)),
+    path('accounts/',include('allauth.urls')),
+    path('pay/',include('payments.urls'))
 ]
 
 if settings.DEBUG:

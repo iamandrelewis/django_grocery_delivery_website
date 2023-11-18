@@ -33,6 +33,4 @@ def recurring_add(request):
     return render(request,'orders/order-recurring-add.html')
 @login_required(login_url='signin')
 def delivery_map(request):
-    if not request.user.is_staff:
-        return redirect('orderpage')
-    return render(request,'orders/staff/delivery-map.html')
+    return render(request,'orders/reports.html')

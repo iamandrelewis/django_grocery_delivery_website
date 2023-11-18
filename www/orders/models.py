@@ -36,7 +36,7 @@ class Order(models.Model):
         if self.delivery_address == None:
             address = self.user.useraddress_set.get(default_status=True)
             self.delivery_address = f"{address.address_line1},\n{address.address_line2},\n{address.parish}"
-            self.save(update_fields=['delivery_address'])
+            #self.save(update_fields=['delivery_address'])
         return super(Order, self).save(*args,**kwargs)
     
 

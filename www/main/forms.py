@@ -41,7 +41,14 @@ class LoginForm(forms.Form):
 
 class BusinessCreationForm(forms.ModelForm):
     BUSINESS_CATEGORIES=[('0','What do you do?'),
-                         ('Art & Entertainment','Art & Entertainment'),
+                         ('Restaurant','Restaurant'),
+                         ('Canteen','Canteen'),
+                         ('Food Truck', 'Food Truck'),
+                         ('Bakery','Bakery'),
+                         ('Manufacturer','Manufacturer'),
+                         ('Catering Service', 'Catering Service'),
+                         ('General: I provide a SERVICE', 'General: I provide a Service'),
+                         ('General: I make a PRODUCT', 'General: I make a PRODUCT')
                          ]
 
 

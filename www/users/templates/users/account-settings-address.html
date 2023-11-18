@@ -4,6 +4,106 @@
 {% block page_active_shop %} 
 {% endblock %}
 
+{% block modal %}
+    <div class="modal hidden">
+        <div class="address-modal-container ">
+            <div class="address-modal-content">
+
+                <div class=" add-address-form hidden ">
+                    <div class="form-header">
+                        <div class="address_back-btn" style=" display: flex; align-items: center;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>                   
+                             </div>
+                        <h1 class="address_modal-title">Add a new address</h1>
+                    </div>
+                    <div class="" style="margin: 16px 0px;">
+                        <input type="text" placeholder="Street" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                        <input type="text" placeholder="City" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                        <select name="parish" id="" style="width: 100%; font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px;">
+                            <option class="hidden" value="">Parish</option>
+                            <option value="Saint Andrew">Saint Andrew</option>
+                            <option value="Saint Catherine"> Saint Catherine</option>
+                            <option value="Clarendon">Clarendon</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Saint Elizabeth">Saint Elizabeth</option>
+                            <option value="Westmoreland"> Westmoreland</option>
+                            <option value="Hanover">Hanover</option>
+                            <option value="Trelawny">Trelawny</option>
+                            <option value="Saint James">Saint James</option>
+                            <option value="Saint Ann">Saint Ann</option>
+                            <option value="Saint Mary">Saint Mary</option>
+                            <option value="Portland">Portland</option>
+                            <option value="Saint Thomas">Saint Thomas</option>
+                            <option value="Kingston">Kingston</option>
+                        </select>
+                        <p style="font-size: 10px; color: var(--grey2); margin: 0px; ">Disclaimer text should be included here</p>
+                    </div>  
+                    <div class="" style="position: absolute; bottom: 0px; width: 92%; margin-bottom: 10px;">
+                    <button class="add-address_save" type="submit" style="width: 100%; font-size: 14px; font-weight: 600; padding: 8px; margin-bottom: 8px; border-radius: 10px; background-color: var(--green); color: #fff; outline: none; border: 1px solid var(--green); cursor: pointer;">Save</button>
+                    </div>
+                </div>
+
+                <div class=" edit-address-form ">
+                    <div class="form-header">
+                        <div class="address_back-btn" style=" display: flex; align-items: center;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>                   
+                             </div>
+                        <h1 class="address_modal-title">Edit address</h1>
+                    </div>
+                    <div class="" style="margin: 16px 0px;">
+                        <input type="text" placeholder="Street" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                        <input type="text" placeholder="City" style="width: calc(100% - 18.5px); font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px; border: 1px  solid var(--grey2);">
+                        <select name="parish" id="" style="width: 100%; font-size: 14px; padding: 8px; margin-bottom: 8px; border-radius: 4px;">
+                            <option class="hidden" value="">Parish</option>
+                            <option value="Saint Andrew">Saint Andrew</option>
+                            <option value="Saint Catherine"> Saint Catherine</option>
+                            <option value="Clarendon">Clarendon</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Saint Elizabeth">Saint Elizabeth</option>
+                            <option value="Westmoreland"> Westmoreland</option>
+                            <option value="Hanover">Hanover</option>
+                            <option value="Trelawny">Trelawny</option>
+                            <option value="Saint James">Saint James</option>
+                            <option value="Saint Ann">Saint Ann</option>
+                            <option value="Saint Mary">Saint Mary</option>
+                            <option value="Portland">Portland</option>
+                            <option value="Saint Thomas">Saint Thomas</option>
+                            <option value="Kingston">Kingston</option>
+                        </select>
+                        <p style="font-size: 10px; color: var(--grey2); margin: 0px; ">Disclaimer text should be included here</p>
+                    </div>  
+                    <div class="" style="position: absolute; bottom: 0px; width: 92%; margin-bottom: 10px;">
+                    <button class="add-address_save" type="submit" style="width: 100%; font-size: 14px; font-weight: 600; padding: 8px; margin-bottom: 8px; border-radius: 10px; background-color: var(--green); color: #fff; outline: none; border: 1px solid var(--green); cursor: pointer;">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block cart_indicator %}
+<div class="account_auth-container" style="position: absolute; right: 0; margin-right: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; width: fit-content;">
+    <a class="cart_active-indicator" style=" display:none; text-decoration: none;" href="/shop/green-produce">
+        <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
+          <!--?xml version="1.0" encoding="UTF-8"?-->
+          <svg id="uuid-b18f2d01-7785-47c4-b76d-fb6b19d5703c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.65 838.2" width="10.5px" style="margin-right:8px;">
+                  <g>
+                  <path d="m197.76,8.73v276.7h-86.87V71.34L190.77,6.01c2.67-2.18,6.99-.5,6.99,2.72Z" style="fill: #fff;"></path>
+                  <rect x="406.61" y="84.86" width="88.15" height="200.57" style="fill: #fff;"></rect>
+                  <path d="m488.73,78.6c-93.19-.48-186.38-.96-279.58-1.44-2.04-.01-3.68-1.66-3.68-3.7V3.7c0-2.04,1.66-3.7,3.7-3.7h200.9c.93,0,1.82.35,2.51.98l77.52,71.38c2.08,1.92,1.33,5.37-1.37,6.24Z" style="fill: #fff;"></path>
+                  </g>
+                  <path d="m30.75,292.82h544.14c16.97,0,30.75,13.78,30.75,30.75v418.42c0,53.1-43.11,96.21-96.21,96.21H96.21c-53.1,0-96.21-43.11-96.21-96.21v-418.42c0-16.97,13.78-30.75,30.75-30.75Z" style="fill: #fff;"></path>
+          </svg>
+          <span id="cartNumber"></span>
+        </span>
+      </a>
+</div>
+{% endblock %}
+
 {% block account_container %}
 <div class=""> 
     <a href="{{back_link}}" style="border: 1px solid rgb(232,233,235); padding: 4px 12px; display: flex; align-items: center; width: 15px; border-radius: 7px; margin-bottom: 48px; background-color: white;">
@@ -78,33 +178,24 @@
                         </thead>
                     </div>
                         <tbody class="table-content">
+                    {% for address in addresses %}
                     <tr>
-                        <td class="order-col"><span>69 Coolshade Drive</span></td>
-                        <td><span>Kingston 19</span></td>
-                        <td><span>Saint Andrew</span></td>
-                        <td style="font-size: 10px; font-weight: 600; color: var(--green);"><span>Default</span></td>
-                        <td>
+                        <td class="order-col"><span>{{address.address_line1}}</span></td>
+                        <td><span>{{address.address_line2}}</span></td>
+                        <td><span>{{address.parish}}</span></td>
+                        <td style="font-size: 10px; font-weight: 600; color: var(--green);">{% if address.default_status %}<span>Default</span>{% endif %}</td>
+                        <td style=" position: relative;">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
+                            <div style="position: absolute; background-color: white; left: -100px; top: 32px; z-index: 200; border: 1px solid rgb(232, 233, 235); border-radius: 10px; padding: 10px 20px; ">
+                                <ul style=" margin: 0px; padding: 0px; list-style-type: none; font-size: 12.5px; font-weight: 500; display: flex; flex-direction: column; align-items: flex-start;">
+                                    <li class="edit_option">Edit</li>
+                                    <li>Delete</li>
+                                    <li>Make default</li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="order-col"><span>31 Morningside Drive</span></td>
-                        <td><span>Portmore</span></td>
-                        <td><span>Saint Catherine</span></td>
-                        <td><span></span></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="order-col"><span>42 Blah Blah Avenue</span></td>
-                        <td><span>Kingston 6</span></td>
-                        <td><span>Saint Andrew</span></td>
-                        <td><span></span></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>    
                 </table>
             </div>

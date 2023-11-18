@@ -41,7 +41,7 @@ class ShoppingCart {
                 const productInfo = this.getProduct(element.name)
                 console.log(e.target.id,e.target.value.length,e.target.value)
                 if (element.id == `id_product_price${element.dataset.id}`){ 
-                    setTimeout(() => e.target.value = parseFloat(e.target.value).toFixed(2),1200)
+                    setTimeout(() => e.target.value = parseFloat(e.target.value).toFixed(2),1000)
                     
                     productInfo.then(results => {
                         const quantity = e.target.value/results[0].productGrade.price.value
@@ -58,7 +58,7 @@ class ShoppingCart {
                             this.updateQuantity(element.dataset.item_id, 1)
                         }
                         window.location.reload()
-                    },1200)
+                    },1000)
 
                 }
                 else if(element.id == `id_product_qty${element.dataset.id}`){
@@ -67,7 +67,7 @@ class ShoppingCart {
                         setTimeout(()=>{
                             if(document.querySelector(`.cart_item-container input#id_product_qty${element.dataset.id}`).value.length !== 0 || Number.isNaN(document.querySelector(`.cart_item-container input#id_product_qty${element.dataset.id}`).value) !== false ){
                                 console.log(document.querySelector(`.cart_item-container input#id_product_qty${element.dataset.id}`).value)
-                                if(document.querySelector(`.cart_item-container input#id_product_qty${element.dataset.id}`).value == 0){
+                                if(document.querySelector(`.cart_item-container input#id_product_qty${element.dataset.id}`).value <= 0){
                                     this.performUpdate(element.name,'remove')
                                 }
                                 else{
@@ -78,7 +78,7 @@ class ShoppingCart {
                                 this.updateQuantity(element.dataset.item_id, 1)
                             }
                            window.location.reload()
-                        },1200)
+                        },1000)
                  }
             });
             const optionsMenuRmvButton = document.querySelector(`#id_more_options${element.dataset.item_id}-menu .rmv_item-option`)

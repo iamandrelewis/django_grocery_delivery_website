@@ -8,24 +8,26 @@ from orders.models import Order
 from . import models as m
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes,force_str,DjangoUnicodeDecodeError
 from users.models import CustomUser 
 
-"""def send_activation_email(user, request):
-    current_site = get_current_site(request)
-    email_subject = 'Email verification code: {0}'.format(user.email_token)
-    email_body = render_to_string('main/acivate-email.html',{
-        'user': user,
-        'domain':current_site,
-        'uid': urlsafe_base64_encode(force_bytes(user.id)),
-    })
-"""
+
 def home(request):
     if request.POST:
         print(request.POST)
     if request.user.is_authenticated:
+
+        request.user.check_email_verification_token()
+        try:
+            m.UserAddress.objects.get(user=request.user,default_status=True)
+            m.UserBusiness.objects.get(user=request.user)
+        except:
+            if request.user.is_superuser:
+                a = m.UserAddress.objects.create(user=request.user,address_line1="69 Coolshade Drive",address_line2='Kingston 19',parish='Saint Andrew',default_status=True)
+                m.UserBusiness.objects.create(user=request.user,business_name='GR8 Grocers Meats and More Limited',business_category='G',business_address=a)
+            return redirect('signup')
+        
         if 'order_id' not in request.session:
             try:
                 order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
@@ -38,15 +40,7 @@ def home(request):
             except Order.DoesNotExist:
                 order = Order.objects.create(user=request.user)
                 request.session['order_id'] = order.pk
-        request.user.check_email_verification_token()
-        try:
-            m.UserAddress.objects.get(user=request.user,default_status=True)
-            m.UserBusiness.objects.get(user=request.user)
-        except:
-            if request.user.is_superuser:
-                a = m.UserAddress.objects.create(user=request.user,address_line1="69 Coolshade Drive",address_line2='Kingston 19',parish='Saint Andrew',default_status=True)
-                m.UserBusiness.objects.create(user=request.user,business_name='GR8 Grocers Meats and More Limited',business_category='G',business_address=a)
-            return redirect('signup')
+
         address = m.UserAddress.objects.get(default_status=True,user = request.user)
         business = m.UserBusiness.objects.get(user = request.user)
         products = ProductGrade.objects.filter(grade="A")
@@ -107,6 +101,7 @@ def signup(request):
                 print(user)
                 if user is not None:
                     login(request, user)
+                    request.user.create_stripe_account()
                 return redirect('signup')
             else:
                 print(form.error_messages)
@@ -131,6 +126,7 @@ def signup(request):
                     business.user = request.user
                     business.business_address = address 
                     business.save()
+
                     return redirect('homepage')
                 else:
                     print(form.errors)
@@ -152,11 +148,41 @@ def signout(request):
 
 @login_required(login_url='signin')
 def checkout_aisle(request):
-    return render(request,'main/checkout-aisle.html')
+    if 'order_id' not in request.session:
+        try:
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+    
+    products = ProductGrade.objects.filter(grade="A")
+
+    return render(request,'main/checkout-aisle.html',{'products':products})
+
 
 @login_required(login_url='signin')
 def checkout(request):
-    return render(request,'main/checkout.html')
+    if 'order_id' not in request.session:
+        try:
+            order = Order.objects.get(fulfilment_status='Unfulfilled',payment_status='Pending',user=request.user,order_status='Draft')
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+        request.session['order_id'] = order.pk
+    else:
+        try:
+            order = Order.objects.get(pk=request.session['order_id'])
+        except Order.DoesNotExist:
+            order = Order.objects.create(user=request.user)
+            request.session['order_id'] = order.pk
+    
+    items = order.orderitem_set.all()
+    return render(request,'main/checkout.html',{'order':order,'items':items})
 
 def premium(request):
     return render(request,'main/premium.html')
@@ -176,7 +202,9 @@ def activate_user(request,uidb64,token):
         return render(request,'main/activate-success.html',{'e':user})
     return render(request,'main/activate-failiure.html',{'e':uid})
 
+@login_required(login_url='signin')
 def store_credit(request):
-    current_site = get_current_site(request)
-    return render(request,'main/activate-email.html',{'domain':current_site,
-        'uid': urlsafe_base64_encode(force_bytes(request.user.id))})
+    creditBal = '12500'
+    return render(request,'main/store-credit.html',{
+        #"creditbalance":creditBal
+    })
