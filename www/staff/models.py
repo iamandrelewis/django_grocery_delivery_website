@@ -9,3 +9,9 @@ class DeliverySession(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     status=models.CharField(max_length=256)
     arrival_timestamp = models.DateTimeField(auto_now=True)
+
+class PackSession(models.Model):
+    pack_er = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    status=models.CharField(max_length=256)
+    arrival_timestamp = models.DateTimeField(auto_now=True)

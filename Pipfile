@@ -6,12 +6,13 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
-django-tailwind = {extras = ["reload"], version = "*"}
+django-tailwind = {extras = ["reload"] }
 graphene-django = "*"
 django-allauth = "*"
 phonenumbers = "*"
 stripe = "*"
 sinch = "*"
+scikit-learn = "*"
 
 [dev-packages]
 

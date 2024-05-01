@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+import json
+from django.http import JsonResponse,HttpResponseBadRequest
+
 # Create your views here.
 @login_required(login_url='signin')
 def orders(request):
@@ -34,3 +37,9 @@ def recurring_add(request):
 @login_required(login_url='signin')
 def delivery_map(request):
     return render(request,'orders/reports.html')
+
+@login_required(login_url='signin')
+def recurring_update(request):
+    data = json.loads(request.body)
+
+    return JsonResponse("Order was updated",safe=False)

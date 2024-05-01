@@ -6,10 +6,10 @@
 
 {% block modal %}
     <div class="modal hidden">
-        <div class="address-modal-container ">
+        <div class="address-modal-container hidden ">
             <div class="address-modal-content">
 
-                <div class=" add-address-form hidden ">
+                <div class=" add-address-form  ">
                     <div class="form-header">
                         <div class="address_back-btn" style=" display: flex; align-items: center;">
                             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class=" edit-address-form ">
+                <div class=" edit-address-form hidden">
                     <div class="form-header">
                         <div class="address_back-btn" style=" display: flex; align-items: center;">
                             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);" >
@@ -200,7 +200,7 @@
                 </table>
             </div>
         </div>
-        <div class="" style="margin-top: 8px;">
+        <div class="add_address-btn" style="margin-top: 8px;">
             <div class="" style=" width: fit-content;display: flex; align-items: center; cursor: pointer;">
                 <span style="font-size: 12px; color: var(--green); font-weight: 600;">Add an address</span>
             </div>
@@ -302,4 +302,5 @@
 
 {% block scripts %}
 <script type="module" src="{% static 'js/main-home.js'%}"></script>
+<script type="module" src="{% static 'js/Address-Settings.js'%}"></script>
 {% endblock %}

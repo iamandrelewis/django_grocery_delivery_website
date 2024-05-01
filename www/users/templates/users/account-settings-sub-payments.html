@@ -5,24 +5,26 @@
 {% load static %}
 
 {% block modal %}
-    <div class="modal  ">
+    <div class="modal hidden ">
         <div class="add_payment_method-wrapper hidden" style="width: 800px; height: 600px; background-color: #fff; position: absolute; top:0px; right: 0px; left: 0px; bottom: 0px; margin: auto; border-radius: 14px;">
-            <div class="add_payment_method-container" style="padding: 28px; position: relative;">
-                <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
-                    </svg>
-                    <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Cancel</span>
-                </div>
-                <div class=" " style="margin: 48px 0px;">
+            <div class="add_payment_method-container " style="padding: 28px; position: relative;">
+
+                <div class=" add_payment_menu " >
+                    <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>
+                        <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Cancel</span>
+                    </div>
                     <p style="font-size: 32px;  font-weight: 700;">Add payment method</p>
-                    <div style="border-bottom: 1px solid rgb(232,233,235); position: relative; margin-top: 100px;">
+                    <div class="card_option" style="border-bottom: 1px solid rgb(232,233,235); position: relative; margin-top: 100px; cursor: pointer;">
 
                         <p style="font-size: 18px; font-weight: 500;">Card</p>
                         <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
                         </svg>
                     </div>
+                    
                     <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
 
                         <p style="font-size: 18px; font-weight: 500;">Paypal</p>
@@ -37,11 +39,24 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
                         </svg>
                     </div>
+                    <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
+
+                        <p style="font-size: 18px; font-weight: 500;">Lynk</p>
+                        <div style="position: absolute; right:18px; top:0px; background-color: var(--grey); padding: 6px 12px; border-radius: 8px; display: flex; align-items: center;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--grey2);">Coming soon</span>
+                        </div>
+                    </div> 
                 </div>
 
-                <div class="hidden" >
+                <div class="add_card-container hidden" >
 
-                    <div class="  billing_details "  style="width: 550px; height: 450px;">
+                    <div class="add_billing_details hidden"  style="width: 550px; height: 450px;">
+                        <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>
+                            <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Cancel</span>
+                        </div>
                         <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Billing Address</p>
                         <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
                         <div class="" style="display: flex; align-items: center; margin-top: 6px;">
@@ -60,12 +75,18 @@
                         <select style=" margin-top: 6px; padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; width: 100%;" name="" id="">
                             <option value="">Country</option>
                         </select>
-                        <div style="position: absolute; bottom: 4px; left: 18px; width: calc(100% - 38px)">
+                        <div class="continue-btn" style="position: absolute; bottom: -75px; left: 18px; width: calc(100% - 38px)">
                             <button style=" cursor: pointer;  padding: 12px 48px; border-radius: 14px; border: 1px solid rgb(232,233,235); width: 100%; outline: transparent; font-weight: 700; background-color: var(--green); color: #fff;">Continue</button>
                         </div>
 
                     </div>
-                    <div class="  payment_details hidden " style="width: 550px; height: 450px;">
+                    <div class="add_payment_details hidden  " style="width: 550px; height: 450px;">
+                        <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>
+                            <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                        </div>
                         <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Card</p>
                         <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
 
@@ -76,7 +97,7 @@
                             <input style=" width: 200px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; " type="text" name="" id="" placeholder="Expiration Date">
                             <input style=" width: 80px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; position: absolute; right: 0px;" type="text" name="" id="" placeholder=" CVV">
                         </div>
-                        <div style="position: absolute; bottom: 4px; left: 18px; width: calc(100% - 38px)">
+                        <div style="position: absolute; bottom: -75px; left: 18px; width: calc(100% - 38px)">
                             <button style=" cursor: pointer; padding: 12px 48px; border-radius: 14px; border: 1px solid rgb(232,233,235); width: 100%; outline: transparent; font-weight: 700; background-color: var(--green); color: #fff;">Save</button>
                         </div>
 
@@ -85,32 +106,347 @@
 
             </div>
         </div>
-        <div class="business_sub_wrapper" style="width: 800px; height: 600px; background-color:#fff; position: absolute; top:0px; bottom:0px; left:0px; right:0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
+        <div class="business_sub_wrapper hidden" style="width: 800px; height: 600px; background-color:#fff; position: absolute; top:0px; bottom:0px; left:0px; right:0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
         <div class="business_sub-container">
-            <div class="" style="background-color: var(--grey2); width: 100%; height: 150px; ">
+            <div class="" style="background-color: var(--grey2); width: 100%; height: 150px; position: relative; ">
+                <div class="close-btn" style=" position: absolute; cursor: pointer; background-color: #fff; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; top: 20px; left: 20px;">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                    </svg>
+                    <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                </div>
                 <span></span>
             </div>
+            
             <div class="" style="padding: 36px calc(36px + 24px) ; ">
-                <p style="font-size: 36px; font-weight: 700; margin: 0px; text-align: center; margin-bottom: 20px;">Business</p>
-                <div class="" style="height: 280px; background-color: var(--grey); border-radius: 14px; border: 1px solid rgb(232,233,235); margin: 0px;">
-                    <p style="font-size: 14px; font-weight: 600; text-align: center;  margin-bottom: 35px;">Features</p>
-                    <div class="" style="display: flex; align-items: center; justify-content: center; ">
-                        <div class="" style="margin-right: 8px;">
-                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 250px; margin-bottom: 20px;"> <span></span></div>
-                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 380px;"> <span></span></div>
+                <p style="font-size: 36px; font-weight: 700; margin: 0px; margin-bottom: 20px;">Business</p>
+                <p style="font-size: 14px; font-weight: 600;   margin-bottom: 20px;">Features</p>
+
+                    <div class="" >
+                        <div class="" >
+                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%;"> <span></span></div>
+
                         </div>
-                        <div class="">
-                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 14px; height: 75px; width: 380px; margin-bottom: 20px;"> <span></span></div>
-                            <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235); border-radius: 14px; height: 75px; width: 380px;"> <span></span></div>
-                        </div>
+
                     </div>
-                </div>
-                <div class="">
-                    Join
-                </div>
+                
+
             </div>
         </div>
 
+        </div>
+        <div class="express_sub_wrapper hidden " style="width: 800px; height: 600px; background-color:#fff; position: absolute; top:0px; bottom:0px; left:0px; right:0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
+            <div class="express_sub-container">
+                <div class="" style="background-color: var(--grey2); width: 100%; height: 150px; position: relative; ">
+                    <div class="close-btn" style=" position: absolute; cursor: pointer; background-color: #fff; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer; top: 20px; left: 20px;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>
+                        <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                    </div>
+                    <span></span>
+                </div>
+                
+                <div class="" style="padding: 36px calc(36px + 24px) ; ">
+                    <p style="font-size: 36px; font-weight: 700; margin: 0px; margin-bottom: 20px;">Express<p>
+                    <p style="font-size: 14px; font-weight: 600;   margin-bottom: 20px;">Features</p>
+    
+                        <div class="" >
+                            <div class="" >
+                                <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                                <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                                <div class="" style="background-color: var(--grey); border: 1px solid rgb(232,233,235);  border-radius: 14px; height: 75px; width: 100%;"> <span></span></div>
+    
+                            </div>
+    
+                        </div>
+                    <div class="join_express_btn" style="background-color: var(--green); border: 1px solid var(--green); padding: 10px 18px; border-radius: 14px; margin-top: 20px; cursor: pointer; position: relative; height: 30px;  ">
+                        <span style="font-size: 14px; font-weight: 600; color: #fff;"> Join</span>
+                        <p style="font-size: 16.5px; font-weight: 700; color:var(--grey);  position: absolute; right: 18px; top: 10px; margin: auto; ">J$ 15,000.00</p>
+                        <p style="font-size: 11.5px; font-weight: 600; color:var(--grey);  position: absolute; right: 18px; top: 29px; margin: auto; ">annually</p>
+    
+                    </div>
+                    <div class=" hidden" style="background-color: var(--grey); border: 1px solid rgb(232,233,235); padding: 10px 18px; border-radius: 14px; margin-top: 20px; margin-bottom: 10px; cursor: pointer; height: 50px; position: relative; ">
+                        <span style="font-size: 14px; font-weight: 600; color: var(--grey2);"> Cancel</span>
+                        <p style="font-size: 11.5px; font-weight: 500; color:var(--grey2);  position: absolute; left: 18px; ">Valid until: </p>
+    
+                    </div>
+                    
+    
+                </div>
+            </div>
+            <div class="make_payment hidden">
+                <div class="add_payment_method-wrapper " style="width: 800px; height: 600px; background-color: #fff; position: absolute; top:0px; right: 0px; left: 0px; bottom: 0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
+                    <div class="add_payment_method-container" style="padding: 28px; position: relative; overflow: hidden; overflow-y: auto;">
+                        <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>
+                            <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Cancel</span>
+                        </div>
+                        <div class=" " style="margin: 48px 0px;">
+                            <p style="font-size: 32px;  font-weight: 700;">Pay with...</p>
+                            <p style="font-size: 20px;  font-weight: 600;">Saved payment methods</p>
+                            <div style="margin-top: 35px; margin-bottom: 30px;">
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px;">
+                                    <div class="" style="position: absolute; left: 16px; display: flex; align-items: center; top: 0px; bottom: 0px; margin: auto;">
+                                        <div class="" style="height: 40px; width: 60px; background-color: rgba(0,0,0,0.5); border-radius: 6px;"> 
+                                            <span></span>
+                                        </div>
+                                        <div style="margin-left: 20px;">
+                                            <p>**** **** 5423</p>
+                                        </div>
+                                    </div>
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px; margin-top: 10px;">
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px; margin-top: 10px;">
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p  style="font-size: 20px;  font-weight: 600;">Add payment method</p>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative; margin-top: 40px;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Card</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Paypal</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Cash App</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                        </div>
+        
+                        <div class="hidden">
+        
+                            <div class="  billing_details hidden" style="width: 550px; height: 450px;">
+                                <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Billing Address</p>
+                                <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
+                                <div class="" style="display: flex; align-items: center; margin-top: 6px;">
+                                   <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;  width: 100%;" type="text" name="" id="" placeholder="First name">
+                                   <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); margin: 0px; margin-left: 10px; font-size: 15px;  width: 100%;" type="text" name="" id="" placeholder="Last name">
+                                </div>                 
+                                <div class="" style="margin-top: 6px;">
+                                    <input style=" width: calc(100% - 20px); padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Address Line 1">
+                                </div>
+                                <div class="" style="margin-top: 6px;">
+                                    <input style="  width: calc(100% - 20px); padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Address Line 2">
+                                </div>  
+                                <div class="" style="margin-top: 6px;">
+                                    <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; width: calc(100% - 20px);" type="text" name="" id="" placeholder="City">
+                                </div>  
+                                <select style=" margin-top: 6px; padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; width: 100%;" name="" id="">
+                                    <option value="">Country</option>
+                                </select>
+                                <div style="position: absolute; bottom: 6px; right: 18px;">
+                                    <button style="padding: 12px 48px; border-radius: 10px; border: 1px solid rgb(232,233,235); outline: transparent; font-weight: 600; background-color: var(--green); color: #fff;">Continue</button>
+                                </div>
+        
+                            </div>
+                            <div class="  payment_details" style="width: 550px; height: 450px;">
+                                <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Card</p>
+                                <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
+        
+                                <div class="">
+                                    <input style=" width: calc(100% - 20px); padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Card number">
+                                </div>
+                                <div class="" style="display: flex; margin-top: 6px; position: relative;">
+                                    <input style=" width: 200px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; " type="text" name="" id="" placeholder="Expiration Date">
+                                    <input style=" width: 80px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; position: absolute; right: 0px;" type="text" name="" id="" placeholder=" CVV">
+                                </div>
+                                <div style="position: absolute; bottom: 6px; right: 18px;">
+                                    <button style="padding: 12px 48px; border-radius: 10px; border: 1px solid rgb(232,233,235); outline: transparent; font-weight: 600; background-color: var(--green); color: #fff;">Continue</button>
+                                </div>
+        
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="premium_sub_wrapper hidden" style="width: 800px; height: 600px; background-color: var(--black); position: absolute; top:0px; bottom:0px; left:0px; right:0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
+            <div class="premium_sub-container">
+                <div class="" style="background-color: var(--grey2); width: 100%; height: 150px; position: relative; ">
+                    <div class="close-btn" style=" position: absolute; cursor: pointer; background-color: var(--black); display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px;  border-radius: 10px; cursor: pointer; top: 20px; left: 20px;">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg); fill: var(--grey);">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                        </svg>
+                        <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: var(--grey);">Back</span>
+                    </div>
+                    <span></span>
+                </div>
+                
+                <div class="" style="padding: 36px calc(36px + 24px) ; ">
+                    <p style="font-size: 36px; font-weight: 700; margin: 0px; margin-bottom: 20px; color: var(--grey);">Premium</p>
+                    <p style="font-size: 14px; font-weight: 600;   margin-bottom: 20px; color: var(--grey);">Features</p>
+    
+                        <div class="" >
+                            <div class="" >
+                                <div class="" style="background-color: var(--grey2); border: 1px solid var(--grey2);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                                <div class="" style="background-color: var(--grey2); border: 1px solid var(--grey2);  border-radius: 14px; height: 75px; width: 100%; margin-bottom: 20px;"> <span></span></div>
+                                <div class="" style="background-color: var(--grey2); border: 1px solid var(--grey2);  border-radius: 14px; height: 75px; width: 100%;"> <span></span></div>
+    
+                            </div>
+    
+                        </div>
+                    <div class="join_premium_btn" style="background-color: var(--green); border: 1px solid var(--green); padding: 10px 18px; border-radius: 14px; margin-top: 20px; cursor: pointer; position: relative; height: 30px;  ">
+                        <span style="font-size: 14px; font-weight: 600; color: #fff;"> Join</span>
+                        <p style="font-size: 16.5px; font-weight: 700; color:var(--grey);  position: absolute; right: 18px; top: 10px; margin: auto; ">J$ 25,000.00</p>
+                        <p style="font-size: 11.5px; font-weight: 600; color:var(--grey);  position: absolute; right: 18px; top: 29px; margin: auto; ">annually</p>
+    
+                    </div>
+                    <div class="hidden" style="background-color: var(--grey2); border: 1px solid var(--grey2); padding: 10px 18px; border-radius: 14px; margin-top: 20px; margin-bottom: 10px; cursor: pointer; height: 50px; position: relative; ">
+                        <span style="font-size: 14px; font-weight: 600; color: var(--grey);"> Cancel</span>
+                        <p style="font-size: 11.5px; font-weight: 500; color:var(--grey);  position: absolute; left: 18px; ">Valid until: </p>
+    
+                    </div>
+                    
+    
+                </div>
+            </div>
+            <div class="make_payment hidden">
+                <div class="add_payment_method-wrapper " style="width: 800px; height: 600px; background-color: #fff; position: absolute; top:0px; right: 0px; left: 0px; bottom: 0px; margin: auto; border-radius: 14px; overflow: hidden; overflow-y: auto;">
+                    <div class="add_payment_method-container" style="padding: 28px; position: relative; overflow: hidden; overflow-y: auto;">
+                        <div class="close-btn" style="display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px; cursor: pointer;">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+                            </svg>
+                            <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+                        </div>
+                        <div class=" " style="margin: 48px 0px;">
+                            <p style="font-size: 32px;  font-weight: 700;">Pay with...</p>
+                            <p style="font-size: 20px;  font-weight: 600;">Saved payment methods</p>
+                            <div style="margin-top: 35px; margin-bottom: 30px;">
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px;">
+                                    <div class="" style="position: absolute; left: 16px; display: flex; align-items: center; top: 0px; bottom: 0px; margin: auto;">
+                                        <div class="" style="height: 40px; width: 60px; background-color: rgba(0,0,0,0.5); border-radius: 6px;"> 
+                                            <span></span>
+                                        </div>
+                                        <div style="margin-left: 20px;">
+                                            <p>**** **** 5423</p>
+                                        </div>
+                                    </div>
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px; margin-top: 10px;">
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="" style="border: 1px solid rgb(232,233,235); position: relative; border-radius: 14px; padding: 16px; height: 40px; margin-top: 10px;">
+                                    <div class="" style="position: absolute; right:18px; top:0px; bottom: 0px; margin: auto; display: flex; align-items: center;">
+                                        <svg   width="16" height="16" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <p  style="font-size: 20px;  font-weight: 600;">Add payment method</p>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative; margin-top: 40px;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Card</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Paypal</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                            <div style="border-bottom: 1px solid rgb(232,233,235); position: relative;">
+        
+                                <p style="font-size: 18px; font-weight: 500;">Cash App</p>
+                                <svg style="position: absolute; right:18px; top:0px;" width="19" height="19" viewBox="0 0 24 24" fill="var(--grey2)" xmlns="http://www.w3.org/2000/svg" size="19" color="systemGrayscale30" class="e-5hicrt" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path>
+                                </svg>
+                            </div>
+                        </div>
+        
+                        <div class="hidden">
+        
+                            <div class="  billing_details hidden" style="width: 550px; height: 450px;">
+                                <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Billing Address</p>
+                                <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
+                                <div class="" style="display: flex; align-items: center; margin-top: 6px;">
+                                   <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;  width: 100%;" type="text" name="" id="" placeholder="First name">
+                                   <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); margin: 0px; margin-left: 10px; font-size: 15px;  width: 100%;" type="text" name="" id="" placeholder="Last name">
+                                </div>                 
+                                <div class="" style="margin-top: 6px;">
+                                    <input style=" width: calc(100% - 20px); padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Address Line 1">
+                                </div>
+                                <div class="" style="margin-top: 6px;">
+                                    <input style="  width: calc(100% - 20px); padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Address Line 2">
+                                </div>  
+                                <div class="" style="margin-top: 6px;">
+                                    <input style="padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; width: calc(100% - 20px);" type="text" name="" id="" placeholder="City">
+                                </div>  
+                                <select style=" margin-top: 6px; padding: 10px; border-radius: 10px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; width: 100%;" name="" id="">
+                                    <option value="">Country</option>
+                                </select>
+                                <div style="position: absolute; bottom: 6px; right: 18px;">
+                                    <button style="padding: 12px 48px; border-radius: 10px; border: 1px solid rgb(232,233,235); outline: transparent; font-weight: 600; background-color: var(--green); color: #fff;">Continue</button>
+                                </div>
+        
+                            </div>
+                            <div class="  payment_details" style="width: 550px; height: 450px;">
+                                <p style="font-size: 32px; margin-bottom: 0px; font-weight: 700; margin-top: 48px;">Add Card</p>
+                                <p style="margin: 0px; margin-bottom: 30px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ullam unde tempora!</p>
+        
+                                <div class="">
+                                    <input style=" width: calc(100% - 20px); padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px;" type="text" name="" id="" placeholder="Card number">
+                                </div>
+                                <div class="" style="display: flex; margin-top: 6px; position: relative;">
+                                    <input style=" width: 200px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; " type="text" name="" id="" placeholder="Expiration Date">
+                                    <input style=" width: 80px; padding: 10px; border-radius: 8px; outline: transparent; border: 1px solid rgb(232,233,235); font-size: 15px; position: absolute; right: 0px;" type="text" name="" id="" placeholder=" CVV">
+                                </div>
+                                <div style="position: absolute; bottom: 6px; right: 18px;">
+                                    <button style="padding: 12px 48px; border-radius: 10px; border: 1px solid rgb(232,233,235); outline: transparent; font-weight: 600; background-color: var(--green); color: #fff;">Continue</button>
+                                </div>
+        
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+    
         </div>
     </div>
 {% endblock %}
@@ -192,16 +528,30 @@
                 <span style="font-size: 16px; font-weight: 600;"> Manage Subscriptions</span>
                 <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
                 
+                <div style="position: absolute; width: 60px; border: 1px solid rgb(233,232,235); border-radius: 14px; padding: 6px 16px; right: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; top: 105px;">
+                    <p style="font-weight: 600; font-size: 14px; color:var(--green); margin: 0px; ">Compare</p>
+                </div>
                 <div class="" style="display: flex; align-items: center; position: absolute; bottom: 0px; width: 97%; margin-bottom: 16px; margin-right: 64px; flex-wrap: wrap; align-content: space-between;">
                     
-                    <div class="" style=" width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; position: relative; cursor: pointer;">
+                    <div class="business_membership_btn" style=" width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; position: relative; cursor: pointer;">
                         <div class="" style="position: absolute; top:0; background-color: #38aecc; height: 7px; width: 100%; border-radius: 10px 10px 00px 0px;"> <span></span></div>
                         <div class="" style="padding: 16px; height: calc(234px - 16px);">                        
                             <span style="font-size: 16px; font-weight: 500;">Business</span>
                             <div class="" style="margin-top: 20px;">
                                 <span style="font-size: 12px; font-weight: 600;">Features</span>
-                                <ul>
-                                    <li>5% Store credit</li>
+                                <ul style="padding: 0px; list-style-type: none; height: 70px; overflow: hidden; overflow-y: auto; margin-bottom: 0px;">
+                                    <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235); ">
+                                        <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                                        <span>5% Store credit</span>
+                                    </li>
+                                    <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);  margin-top: 8px;">
+                                        <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                                        <span>5% Store credit</span>
+                                    </li>
+                                    <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);   margin-top: 8px;">
+                                        <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                                        <span>5% Store credit</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div style="display: flex; align-items: center; position: absolute; bottom: 16px ;">
@@ -213,7 +563,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="" style="width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; position: relative; cursor: pointer;">
+                    <div class="express_membership_btn" style="width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-right: 16px; position: relative; cursor: pointer;">
                         <div class="" style="position: absolute; top:0; background-color: #F1A208; height: 7px; width: 100%; border-radius: 10px 10px 00px 0px;"> <span></span></div>
                         <div class="" style="padding: 16px; height: calc(234px - 16px);">
                             <span style="font-size: 16px; font-weight: 500;">Express</span>
@@ -232,7 +582,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="" style="width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; position: relative; cursor: pointer; background-color: var(--black);">
+                    <div class="premium_membership_btn" style="width: 300px; height: 250px; border: 1px solid rgb(232,233,235); border-radius: 10px; position: relative; cursor: pointer; background-color: var(--black);">
                         <div class="" style="position: absolute; top:0; background-color: var(--black); height: 7px; width: 100%; border-radius: 10px 10px 00px 0px;"> <span></span></div>
                         <div class="" style="padding: 16px; height: calc(234px - 16px);">
                             <span style="color: white; font-size: 16px; font-weight: 500;">Premium</span>
@@ -288,7 +638,7 @@
                     </div>
                 </div>
             </div>
-            <div class=""style=" cursor: pointer;">
+            <div class="add_payment_method_btn" style=" cursor: pointer;">
                 <span style="font-size: 12px; font-weight: 600; color: var(--green);">Add a method</span>
             </div>
         </div>
@@ -313,4 +663,6 @@
 
 {% block scripts %}
 <script type="module" src="{% static 'js/main-home.js'%}"></script>
+<script type="module" src="{% static 'js/Payment-Settings.js'%}"></script>
+
 {% endblock %}

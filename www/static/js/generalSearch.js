@@ -26,6 +26,8 @@ class GeneralSearch{
             backdrop: document.querySelector('.backdrop_search'),
             body: document.querySelector('body'),
             categorySelectorButton: document.querySelectorAll('.category_selector-btn'),
+            categoryMenu: document.querySelector('.productCategory-container'),
+            arrow_btn: document.querySelector('.e-srhrfb')
         }
         this.addListeners()
     }
@@ -35,7 +37,13 @@ class GeneralSearch{
         let cartCount = 0;
         const itemTotal = getCartCount().then(result => cartCount =result) 
         let cart_indicator = document.querySelector('.cart_active-indicator')
-
+        this.elements.arrow_btn.addEventListener('click',()=>{
+            categoryMenu.scrollTo({
+                top:0,
+                left: categoryMenu.scrollWidth,
+                behavior: "smooth",
+            })
+        })
         this.elements.input.addEventListener('click',() => {
             console.log(cartCount)
             menu.style.display = 'none';
@@ -166,8 +174,11 @@ class GeneralSearch{
                   Deli
               </div>
           </div>
-      </div>
-  </div>
+         </div>  
+         <svg width="1em" height="1em" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale70" class="e-srhrfb" style="margin-left:20px; padding:0px 20px; cursor:pointer;"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.879 12-5.94-5.94a1.5 1.5 0 0 1 2.122-2.12l7 7a1.5 1.5 0 0 1 0 2.12l-7 7a1.5 1.5 0 0 1-2.122-2.12L16.88 12Z"></path></svg>
+
+        </div>
+
         `;
         document.querySelectorAll('.category_selector-btn').forEach(element => {
             element.addEventListener('click',(e)=>{
