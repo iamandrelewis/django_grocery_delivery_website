@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block  title %}GR8 #wholesale: Grocery Delivery for {% if request.user.is_authenticated %}{{request.user.userbusiness_set.first.business_name}}{% else %}Local Businesses{% endif %}{% endblock %}
+{% block  title %}GR8 #web: Grocery Delivery for {% if request.user.is_authenticated %}{{name}}{% else %}Local Businesses{% endif %}{% endblock %}
 {% block modal %}
     <div class="backdrop_search hidden" style="width: 100vw; height: 100vh; position: fixed; background-color: rgba(0, 0, 0, 0.16); z-index: 201;"></div>
 {% endblock modal %}

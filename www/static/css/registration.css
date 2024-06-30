@@ -251,3 +251,41 @@ h4
     font-size: calc(28px - 1vw);
 
 }
+
+.modal_arrow-container{
+    position: relative; 
+    margin: auto;
+    margin-right: 0px;
+}
+.modal_arrow-container svg{
+    position: relative;
+    top:0;
+    bottom: 0;
+    right: 0;
+    margin:auto;
+}
+
+.modal{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(58, 58, 58, 0.5);
+    z-index: 1000;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+}
+.hidden{
+    display: none;
+}
+:root{
+    --green: #409B31;
+    --grey: #F6F6F7;
+    --black:#202223;
+    --grey2:#5C5F62;
+    --night-mode_theme1:#0d1213;
+    --night-mode_theme2:#151d1e;
+    --night-mode_text-theme1:#d7d7db;
+}

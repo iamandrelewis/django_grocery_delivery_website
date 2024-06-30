@@ -36,8 +36,6 @@ class LoginForm(forms.Form):
         print(self.errors)
         return self.cleaned_data
     
-        
-
 
 class BusinessCreationForm(forms.ModelForm):
     BUSINESS_CATEGORIES=[('0','What do you do?'),
@@ -50,7 +48,6 @@ class BusinessCreationForm(forms.ModelForm):
                          ('General: I provide a SERVICE', 'General: I provide a Service'),
                          ('General: I make a PRODUCT', 'General: I make a PRODUCT')
                          ]
-
 
     PARISHES = [('0','Parish'),
                 ('Saint Andrew','Saint Andrew'),
@@ -110,3 +107,49 @@ class BusinessCreationForm(forms.ModelForm):
         else:
             print(parish)
         return parish
+    
+class AddressCreationForm(forms.ModelForm):
+    PARISHES = [('0','Parish'),
+                ('Saint Andrew','Saint Andrew'),
+                ('Kingston','Kingston'),
+                ('Saint Catherine','Saint Catherine'),
+                ('Clarendon','Clarendon'),
+                ('Manchester','Manchester'),
+                ('Saint Elizabeth','Saint Elizabeth'),
+                ('Westmoreland','Westmoreland'),
+                ('Hanover','Hanover'),
+                ('Trelawny','Trelawny'),
+                ('Saint James','Saint James'),
+                ('Saint Ann','Saint Ann'),
+                ('Saint Mary','Saint Mary'),
+                ('Portland','Portland'),
+                ('Saint Thomas','Saint Thomas')
+                ]
+
+    address_line1 = forms.CharField(required=True,label='',widget=forms.TextInput(attrs={
+        'type':'text',
+        'placeholder':'Street',
+        'class':'g8-input',
+    }))
+    address_line2 = forms.CharField(required=True,label='',widget=forms.TextInput(attrs={
+        'type':'text',
+        'placeholder':'City',
+        'class':'g8-input',
+    }))
+    parish = forms.ChoiceField(label='',widget=forms.Select(attrs={
+        'class': 'g8-select',        
+    }),choices=PARISHES)
+    class Meta:
+        model = m.UserAddress
+        fields = ["address_line1","address_line2","parish"]
+        
+    def clean_parish(self,*args,**kwargs):
+        parish = self.cleaned_data.get('parish')
+        if parish == '0':
+            raise forms.ValidationError("Select a parish")
+        else:
+            print(parish)
+        return parish
+    
+
+

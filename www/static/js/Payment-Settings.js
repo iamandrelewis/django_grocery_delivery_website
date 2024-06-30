@@ -57,11 +57,13 @@ class Payment_Settings{
         this.addListeners();
     }
     addListeners(){
-        this.elements.add_payment_method_btn.addEventListener('click',()=>{
-            this.elements.bd.classList.toggle('hidden');
-            document.body.classList.toggle('fixed');
-            this.modals.payment_method.classList.toggle('hidden');
-        })
+        if(this.elements.add_payment_method_btn != null){
+            this.elements.add_payment_method_btn.addEventListener('click',()=>{
+                this.elements.bd.classList.toggle('hidden');
+                document.body.classList.toggle('fixed');
+                this.modals.payment_method.classList.toggle('hidden');
+            })
+        }
         this.elements.business_membership_btn.addEventListener('click',()=>{
             this.elements.bd.classList.toggle('hidden');
             document.body.classList.toggle('fixed');
@@ -139,4 +141,4 @@ class Payment_Settings{
     } 
 }
 
-settings = new Payment_Settings();
+const settings = new Payment_Settings();

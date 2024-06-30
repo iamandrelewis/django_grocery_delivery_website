@@ -8,7 +8,7 @@ background-color:var(--grey);
 border-radius:10px;
 color: var(--grey2);
 "{% endblock %}
-{% block title %} Orders — GR8 #wholesale{% endblock %}
+{% block title %} Orders — GR8 #web{% endblock %}
 
 {% block page_active_shop %} 
 style="
@@ -36,10 +36,7 @@ color:var(--grey2);
         <div class=""><span></span></div>
         <a class="product-page" href="{% url 'recurring-orders'%}">Recurring Orders</a>
     </div>
-    <div class="page_container">
-        <div class=""><span></span></div>
-        <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
-    </div>
+
     <div class="page_container">
         <div class=""><span></span></div>
         <a class="product-page" href="{% url 'delivery-map'%}">Reports</a>
@@ -76,7 +73,6 @@ color:var(--grey2);
                 if(!menu.classList.contains('hidden')){button.style.zIndex = '204'}
                 else {button.style.zIndex = '100'}
                 menu.style.zIndex = '204'
-                document.body.classList.toggle('fixed')
             " class="" style="background-color: var(--green);  width:fit-content; padding: 10px 16px; border-radius: 7px; display: flex; align-items: center;">
                 <span style="font-weight: 500; font-size: 12.5px; color: #fff; margin-right: 20px;">Create ...</span>
             </div>
@@ -98,7 +94,7 @@ color:var(--grey2);
                 <div class="" style="position: relative;">
                     <div class="" style=" display: flex; overflow: hidden; align-items: center;">
                         <div class="" style=" display: flex; margin-right: 24px; position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px;">
-                            <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                            <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
                             <div class="" style="width: 650px; height: 350px; margin: 0px;">
                                 <div class="" style="background-color: var(--grey); height:100%; border-radius: 10px 0px 0px 10px; margin: 0px; position: absolute; top:0px; width: 650px; ">
                                     <span></span>
@@ -139,7 +135,7 @@ color:var(--grey2);
 
                                 <div class="order_delivery-container" style="display: flex; flex-direction: column; z-index: 2; position: relative; max-height: 180px; overflow: auto; border-top: 1px solid rgb(232,233,235); border-bottom: 1px solid rgb(232,233,235);">
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
                                         <div class="img" style="border-radius: 10px; background-color: var(--grey); height: 40px; width: 45px; margin: 0px 12px; display: flex; align-items: center; justify-content: center;">
                                             <span style="font-size: 14px; font-weight: 600;">15</span>
                                         </div>
@@ -153,7 +149,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="border-top: 1px solid rgb(232,233,235);  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
                                         <div class="img" style="border-radius: 10px; background-color: var(--grey); height: 40px; width: 45px; margin: 0px 12px; display: flex; align-items: center; justify-content: center;">
                                             <span style="font-size: 14px; font-weight: 600;">15</span>
                                         </div>
@@ -167,7 +163,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="border-top: 1px solid rgb(232,233,235);  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
                                         <div class="img" style="border-radius: 10px; background-color: var(--grey); height: 40px; width: 45px; margin: 0px 12px; display: flex; align-items: center; justify-content: center;">
                                             <span style="font-size: 14px; font-weight: 600;">15</span>
                                         </div>
@@ -181,7 +177,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="border-top: 1px solid rgb(232,233,235);  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
                                         <div class="img" style="border-radius: 10px; background-color: var(--grey); height: 40px; width: 45px; margin: 0px 12px; display: flex; align-items: center; justify-content: center;">
                                             <span style="font-size: 14px; font-weight: 600;">15</span>
                                         </div>
@@ -240,7 +236,7 @@ color:var(--grey2);
                     </div>
                 </div>
                 <div class="" style="width: 100%;;">
-                    <p style="font-size: 13.5px; font-weight: 700;">On the way</p>
+                    <p style="font-size: 13.5px; font-weight: 700;">Recurring</p>
                     <div class="" style=" display: flex; flex-direction: column; justify-content: center;">
                         <div class="" style="position:relative;">
                             <div class="" style="position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px; padding: 0px 10px;">
@@ -254,6 +250,10 @@ color:var(--grey2);
                             </div>
                             <div class="" style="position: relative; border: 1px solid rgb(232,233,235); border-radius: 10px; padding: 0px 10px; margin-top: 4px;">
                                 <p style="font-size: 13.5px; font-weight: 500;">#GR8W0001</p>
+                            </div>
+                            <div class="" style="position: relative; padding: 0px 10px;">
+                                <a href="{% url 'recurring-orders' %}" style="position: absolute; width: 100%; height: 100%;"></a>
+                                <p style="color: var(--green); font-weight:600; font-size: 14px;">View all</p>
                             </div>
                         </div>
                     </div>
@@ -292,7 +292,7 @@ color:var(--grey2);
 
                                 <div class="order_delivery-container" style="display: flex; flex-direction: column; z-index: 2; position: relative; max-height: 200px; overflow: auto; border-top: 1px solid rgb(232,233,235);">
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -303,7 +303,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -314,7 +314,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -325,7 +325,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -378,7 +378,7 @@ color:var(--grey2);
 
                                 <div class="order_delivery-container" style="display: flex; flex-direction: column; z-index: 2; position: relative; max-height: 200px; overflow: auto; border-top: 1px solid rgb(232,233,235);">
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -389,7 +389,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -400,7 +400,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>
@@ -411,7 +411,7 @@ color:var(--grey2);
                                         </div>
                                     </div>
                                     <div style="  display: flex; align-items: center; padding: 12px 0px; position: relative;">
-                                        <a href="{% url 'orders-activity-details' %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
+                                        <a href="{% url 'orders-activity-details' order.get_refidb64_token %}" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></a>
 
                                         <div class="" style="margin-left: 20px;">
                                             <span style="font-size: 12px; font-weight: 700;">#GR8W0001</span>

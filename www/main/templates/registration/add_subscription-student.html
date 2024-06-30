@@ -1,0 +1,163 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+<form method="post" class="form-greeting" style="margin-bottom: 20px;">
+    {% csrf_token %}
+    <button type="submit"  name="back" value="go back" class="close-btn" style=" position: absolute; cursor: pointer; background-color: #fff; display: flex; align-items: center; margin-bottom: 16px; max-width: fit-content; padding: 6px 32px 6px 6px; border: 1px solid rgb(232,233,235); border-radius: 10px;  top: 20px; left: 20px; z-index: 1000;" >
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="var(--grey2);" xmlns="http://www.w3.org/2000/svg" color="systemGrayscale00;" style="transform: rotate(180deg);">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="m13.06 3.94 7 7 .02.02c.022.022.043.045.063.068l-.082-.089a1.513 1.513 0 0 1 .274.377 1.494 1.494 0 0 1-.071 1.493 1.28 1.28 0 0 1-.121.163 1.57 1.57 0 0 1-.062.068l-.02.02-7 7a1.5 1.5 0 0 1-2.122 0l-.103-.113a1.5 1.5 0 0 1 .103-2.008l4.44-4.439H5A1.5 1.5 0 0 1 3.5 12l.007-.145A1.5 1.5 0 0 1 5 10.5h10.379l-4.44-4.44a1.5 1.5 0 0 1 2.122-2.12Z"></path>
+        </svg>
+        <span style="margin-left: 10px; font-size: 12px; font-weight: 600;">Back</span>
+    </button>
+    <h1 class="form-title">Student<h1>
+    <p class="form-msg">Choose a subscription plan</p>
+</form>
+<style>
+    .back-btn{
+        font-size: 13px;
+        font-weight: 500;
+        margin : 0px;
+        border-radius: 8px;
+        border: 1.5px solid black;
+        width: 80px;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+    .back-btn p{
+        margin: 0px;
+    }
+    .card-wrapper{
+        max-height: 400px;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    .membrshp_wrapper{
+        border-radius: 12px;
+        border: 1px solid rgb(232,233,235);
+        padding: 8px 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        width: 500px;
+    }
+    .membrshp_wrapper:last-child(){
+        margin-bottom: 0px;
+    }
+    .membrshp_wrapper .header p{
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0px;
+        margin-top: 8px;
+    }
+    .membrshp_wrapper .content p{
+        font-size: 14px;
+        font-size: 500;
+    }
+</style>
+<form action="" method="post">
+{% csrf_token %}
+<div class="membrshp_wrapper" >
+    <div class="" style="background-color:  #38aecc; position: absolute; top: 0; height: 7px; width: 100%; left: 0;"></div>
+    <div class="membrshp-container">
+
+        <div class="header">
+            <p>Basic</p>
+        </div>
+        <div class="" style="margin-top: 10px;">
+            <span style="font-size: 12px; font-weight: 600;">Features</span>
+            <ul style="padding: 0px; list-style-type: none; height: 90px; overflow: hidden; overflow-y: auto; margin-bottom: 0px;">
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235); ">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);  margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);   margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+            </ul>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 8px;">
+            <div style="margin-right: 20px; background-color: var(--grey); padding: 6px 18px; border-radius: 10px; border: 1px solid rgb(232,233,235); display: flex; flex-direction: column; align-items: flex-end;">
+                <p style="margin: 0px; font-weight: 600; font-size: 24px;"><span style="font-size: 14px;">J$</span> 0.00</p>
+                <p style="font-size: 12.5px; font-weight: 600; margin: 0px;">annually</p>
+            </div>
+            <!--<p style="font-size: 10.5px; font-weight: 700; color: var(--green);">Selected</p>-->
+        </div>
+    </div>  
+</div>
+<div class="membrshp_wrapper" >
+    <div class="" style="background-color:  #F1A208; position: absolute; top: 0; height: 7px; width: 100%; left: 0;"></div>
+    <div class="membrshp-container">
+
+        <div class="header">
+            <p>Express</p>
+        </div>
+        <div class="" style="margin-top: 10px;">
+            <span style="font-size: 12px; font-weight: 600;">Features</span>
+            <ul style="padding: 0px; list-style-type: none; height: 90px; overflow: hidden; overflow-y: auto; margin-bottom: 0px;">
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235); ">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);  margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: var(--grey); padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(232,233,235);   margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+            </ul>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 8px;">
+            <div style="margin-right: 20px; background-color: var(--grey); padding: 6px 18px; border-radius: 10px; border: 1px solid rgb(232,233,235); display: flex; flex-direction: column; align-items: flex-end;">
+                <p style="margin: 0px; font-weight: 600; font-size: 24px;"><span style="font-size: 14px;">J$</span> 15,000.00</p>
+                <p style="font-size: 12.5px; font-weight: 600; margin: 0px;">annually</p>
+            </div>
+            <!--<p style="font-size: 10.5px; font-weight: 700; color: var(--green);">Selected</p>-->
+        </div>
+    </div>  
+</div>
+<div class="membrshp_wrapper" style="background-color: #000;" >
+    <div class="" style="background-color: #73767a; position: absolute; top: 0; height: 7px; width: 100%; left: 0;"></div>
+    <div class="membrshp-container" >
+        <div class="header">
+            <p style="color: #fff;">Premium</p>
+        </div>
+        <div class="" style="margin-top: 10px; color: #F6F6F7;">
+            <span style="font-size: 12px; font-weight: 600; color: #fff ;">Features</span>
+            <ul style="padding: 0px; list-style-type: none; height: 90px; overflow: hidden; overflow-y: auto; margin-bottom: 0px;">
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: #5C5F62; padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(132,133,135); ">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: #5C5F62; padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(132,133,135);  margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+                <li style="font-size: 14px; font-weight: 600; display: flex; align-items: center; background-color: #5C5F62; padding: 6px 12px; border-radius: 7px;  border: 1px solid rgb(132,133,135);   margin-top: 8px;">
+                    <div class="d" style="width: 25px; height: 25px; margin-right: 20px; background-color: var(--grey2);"><span></span></div>
+                    <span>5% Store credit</span>
+                </li>
+            </ul>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 8px;">
+            <div style="margin-right: 20px; background-color: #5C5F62; padding: 6px 18px; border-radius: 10px; border: 1px solid rgb(232,233,235); display: flex; flex-direction: column; align-items: flex-end; color: #F6F6F7;">
+                <p style="margin: 0px; font-weight: 600; font-size: 24px;"><span style="font-size: 14px;">J$</span> 15,000.00</p>
+                <p style="font-size: 12.5px; font-weight: 600; margin: 0px;">annually</p>
+            </div>
+            <!--<p style="font-size: 10.5px; font-weight: 700; color: var(--green);">Selected</p>-->
+        </div>
+    </div>  
+</div>
+
+</form>
+
+{% endblock %}
+

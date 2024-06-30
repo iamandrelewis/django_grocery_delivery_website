@@ -68,7 +68,7 @@
                           <path id="Path_33" data-name="Path 33" d="M667.014,307.519a5.5,5.5,0,0,1-2.143-1.97,1.558,1.558,0,0,1,.5-2.177,1.428,1.428,0,0,1,2.161,1.055,3.612,3.612,0,0,1-.441,2.955c-.025.039-.045.081-.076.138" transform="translate(-632.142 -288.337)" fill="#0ba647"/>
                         </g>
                       </svg>
-                      <a href="{% url 'homepage' %}">#business</a>
+                      <a href="{% url 'homepage' %}">#web</a>
                 </div>
             </li>
             {% if request.user.is_authenticated %}
@@ -103,7 +103,7 @@
               <div class="account_auth-container" style="margin-left: 60px;  cursor: pointer; width: fit-content;">
                 <div class="" style="position: relative; display: flex; align-items: center; justify-content: center;">
                     <div class="account_business-name" style=" display: flex; align-items: center; justify-content: center; ">
-                    <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{request.user.userbusiness_set.first.business_name}}</span>
+                    <span style="color: var(--grey2); font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;">{{name}}</span>
                     </div>
                     <a class="cart_active-indicator" style=" display:none; text-decoration: none;" href="/shop/green-produce">
                       <span style="font-size: 11.5px; display: flex; align-items: center; font-weight: 800; color: #fff; margin: 0px; padding: 1px 2px;">
@@ -140,7 +140,7 @@
                         <div class="account_details" style="margin-top: 16px;">
                           <p class="user_name" style=" font-size: 14px; margin: 0px;"><span class="first_name">{{user.first_name}}</span> <span class="last_name">{{user.last_name}}</span></p>
                           <p class="email_address" style="font-size: 10px; margin: 0px;">{{user.email}}</p>
-                          <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">Business Member</p>
+                          <p class="membership" style="font-size: 10px; margin: 0px; font-weight: 600;">{{membership}} Member</p>
                         </div>
                         <div class="account-pages_container" style="margin: 12px 0px;">
                           <div class="auth_menu-option" style=" display: flex; align-items: center; border-radius: 4px; margin-bottom: 4px;">

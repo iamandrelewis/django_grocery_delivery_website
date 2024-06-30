@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Shop — GR8 #wholesale{% endblock %}
+{% block title %} Shop — GR8 #web{% endblock %}
 {% block page_active_shop %} 
 style="
 font-weight:700;
@@ -623,7 +623,7 @@ color: var(--grey2);
         <div class="sidenav-container" >
             {% block account_container %}
                 <div class="account_btn-container" style="margin-top: 2px;margin-bottom: 60px;" >
-                        <a  href="{% url 'account-settings' user.id %}" style="margin: 0px; text-decoration: none; width:100%; overflow: hidden; text-overflow: ellipsis; text-align: center; " id="business_name" >{{request.user.userbusiness_set.first.business_name}}</a>
+                        <a  href="{% url 'account-settings' user.id %}" style="margin: 0px; text-decoration: none; width:100%; overflow: hidden; text-overflow: ellipsis; text-align: center; " id="business_name" >{{name}}</a>
                 </div>
             {% endblock %}
             <div class="pages-container">

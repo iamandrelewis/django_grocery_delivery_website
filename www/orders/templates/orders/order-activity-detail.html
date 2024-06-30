@@ -1,6 +1,7 @@
 {% extends 'orders/main.html' %}
-{% block title %}OrderID • Orders — GR8 #wholesale{% endblock %}
-
+{% block title %}#{{order.transaction_id}} • Orders — GR8 #web{% endblock %}
+{% load static %}
+{% load humanize %}
 {% block modal %}
 <div class="modal hidden ">
     <div class="add_options-modal-container hidden">
@@ -92,7 +93,7 @@
     {% if request.user.is_staff %}
     <div class="page_container">
         <div class=""><span></span></div>
-        <a class="product-page" href="{% url 'delivery-map'%}">Delivery Map</a>
+        <a class="product-page" href="{% url 'delivery-map'%}">Reports</a>
     </div>
     {% endif %}
     <hr>
@@ -128,9 +129,9 @@
         <div class="table_top-container" style=" height: 100px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 24px; margin-top: 12px; position: relative; display: flex; align-items: center; background-color: var(--grey);">
             <div class="order_number-container" style="position: absolute; left: 0; margin-left: 16px;">
                 <div class="" style="display: flex; align-items: center; justify-content: center; background-color: var(--grey2); border: 1px solid var(--grey2); padding: 6px 16px; border-radius: 7px; cursor: default;">
-                    <span style="font-size: 12px; font-weight: 600; color: #fff;">#GR8W0001</span>
+                    <span style="font-size: 12px; font-weight: 600; color: #fff;">#{{order.transaction_id}}</span>
                 </div>
-                <span style="font-size: 12px; font-weight: 600; color: var(--grey2); padding: 6px 16px; cursor: default;">05-23-2023</span>
+                <span style="font-size: 12px; font-weight: 600; color: var(--grey2); padding: 6px 16px; cursor: default;">{{order.date_in_mm_dd_yyyy}}</span>
             </div>
             <div class="payment_status-container" style="position: absolute; right: 0; margin-right: 16px; display: flex; align-items: center;">
                 <div class="payment_status-container" style="margin-right: 16px;">
@@ -148,22 +149,26 @@
         <div class="table_main-actions-container" style="height: 30px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-bottom: 8px; padding: 6px; display: flex; align-items: center; background-color: #fff;">
             <div class="" style="display: flex; align-items: center; margin-right: 24px;">
                 <div class="" style="background-color: var(--grey); padding: 4px 12px; margin-right: 4px; border-radius: 7px; cursor: default;">
-                    <span style="font-size: 12px; font-weight: 600;">14</span>
+                    <span style="font-size: 12px; font-weight: 600;">{{items.count}}</span>
                 </div>
                 <span style="font-size: 12px; font-weight: 500;">items</span>
             </div>
+            {% if order.get_unfulfilment_count > 0 %}
             <div class="" style="display: flex; align-items: center; margin-right: 24px; cursor: pointer;">
                 <div class="" style="background-color: var(--grey); padding: 4px 12px; margin-right: 4px; border-radius: 7px;">
-                    <span style="font-size: 12px; font-weight: 600;">5</span>
+                    <span style="font-size: 12px; font-weight: 600;">{{order.get_unfulfilment_count}}</span>
                 </div>
                 <span style="font-size: 12px; font-weight: 500;">unfulfilled</span>
             </div>
+            {% endif %}
+            {% if order.get_fulfilment_count > 0 %}
             <div class="" style="display: flex; align-items: center; margin-right: 24px; cursor: pointer;">
                 <div class="" style="background-color: var(--grey); padding: 4px 12px; margin-right: 4px; border-radius: 7px;">
-                    <span style="font-size: 12px; font-weight: 600;">9</span>
+                    <span style="font-size: 12px; font-weight: 600;">{{order.get_fulfilment_count}}</span>
                 </div>
                 <span style="font-size: 12px; font-weight: 500;">fulfilled</span>
             </div>
+            {% endif %}
         </div>
         <div class="table_main-wrapper">
             <div class="table_main-container">
@@ -182,176 +187,90 @@
                         </div>
                 </div>
                 <div class="table-content">
-                    <div class="table_unfufilled-container" style="height:300px; margin-top: 8px; border: 1px solid rgb(232,233,235); border-radius: 10px; overflow-y: auto; position: relative; cursor: default; background-color: #fff;">
+                    {% if order.get_unfulfilment_count > 0 %}
+                    <div class="table_unfufilled-container" style=" max-height: 300px; margin-top: 8px; border: 1px solid rgb(232,233,235); border-radius: 10px; overflow-y: auto; position: relative; cursor: default; background-color: #fff; padding-bottom: 7.5px;">
                         <div class="header" style="margin-left: 12px; position: absolute; top: 0;">
                             <span style="font-size: 12px; font-weight: 600;">Unfulfilled</span>
                         </div>
-                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin:4px 10px; margin-top: 24px; position: relative; padding: 12px 48px; border-radius: 10px; background-color: #fff;">
+                        {% for item in order.get_unfulfilment_set %}
+
+                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin:4px 10px; {% if forloop.first %} margin-top: 24px; {% endif %} position: relative; padding: 12px 48px;  border-radius: 10px; background-color: #fff;">
                             <div class="table_cell-item_grade">
-                                <span style="font-size: 12; font-weight: 600;">A</span>
+                                <span style="font-size: 16px; font-weight: 600;">{{ item.product_grade.grade }}</span>
                             </div>
                             <div class="table_cell-item_product-details" style="margin-left: 48px;">
                                 <div class="product_name" style="margin: 0px;">
-                                    <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
+                                    <span style="font-size: 12px; margin: 0px;">{{ item.product_grade.product.product.name }}</span>
                                 </div>
                                 <div class="product_variety" style="margin: 0px;">
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
+                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">{{ item.product_grade.product.name }}</span>
                                 </div>
                                 <div class="product_variety" style="margin: 0px;"> 
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
+                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per {{item.product_grade.unit.unit}} ({{item.product_grade.unit.unit_abbr}}.)</span>
                                 </div>
                             </div>
                             <div class="table_cell-item_product-quantity">
                                 <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">7</span>
+                                    <span style="font-size: 12px; font-weight: 600;">{{item.quantity}}</span>
                                 </div>
                             </div>
                             <div class="table_cell-item_product-price">
                                 <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
+                                    <span style="font-size: 12px; font-weight: 600;">J$<span>{{item.price}}</span></span>
                                 </div>
                             </div>
                             <div class="table_cell-item_product-cost">
                                 <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>350.00</span></span>
+                                    <span style="font-size: 12px; font-weight: 600;">J$<span>{{item.subtotal|floatformat:2  }}</span></span>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin: 4px 10px; position: relative; padding: 12px 48px; border-radius: 10px; background-color: #fff;">
-                            <div class="table_cell-item_grade">
-                                <span style="font-size: 12; font-weight: 600;">A</span>
-                            </div>
-                            <div class="table_cell-item_product-details" style="margin-left: 48px;">
-                                <div class="product_name" style="margin: 0px;">
-                                    <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;">
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;"> 
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-quantity">
-                                <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">7</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-price">
-                                <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-cost">
-                                <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>350.00</span></span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin: 4px 10px; position: relative; padding: 12px 48px; border-radius: 10px; background-color: #fff;">
-                            <div class="table_cell-item_grade">
-                                <span style="font-size: 12; font-weight: 600;">A</span>
-                            </div>
-                            <div class="table_cell-item_product-details" style="margin-left: 48px;">
-                                <div class="product_name" style="margin: 0px;">
-                                    <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;">
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;"> 
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-quantity">
-                                <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">7</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-price">
-                                <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-cost">
-                                <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>350.00</span></span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin: 4px 10px; position: relative; padding: 12px 48px; border-radius: 10px; background-color: #fff;">
-                            <div class="table_cell-item_grade">
-                                <span style="font-size: 12; font-weight: 600;">A</span>
-                            </div>
-                            <div class="table_cell-item_product-details" style="margin-left: 48px;">
-                                <div class="product_name" style="margin: 0px;">
-                                    <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;">
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;"> 
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-quantity">
-                                <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">7</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-price">
-                                <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-cost">
-                                <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>350.00</span></span>
-                                </div>
-                            </div>
-
-                        </div>                        
-                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin: 4px 10px; position: relative; padding: 12px 48px; border-radius: 10px; margin-bottom: 12px; background-color: #fff;">
-                            <div class="table_cell-item_grade">
-                                <span style="font-size: 12; font-weight: 600;">A</span>
-                            </div>
-                            <div class="table_cell-item_product-details" style="margin-left: 48px;">
-                                <div class="product_name" style="margin: 0px;">
-                                    <span style="font-size: 12px; margin: 0px;">Pak Choy</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;">
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">White-stemmed</span>
-                                </div>
-                                <div class="product_variety" style="margin: 0px;"> 
-                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per pound (lb.)</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-quantity">
-                                <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">7</span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-price">
-                                <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>50.00</span></span>
-                                </div>
-                            </div>
-                            <div class="table_cell-item_product-cost">
-                                <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
-                                    <span style="font-size: 12px; font-weight: 600;">J$<span>350.00</span></span>
-                                </div>
-                            </div>
-
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="table_fulfilled-container" style=" border: 1px solid rgb(232,233,235); border-radius: 10px; margin-top: 8px; height: 30px; position: relative; cursor: pointer;">
+                    {% endif %}
+                    {% if order.get_fulfilment_count > 0 %}
+                    <div class="table_fulfilled-container" style=" max-height: 300px; border: 1px solid rgb(232,233,235); border-radius: 10px; margin-top: 8px;  position: relative; cursor: pointer;padding-bottom: 7.5px;">
                         <div class="header"  style="margin-left: 12px; position: absolute; top: 0;">
                             <span style="font-size: 12px; font-weight: 600;">Fulfilled</span>
                         </div>
+                        {% for item in order.get_fulfilment_set %}
+
+                        <div class="table_cell-container" style="display: flex; align-items: center; border: 1px solid rgb(232,233,235); margin:4px 10px; {% if forloop.first %} margin-top: 24px; {% endif %} position: relative; padding: 12px 48px; border-radius: 10px; background-color: #fff;">
+                            <div class="table_cell-item_grade">
+                                <span style="font-size: 16px; font-weight: 600;">{{ item.product_grade.grade }}</span>
+                            </div>
+                            <div class="table_cell-item_product-details" style="margin-left: 48px;">
+                                <div class="product_name" style="margin: 0px;">
+                                    <span style="font-size: 12px; margin: 0px;">{{ item.product_grade.product.product.name }}</span>
+                                </div>
+                                <div class="product_variety" style="margin: 0px;">
+                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500;">{{ item.product_grade.product.name }}</span>
+                                </div>
+                                <div class="product_variety" style="margin: 0px;"> 
+                                    <span style="font-size: 10px; margin: 2px 0px; font-weight: 500; margin: 0px;">per {{item.product_grade.unit.unit}} ({{item.product_grade.unit.unit_abbr}}.)</span>
+                                </div>
+                            </div>
+                            <div class="table_cell-item_product-quantity">
+                                <div class="product_qty" style="border: 1px solid rgb(232,233,235); padding: 8px 16px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 280px; height:fit-content;">
+                                    <span style="font-size: 12px; font-weight: 600;">{{item.quantity}}</span>
+                                </div>
+                            </div>
+                            <div class="table_cell-item_product-price">
+                                <div class="product_price" style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top:0; right: 0; margin: auto; margin-right: 160px; height:fit-content;">
+                                    <span style="font-size: 12px; font-weight: 600;">J$<span>{{item.price}}</span></span>
+                                </div>
+                            </div>
+                            <div class="table_cell-item_product-cost">
+                                <div class="product_cost"style="border: 1px solid rgb(232,233,235); padding: 8px; border-radius: 7px; background-color: var(--grey); display: flex; justify-content: center; align-items: center; position: absolute; bottom:0; top: 0; right: 0; margin:auto; margin-right:32px; height:fit-content;">
+                                    <span style="font-size: 12px; font-weight: 600;">J$<span>{{item.subtotal|floatformat:2  }}</span></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        {% endfor %}
                     </div>
+                    {% endif %}
                     <div class="table_actions_lower-container" style=" margin-top: 24px; display: flex; width: 100%; padding-bottom: 32px;">
                         <div class="" style="border: 1px solid rgb(232,233,235); margin-right: 12px; padding: 6px 28px; background-color: var(--grey);border-radius: 10px; cursor: pointer;">
                             <span style="font-weight: 600; font-size: 14px; color: var(--grey2); ">Cancel</span>
@@ -410,13 +329,13 @@
                     <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 16px; position: relative; max-width: 87%;">
                         <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Total</span>
                         <div class="" style=" background-color: var(--green); padding: 6px 18px; border-radius: 7px; width: 100%; position: relative;">
-                            <span style="font-size: 18px; font-weight:600; color: #fff;">J$<span style="position: absolute; right: 0; margin-right: 12px;">150,000.00</span></span>
+                            <span style="font-size: 18px; font-weight:600; color: #fff;">J$<span style="position: absolute; right: 0; margin-right: 12px;">{{order.total|floatformat:2|intcomma}}</span></span>
                         </div>
                     </div>
                     <div class="" style="display: flex; flex-direction: column; align-items: flex-start; margin-left: 0px; position: relative; max-width:87%; right: 0; margin-right: 32px; margin-top: 4px;">
                         <span style="font-size: 9.5px; font-weight: 600; margin-bottom: 4px; color: var(--grey2);">Amount Due</span>
                         <div class="" style="  background-color: var(--grey); padding: 10px 18px; border-radius: 7px; width: 100%; color: var(--grey2); cursor: default; border: 1px solid rgb(232,233,235); position: relative;">
-                            <span style="font-size: 18px; font-weight:600; color: var(--grey2);">J$<span style="position: absolute; right: 0; margin-right: 12px;">0.00</span></span>
+                            <span style="font-size: 18px; font-weight:600; color: var(--grey2);">J$<span style="position: absolute; right: 0; margin-right: 12px;">{{order.amountdue | floatformat:2 | intcomma }}</span></span>
                         </div>
                     </div>
                 </div>

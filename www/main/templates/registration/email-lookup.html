@@ -5,10 +5,10 @@
 <div class="form-wrapper">
 <h1>Share with us some details to find your account.</h1>
 <form  method="post">
+    {%csrf_token%}
     <input type="text" name="first_name" id="id_first_name" placeholder="First Name" class="g8-input">
     <input type="text" name="last_name" id="id_last_name" placeholder="Last Name" class="g8-input">
     <input type="tel" name="phone" id="id_phone" placeholder="Phone Number" class="g8-input">
-    <input type="text" name="business_name" id="id_business_name" placeholder="Business Name" class="g8-input">
     <button type="submit" id="recovery_submit-btn" class="frm-submit">Continue</button>
 </form>
 </div>

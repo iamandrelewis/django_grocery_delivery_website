@@ -1,6 +1,7 @@
 {% extends 'shop/main.html' %}
+{%load humanize%}
 {% load static %}
-{% block title %}Manage your referrals — GR8 #wholesale{% endblock %}
+{% block title %}Manage your referrals — GR8 #web{% endblock %}
 {% block page_active_shop %} 
 {% endblock %}
 
@@ -81,7 +82,7 @@
         <div class="" style="border: 1px solid rgb(232, 233, 235);  margin: 16px 0px; margin-right: 32px; height: 80px; border-radius: 14px; background-color: var(--grey);">
             <div class="" style="display: flex; flex-direction: row; width: 100%; padding:0px; height: 100%; border-radius: 7px; align-items: center; position: relative;">
                 <div class="" style="display: flex; flex-direction: column; margin: 0px 8px; color: var(--green); padding: 8px; border-radius: 10px;">
-                    <span style="font-size: 28px; font-weight: 600; color: var(--grey2);">J$ 0.00</span>
+                    <span style="font-size: 28px; font-weight: 600; color: var(--grey2);">J$ {{credit_limit | floatformat:2 | intcomma}}</span>
                     <span style="font-size: 12px; font-weight: 600; color: var(--grey2);">credit</span>
                 </div>
                 <div class="" style="display: flex; flex-direction: column; margin: 0px 8px; color: var(--green);padding: 8px; border-radius: 10px; position: absolute; right: 0;">

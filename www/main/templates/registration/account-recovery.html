@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recover your {% block title %}Account{% endblock %} — GR8 #wholesale</title>
+    <title>Recover your {% block title %}Account{% endblock %} — GR8 #web</title>
     <link rel="stylesheet" href="{% static 'css/recovery.css'%}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
                           <path id="Path_33" data-name="Path 33" d="M667.014,307.519a5.5,5.5,0,0,1-2.143-1.97,1.558,1.558,0,0,1,.5-2.177,1.428,1.428,0,0,1,2.161,1.055,3.612,3.612,0,0,1-.441,2.955c-.025.039-.045.081-.076.138" transform="translate(-632.142 -288.337)" fill="#0ba647"/>
                         </g>
                       </svg>
-                      <a href="{% url 'homepage' %}">#wholesale</a>
+                      <a href="{% url 'homepage' %}">#web</a>
                 </div>
             </li>
             <li>
@@ -74,7 +74,7 @@
             <form method="post">
                 {% csrf_token %}
                 <input type="email" name="email" id="id_email" placeholder="Email Address" class="g8-input" required>
-                <input type="text" name="business_name" id="id_business_name" placeholder="Business Name" class="g8-input" required>
+                <input type="tel" name="phone_number" id="id_phone_number" placeholder="Phone Number" class="g8-input" required>
                 <p class="email-lookup_disclaimer">If you forgot your email address, you can <a href="recovery/email" class="email-lookup-link">look it up here.</a></p>
                 <button type="submit" id="recovery_submit-btn">Continue</button>
             </form>

@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% block modal %}
+    {% endblock %}
+
     <div class="global-wrapper">
         <div class="global-container">
             <nav>
@@ -61,7 +64,7 @@
                                   <path id="Path_33" data-name="Path 33" d="M667.014,307.519a5.5,5.5,0,0,1-2.143-1.97,1.558,1.558,0,0,1,.5-2.177,1.428,1.428,0,0,1,2.161,1.055,3.612,3.612,0,0,1-.441,2.955c-.025.039-.045.081-.076.138" transform="translate(-632.142 -288.337)" fill="#0ba647"/>
                                 </g>
                               </svg>
-                              <a href="{% url 'homepage'%}">#wholesale</a>
+                              <a href="{% url 'homepage'%}">#web</a>
                         </div>
                     </li>
                     {% block content-nav %}
@@ -77,5 +80,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>

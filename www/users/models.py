@@ -1,3 +1,4 @@
+from typing import Iterable
 import uuid
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
@@ -70,7 +71,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         time_passed_in_seconds =  datetime.utcnow() - self.email_token_timestamp.astimezone().replace(tzinfo=None)
         return time_passed_in_seconds.total_seconds()
         
-
     def update_sms_verification_token(self):
         self.sms_token = self.generate_email_verification_token()
         self.sms_token_is_expired = False

@@ -8,10 +8,20 @@ from django.utils.encoding import force_bytes,force_str,DjangoUnicodeDecodeError
 def send_activation_email(user, request):
     current_site = get_current_site(request)
     email_subject = 'Email verification code: {0}'.format(user.email_token)
-    email_body = render_to_string('main/acivate-email.html',{
+    email_body = render_to_string('main/emails/acivate-email.html',{
         'user': user,
         'domain':current_site,
         'uid': urlsafe_base64_encode(force_bytes(user.id)),
     })
-    #EmailMessage()
+
+#EmailMessage()
+
+def send_reset_password(user,request):
+    current_site = get_current_site(request)
+    email_subject = ""
+    email_body = render_to_string('main/emails/reset-password.html',{
+        'user':user,
+        'domain': current_site,
+        'uid': urlsafe_base64_encode(force_bytes())
+    })
 

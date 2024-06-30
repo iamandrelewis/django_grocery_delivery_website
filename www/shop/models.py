@@ -1,6 +1,8 @@
 from django.db import models
 from .utils import generate_product_id
 
+"""
+"""
 
 class ProductCategorie(models.Model):
     name = models.CharField(max_length=256)
@@ -62,6 +64,11 @@ class ProductGrade(models.Model):
     grade = models.CharField(max_length=8)
     description = models.CharField(max_length=512)
     price = models.ForeignKey(Price,on_delete=models.DO_NOTHING,related_name='price')
+    cost_price = models.CharField(max_length=265,null=True,blank=True)
+    cost_price_currency = models.CharField(max_length=256,null=True,blank=True)
+    selling_price = models.CharField(max_length=265,null=True,blank=True)
+    selling_price_currency = models.CharField(max_length=265,null=True,blank=True)
+    is_taxable = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"{self.pk}-{self.product}: Grade {self.grade} @ ${self.price.value} {self.price.currency}/{self.unit.unit_abbr    }"
@@ -70,7 +77,7 @@ class ProductGrade(models.Model):
 class ProductDeal(models.Model):
     product = models.ForeignKey(ProductGrade,on_delete= models.CASCADE)
     new_price = models.CharField(max_length=128,null=True,blank=True)
-    type=models.CharField(max_length=256)
+    type = models.CharField(max_length=256)
     description = models.CharField(max_length=256, null=True, blank=True)
     @property
     def discount(self):

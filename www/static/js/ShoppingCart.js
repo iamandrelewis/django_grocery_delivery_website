@@ -37,7 +37,7 @@ class ShoppingCart {
             })
         });
         this.elements.cart_items_input.forEach(element => {
-            element.addEventListener('input', (e) => {
+            element.addEventListener('focus', (e) => {
                 const productInfo = this.getProduct(element.name)
                 console.log(e.target.id,e.target.value.length,e.target.value)
                 if (element.id == `id_product_price${element.dataset.id}`){ 

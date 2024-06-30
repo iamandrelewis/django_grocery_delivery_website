@@ -125,7 +125,6 @@
 
             {% for item in items %}
             {% for product in products %}
-
                     {% if product == item.product_grade %}
                         <div class="product_card-container" style="position: relative;">
                             <a href="{% url 'product-details' product.product.product.id product.product.id %}" style="display: block; width: 100%; height: 100%; position: absolute;"></a>

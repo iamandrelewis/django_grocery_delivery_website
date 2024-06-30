@@ -3,6 +3,8 @@
 {% block shop_scripts %}
 {% endblock %}
 {% block modal %}
+{% load humanize %}
+{% load static %}
 <div class="modal hidden">
     <div class="create_statement-modal-container hidden">
         <div class="create_statement-content" style="    
@@ -750,10 +752,6 @@
     </div>
     <div class="page_container">
         <div class=""><span></span></div>
-        <a class="product-page" href="{% url 'pending-orders'%}">Pending Deliveries</a>
-    </div>
-    <div class="page_container">
-        <div class=""><span></span></div>
         <a class="product-page" href="{% url 'delivery-map'%}">Reports</a>
     </div>
     <hr>
@@ -808,10 +806,10 @@
         </div>
         <div class="table_actions-container" style=" background-color: white; display: flex; align-items: center; border: 1px solid rgb(232, 233, 235); border-radius: 10px; padding: 4px; width: 96%; height: 30px; margin: 16px; margin-top: 4px; position: relative; margin-bottom: 4px;">
             <div class="" style="display: flex; align-items: center;">
-                <div class="" style=" background-color: var(--grey); display: flex; align-items: center; justify-content: center; margin-right: 4px; cursor: default; border-radius: 7px; margin-left: 2px;">
-                    <span style="padding: 6px 8px; border-radius: 7px; font-weight: 600; font-size: 12px;">30+</span>
+                <div class="" style=" background-color: var(--grey); min-width: 30px; display: flex; align-items: center; justify-content: center; margin-right: 4px; cursor: default; border-radius: 7px; margin-left: 2px;">
+                    <span style="padding: 6px 8px; border-radius: 7px; font-weight: 600; font-size: 12px;">{{orders.count}}</span>
                 </div>
-                <span style="font-size: 12px; cursor: default;"> entries</span>
+                <span style="font-size: 12px; cursor: default;"> {% if orders.count > 1 or  orders.count < 1%}entries {% else %} entry {% endif %}</span>
             </div>
             <div class="" style="position: absolute; right: 0; margin-right: 10px; display: flex; align-items: center; ">
                 <div class="" style="margin-right: 40px; display: flex; align-items: center;"> 
@@ -962,73 +960,22 @@
                         </thead>
                     </div>
                         <tbody class="table-content">
+                    
+                    {% for order in orders%}
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td class="order-col"><a href="{% url 'orders-activity-details'%}">#GR8W0002</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Pending</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">05-23-2023</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Partial</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Paid</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">J$150,000.00</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">$0.00</a></td>
+                        <td class="order-col"><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">#{{order.transaction_id}}</a></td>
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">{{order.order_status}}</a></td>
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">{{order.date_in_mm_dd_yyyy}}</a></td>
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">{{order.fulfilment_status}}</a></td> 
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">{{order.payment_status}}</a></td>
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">J${{order.total | floatformat:2 | intcomma }}</a></td>
+                        <td><a href="{% url 'orders-activity-details' order.get_refidb64_token %}">${{order.amountdue | floatformat:2 | intcomma }}</a></td>
                         <td>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td class="order-col"><a href="{% url 'orders-activity-details'%}">#GR8W0002</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Pending</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">05-23-2023</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Partial</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Paid</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">J$150,000.00</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">$0.00</a></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td class="order-col"><a href="{% url 'orders-activity-details'%}">#GR8W0002</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Pending</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">05-23-2023</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Partial</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Paid</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">J$150,000.00</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">$0.00</a></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                    </tr>
-                    <tr>
-                        <a href="{% url 'homepage'%}">
-                        <td><input type="checkbox"></td>
-                        <td class="order-col"><a href="{% url 'orders-activity-details'%}">#GR8W0002</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Pending</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">05-23-2023</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Partial</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Paid</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">J$150,000.00</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">$0.00</a></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                        </a>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td class="order-col"><a href="{% url 'orders-activity-details'%}">#GR8W0002</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Pending</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">05-23-2023</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Partial</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">Paid</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">J$150,000.00</a></td>
-                        <td><a href="{% url 'orders-activity-details'%}">$0.00</a></td>
-                        <td>
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="#343538" xmlns="http://www.w3.org/2000/svg" size="20" color="systemGrayscale70" class="css-1qx34im"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm9 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>    
                 </table>
             </div>

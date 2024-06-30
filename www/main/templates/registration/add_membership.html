@@ -1,0 +1,147 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+<div class="form-greeting">
+    <h1 class="form-title">Choose a membership.</h1>
+    <p class="form-msg">Let's find what suites you best.</p>
+</div>
+<style>
+    .card-wrapper{
+        max-height: 400px;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    .membrshp_wrapper:hover{
+        border: 1px solid var(--grey);
+        background-color: rgba(0,0,0,0.035);
+
+    }
+    .membrshp_wrapper.selected{
+        border: 2px solid #47cb33;
+        background-color: #59d54624;
+    }
+
+    .membrshp_wrapper.selected .header p{
+        color: var(--grey2);
+    }
+    .membrshp_wrapper{
+        border-radius: 18px;
+        border: 1px solid rgb(232,233,235);;
+        padding: 8px 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+    .membrshp_wrapper:last-child(){
+        margin-bottom: 0px;
+    }
+    .membrshp_wrapper .header p{
+        font-size: 14.5px;
+        font-weight: 600;
+    }
+    .membrshp_wrapper .content p{
+        font-size: 14px;
+        font-size: 500;
+    }
+</style>
+<form action="" method="post">
+{% csrf_token %}
+<div class="membrshp_wrapper " data-membership="Home">
+    <div class="membrshp-container">
+        <div class="header">
+            <p>Home</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, praesentium amet odit vel ipsam quaerat doloribus ipsa consectetur?</p>
+        </div>
+    </div>  
+</div>
+<div class="membrshp_wrapper" data-membership="Business">
+    <div class="membrshp-container">
+        <div class="header">
+            <p>Business</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, praesentium amet odit vel ipsam quaerat doloribus ipsa consectetur?</p>
+        </div>
+    </div>
+</div>
+<div class="membrshp_wrapper" data-membership="Student">
+    <div class="membrshp-container">
+        <div class="header">
+            <p>Student</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, praesentium amet odit vel ipsam quaerat doloribus ipsa consectetur?</p>
+        </div>
+    </div>
+</div>
+
+<button class="frm-submit" type="submit">Continue</button>
+</form>
+
+<script type="text/javascript">
+    const membrship_btns = document.querySelectorAll('.membrshp_wrapper')
+    function render_input(x){
+            x.stopPropagation()
+            x.preventDefault()
+            const membership_input = document.querySelector('.membrshp_wrapper input[type=hidden]')
+            if(membership_input != null) membership_input.remove()
+            x.target.innerHTML +=`<input type="hidden" name="membership" value="${x.target.dataset.membership}">`
+            const selected_btn = document.querySelector('.membrshp_wrapper.selected')
+            if( selected_btn != null){ 
+                selected_btn.classList.toggle('selected')
+                x.target.classList.toggle('selected')
+            }
+            else{
+                x.target.classList.toggle('selected')
+            }
+    }
+    membrship_btns.forEach((e)=>{
+        if(e.classList.contains('membrshp_wrapper')) e.addEventListener('click', render_input)
+    })
+    const membership_content = document.querySelectorAll('.membrshp_wrapper .content')
+    membership_content.forEach((e)=>{
+        if(e.classList.contains('content')){
+            e.addEventListener('click', (x)=>{
+                x.stopPropagation()
+                const main =  e.parentElement.parentElement
+                const membership_input = document.querySelector('.membrshp_wrapper input[type=hidden]')
+                if(membership_input != null) membership_input.remove()
+                main.innerHTML += `<input type="hidden" name="membership" value="${main.dataset.membership}">`
+                const text = main.innerHTML
+                main.innerHTML = text
+                const selected_btn = document.querySelector('.membrshp_wrapper.selected')
+                if( selected_btn != null){ 
+                    selected_btn.classList.toggle('selected')
+                    main.classList.toggle('selected')
+                } else {
+                    main.classList.toggle('selected')
+                }
+            })
+        }
+    })
+    const membership_header = document.querySelectorAll('.membrshp_wrapper .header')
+    membership_header.forEach((e)=>{
+        if(e.classList.contains('header')){
+            e.addEventListener('click', (x)=>{
+                x.stopPropagation()
+                const main =  e.parentElement.parentElement
+                const membership_input = document.querySelector('.membrshp_wrapper input[type=hidden]')
+                if(membership_input != null) membership_input.remove()
+                main.innerHTML += `<input type="hidden" name="membership" value="${main.dataset.membership}">`
+                const text = main.innerHTML
+                main.innerHTML = text
+                const selected_btn = document.querySelector('.membrshp_wrapper.selected')
+                if( selected_btn != null){ 
+                    selected_btn.classList.toggle('selected')
+                    main.classList.toggle('selected')
+                } else {
+                    main.classList.toggle('selected')
+                }
+            })
+        }
+    })
+</script>
+{% endblock %}
+

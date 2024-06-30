@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'company',
     'django.contrib.sites',
     'payments',
+    'subdomains',
 
     #Third Party Apps
     'graphene_django',
@@ -62,6 +63,7 @@ INSTALLED_APPS = [
 
 SOCIALACCOUNT_PROVIDERS = {
     "google":{
+        'EMAIL_AUTHENTICATION':True,
         "SCOPE":[
             "profile",
             "email"
@@ -158,6 +160,8 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'assets/media')
 MEDIA_URL = '/media/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -177,3 +181,6 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+LOGIN_URL = '/signin'
+LOGOUT_URL = '/logout'

@@ -29,5 +29,6 @@ def account_referrals(request,uid=None):
     return render(request,'users/account-referrals.html',{
         'domain': current_site,
         'back_link': initial_referer,
-        'referers':referees
+        'referers':referees,
+        'credit_limit':request.user.userstorecredit_set.first().creditLimit
     })

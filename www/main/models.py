@@ -2,8 +2,8 @@ from django.db import models
 from users import models as m
 from django.conf import settings
 from .utils import generate_team_code
-
-
+from orders.models import Order
+import stripe
 
 
 class UserAddress(models.Model):
@@ -29,10 +29,14 @@ class UserBusiness(models.Model):
     business_address = models.ForeignKey(UserAddress,on_delete=models.DO_NOTHING)
 
 class UserMembership(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
-    membership = models.CharField(max_length=256,default='Business')
-    #status default="valid"
+    timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
+    membership = models.CharField(max_length=256,default='None',blank=True,null=True)
+    status = models.CharField(max_length=256,default="Valid")
     #last_payment= DateTime auto_now=True
+    @property
+    def create_stripe_subscription_session(self,payment_method,membership_product,**kwargs):
+        pass
     """@property
     def getNextPayment(self):
         try:
@@ -72,13 +76,15 @@ class UserReferrals(models.Model):
 class UserStoreCredit(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     status = models.CharField(max_length=256)
+
     @property
     def creditLimit(self):
         try:
-            credit = (sum([item.grandtotal for item in settings.AUTH_USER_MODEL.order_set.filter(payment_status="Paid")])) * 0.05
-            credit += (sum([item.grandtotal for item in settings.AUTH_USER_MODEL.userreferrals_set.filter(referer=self.user).order_set.filter(payment_status="Paid")])) * 0.05
-            print(settings.AUTH_USER_MODEL.userreferrals_set.filter(referer=self.user).order_set.filter(payment_status="Paid"))
-            print(settings.AUTH_USER_MODEL.order_set.filter(payment_status="Paid"))
+            credit = (sum([item.grandtotal for item in self.user.order_set.filter(payment_status="Paid")])) * 0.05
+            referrals = UserReferrals.objects.filter(referer=self.user)
+            referees = list([str(i['referee_id']) for i in referrals.values()])
+            for referee in referees:
+                credit += (sum([order.grandtotal for order in Order.objects.filter(user_id=referee,payment_status="Paid")])) * 0.05
         except:
             credit = 0
         return credit
@@ -86,7 +92,7 @@ class UserStoreCredit(models.Model):
     @property
     def creditedTotal(self):
         try:
-            credit = sum([item.creditUsed for item in settings.AUTH_USER_MODEL.order_set.filter(hasCredit=True)])
+            credit = sum([item.creditUsed for item in self.user.order_set.filter(hasCredit=True)])
         except:
             credit = 0
         return credit
@@ -94,7 +100,12 @@ class UserStoreCredit(models.Model):
     @property
     def creditBalance(self):
         try:
-            credit = self.creditLimit() - self.creditedTotal()
+            credit = self.creditLimit - self.creditedTotal
         except:
             credit = 0
         return credit
+    
+    def __str__(self) -> str:
+
+        print(self.user.order_set.filter(payment_status="Paid"))
+        return f' {  self.user} - { self.user.order_set.filter(hasCredit=True).count()} credited orders |  $J {self.creditLimit} remaining'
